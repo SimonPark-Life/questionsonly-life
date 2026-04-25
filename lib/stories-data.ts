@@ -676,7 +676,7 @@ export const tagLabels: Record<string, string> = {
   'justice': '정의 · Justice',
   'mercy': '자비 · Mercy',
   'human-rights': '인권 · Rights',
-  'faith': '신앙 · Faith',382
+  'faith': '신앙 · Faith',
 
   'burnout': '번아웃 · Burnout',
   'witness': '증거 · Witness',
