@@ -16,6 +16,9 @@ export default function StoryView({ story, prev, next }: Props) {
     .split('\n\n')
     .filter(Boolean);
 
+  const enHref = story.driveFileEn || '/download';
+  const koHref = story.driveFileKo || '/download';
+
   return (
     <div className="story-view">
 
@@ -90,30 +93,14 @@ export default function StoryView({ story, prev, next }: Props) {
           alignSelf: 'center',
           marginRight: 4
         }}>
-          {/* Download buttons */}
-      <div className="dl-bar">
-        <span style={{
-          fontSize: 12,
-          color: 'var(--faint)',
-          alignSelf: 'center',
-          marginRight: 4
-        }}>
           다운로드 · Download:
         </span>
-        
-          href={story.driveFileEn || '/download'}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="dl-btn dl-btn--en"
-        >
+        <a href={enHref} target="_blank" rel="noopener noreferrer"
+          className="dl-btn dl-btn--en">
           ↓ English Story + Guide (.docx)
         </a>
-        
-          href={story.driveFileKo || '/download'}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="dl-btn dl-btn--ko"
-        >
+        <a href={koHref} target="_blank" rel="noopener noreferrer"
+          className="dl-btn dl-btn--ko">
           ↓ 한국어 이야기 + 나눔 자료 (.docx)
         </a>
       </div>
@@ -131,10 +118,7 @@ export default function StoryView({ story, prev, next }: Props) {
 
       <div className="story-nav">
         {prev ? (
-          <Link
-            href={`/stories/${prev.slug}`}
-            className="story-nav__btn"
-          >
+          <Link href={`/stories/${prev.slug}`} className="story-nav__btn">
             <small>← 이전 Previous</small>
             <span>{prev.titleKo}</span>
           </Link>
@@ -142,10 +126,8 @@ export default function StoryView({ story, prev, next }: Props) {
           <div />
         )}
         {next && (
-          <Link
-            href={`/stories/${next.slug}`}
-            className="story-nav__btn story-nav__btn--next"
-          >
+          <Link href={`/stories/${next.slug}`}
+            className="story-nav__btn story-nav__btn--next">
             <small>다음 Next →</small>
             <span>{next.titleKo}</span>
           </Link>
