@@ -379,7 +379,7 @@ export const stories: Story[] = [
       '"People with limited language are treated as thought-limited." Where do you see that today?',
     ],
   },
-  ts  {
+  {
     id: 21, slug: 'teaching-with-humility',
     titleKo: '겸손과 신뢰로 가르치다', titleEn: 'Teaching with Humility and Trust',
     tags: ['neighbor', 'humility'],
@@ -676,7 +676,8 @@ export const tagLabels: Record<string, string> = {
   'justice': '정의 · Justice',
   'mercy': '자비 · Mercy',
   'human-rights': '인권 · Rights',
-  'faith': '신앙 · Faith',
+  'faith': '신앙 · Faith',382
+
   'burnout': '번아웃 · Burnout',
   'witness': '증거 · Witness',
   'life-possibilities': '삶의가능성',
