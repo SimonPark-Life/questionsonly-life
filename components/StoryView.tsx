@@ -90,14 +90,32 @@ export default function StoryView({ story, prev, next }: Props) {
           alignSelf: 'center',
           marginRight: 4
         }}>
+          {/* Download buttons */}
+      <div className="dl-bar">
+        <span style={{
+          fontSize: 12,
+          color: 'var(--faint)',
+          alignSelf: 'center',
+          marginRight: 4
+        }}>
           다운로드 · Download:
         </span>
-        <Link href="/download" className="dl-btn dl-btn--en">
-          ↓ English Files
-        </Link>
-        <Link href="/download" className="dl-btn dl-btn--ko">
-          ↓ 한국어 파일
-        </Link>
+        
+          href={story.driveFileEn || '/download'}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="dl-btn dl-btn--en"
+        >
+          ↓ English Story + Guide (.docx)
+        </a>
+        
+          href={story.driveFileKo || '/download'}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="dl-btn dl-btn--ko"
+        >
+          ↓ 한국어 이야기 + 나눔 자료 (.docx)
+        </a>
       </div>
 
       <div className="disc-sec">
