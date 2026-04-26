@@ -13,97 +13,97 @@ export interface Story {
   driveFileKo?: string;
 }
 
-// English file links (42 files: 00=ReadMe, 01-41=Stories)
-const EN = [
-  'https://docs.google.com/document/d/1DJ1RivJ876jChKSAyxscHHskrsQUEy3k/edit?usp=drive_link', // 00 ReadMe
-  'https://docs.google.com/document/d/1xf51YOW8sha_zYIZFaJjZaWTR03Zy5ek/edit?usp=drive_link', // 01
-  'https://docs.google.com/document/d/1_vofaDacmh1nxIFuH2Iow6AnKReQjCfg/edit?usp=drive_link', // 02
-  'https://docs.google.com/document/d/1u8rpdC50zsNSI6N7eBCfhrMuRKYfbdtc/edit?usp=drive_link', // 03
-  'https://docs.google.com/document/d/1U45hWW2MKBetTAsJP9c5p9RZiOlN9S8q/edit?usp=drive_link', // 04
-  'https://docs.google.com/document/d/1tqOs6pVslfLRa4DFKgGOmqMCELOzPQiW/edit?usp=drive_link', // 05
-  'https://docs.google.com/document/d/1Xs2Xzt6iAevkuTkVC_NqTpDLvW0MIU62/edit?usp=drive_link', // 06
-  'https://docs.google.com/document/d/1nD6uWXyq2q5XuQR_Pn-x_EBeuWlyKBBW/edit?usp=drive_link', // 07
-  'https://docs.google.com/document/d/1IZCSBNBoaIqwWq8F2TO0pN8Mhvksu4Lh/edit?usp=drive_link', // 08
-  'https://docs.google.com/document/d/1QkWh67OVuo9H9rzEW3mzSovV0Bv7uJAs/edit?usp=drive_link', // 09
-  'https://docs.google.com/document/d/1CxLhr869z9PFyti_lQBHHuHyLK6DATbx/edit?usp=drive_link', // 10
-  'https://docs.google.com/document/d/100FxFnNuaVv9CMTniO98cNmrISDiTc0x/edit?usp=drive_link', // 11
-  'https://docs.google.com/document/d/122ePSzSpLG6OG8ta5Vx4txAHXXVobYNb/edit?usp=drive_link', // 12
-  'https://docs.google.com/document/d/1npUkWWjfE8aFIUSUvyeQslxaHqXwXi49/edit?usp=drive_link', // 13
-  'https://docs.google.com/document/d/1HrT9tGbz9n9_WP4efk2RxK_EikqjSDer/edit?usp=drive_link', // 14
-  'https://docs.google.com/document/d/1Inc42aRacEBrz-eAfKMhQIHK1wLN6gPJ/edit?usp=drive_link', // 15
-  'https://docs.google.com/document/d/1jK_ltelFN9LkTdy0nxvz8Eh0aXOVbGFF/edit?usp=drive_link', // 16
-  'https://docs.google.com/document/d/1-dkaITP2H-FDtIlV8nRfmi4VkMmpRzxq/edit?usp=drive_link', // 17
-  'https://docs.google.com/document/d/1wLLS0sSa6NiyjRlHi3cTG-5tEEqelNST/edit?usp=drive_link', // 18
-  'https://docs.google.com/document/d/1fJV29t6u-DQmFK-wLKcoiXzmVQ8MEPlo/edit?usp=drive_link', // 19
-  'https://docs.google.com/document/d/1QFBtoymQs3uFZD86EhHO3zUY36C79qbZ/edit?usp=drive_link', // 20
-  'https://docs.google.com/document/d/1pQ0UtuZhKjH18x2F2H9axGkOs5j-0JNU/edit?usp=drive_link', // 21
-  'https://docs.google.com/document/d/1eShMcCBDpGeI9HNNMY3p-NUcCIIr6lDJ/edit?usp=drive_link', // 22
-  'https://docs.google.com/document/d/1p0b-ap4Xc86XhMizgon5D6irTDjU2pBC/edit?usp=drive_link', // 23
-  'https://docs.google.com/document/d/1OT0f54IFE_Ws2maA9aFZ0KDhioU2uPDh/edit?usp=drive_link', // 24
-  'https://docs.google.com/document/d/15V93XvzayMSuFezIdLkA7BxuP6zxs0xm/edit?usp=drive_link', // 25
-  'https://docs.google.com/document/d/1HDItjzdndvsI7qZK2Tyz-fwLGst2r2Zp/edit?usp=drive_link', // 26
-  'https://docs.google.com/document/d/1BstoWqXlEMdGwsNtz5K7Wzh1_gcnQ4AD/edit?usp=drive_link', // 27
-  'https://docs.google.com/document/d/1GRKjFfMMJ_d87jiKcvOy7NMMpOc67PhV/edit?usp=drive_link', // 28
-  'https://docs.google.com/document/d/1PenqwDh18_F-3eO2Kqn4Mrz3v0oeVXIh/edit?usp=drive_link', // 29
-  'https://docs.google.com/document/d/1QiP6a9HCKNaGsMVlP344qU_bdipaN3z0/edit?usp=drive_link', // 30
-  'https://docs.google.com/document/d/10roRzQhNGCoVUDusC67tws_6dwrtkzoR/edit?usp=drive_link', // 31
-  'https://docs.google.com/document/d/1g-yYBB1IrddX-E-nyW8iQr-ExBQr-QnC/edit?usp=drive_link', // 32
-  'https://docs.google.com/document/d/1lEmZ_B3pu5vbmlgloAx5R0owFrYLskBO/edit?usp=drive_link', // 33
-  'https://docs.google.com/document/d/1IMhtJVBs-m3qGNfOACZMWb5XEUNI9Dti/edit?usp=drive_link', // 34
-  'https://docs.google.com/document/d/1sXzAyDIcSYjnC8EKbieYN2KBmY1C_zyo/edit?usp=drive_link', // 35
-  'https://docs.google.com/document/d/1hd3jOkh4EPB6H5ST_yvlHKlBX7mJaGxK/edit?usp=drive_link', // 36
-  'https://docs.google.com/document/d/17QD51DGDOM2NRtWUxox6N50qvIlN1Adv/edit?usp=drive_link', // 37
-  'https://docs.google.com/document/d/1WO9H9vQJhC8pLKbpj2IMGYUIef9WH0MY/edit?usp=drive_link', // 38
-  'https://docs.google.com/document/d/1DzOJ7WiLNoM5xWTEUaYelg6B-sUa9W6x/edit?usp=drive_link', // 39
-  'https://docs.google.com/document/d/17UZMqsKenPkkDOxe-n4dvkh2Zyx0ggyx/edit?usp=drive_link', // 40
-  'https://docs.google.com/document/d/1rUMNlz4ciLC35WnJCFEoOXUYVEVfwtoD/edit?usp=drive_link', // 41
-];
+const e = (id: string) => `https://docs.google.com/document/d/${id}/edit`;
 
-// Korean file links (42 files: 00=ReadMe, 01-41=Stories)
-const KO = [
-  'https://docs.google.com/document/d/1cpyixwSLd-UBHdl06NT6ycMmY82SEe23/edit?usp=drive_link', // 00 ReadMe
-  'https://docs.google.com/document/d/1CwzUEX5-PSMdUyiBr6wypIOCuhPGM_Ag/edit?usp=drive_link', // 01
-  'https://docs.google.com/document/d/1ppL6khnlrm3BtxDPWvsJ3pJacdG4cSP3/edit?usp=drive_link', // 02
-  'https://docs.google.com/document/d/1Dk6qJZCM4oYef8p1qASjXCiCdeU2e0eY/edit?usp=drive_link', // 03
-  'https://docs.google.com/document/d/18VlAlUZN_K1CIqJqSkyR3fyPoKaztJ4I/edit?usp=drive_link', // 04
-  'https://docs.google.com/document/d/1gAwREYZd7Y3dhL6tp-y3roOOBuMKDjoz/edit?usp=drive_link', // 05
-  'https://docs.google.com/document/d/1heRsn2MoLRr93ETJk2KCRUSrhKdiPKGW/edit?usp=drive_link', // 06
-  'https://docs.google.com/document/d/14XCkAg9G34JZR6STCsFs65LoF_qZFs7U/edit?usp=drive_link', // 07
-  'https://docs.google.com/document/d/1Kscmb_u2aDc5eLvkXn7lCPaGJqtNObNa/edit?usp=drive_link', // 08
-  'https://docs.google.com/document/d/1jHxka8hmMaDh7mz5FyRmLP1awPkJRRmI/edit?usp=drive_link', // 09
-  'https://docs.google.com/document/d/1E6cM1D436EDHyLAxEwMrzHrAAzHHxvW4/edit?usp=drive_link', // 10
-  'https://docs.google.com/document/d/1GOVCdeZ2TMGOxKrcLLr9iz44Id_Bxs0f/edit?usp=drive_link', // 11
-  'https://docs.google.com/document/d/1b2ktibOkhhJa6oPLE9tEzfUlUMhsgh8z/edit?usp=drive_link', // 12
-  'https://docs.google.com/document/d/1xHibnhaaUzSffhRIij-Xa5r6W-HsLP9r/edit?usp=drive_link', // 13
-  'https://docs.google.com/document/d/14_M9bWSmRjLM9iCV53IiJk_dZoWsSNTy/edit?usp=drive_link', // 14
-  'https://docs.google.com/document/d/14tZyLn5jnJEuTVkbem8WLJ-VZYiYdoEd/edit?usp=drive_link', // 15
-  'https://docs.google.com/document/d/15YEt7s-ybs6Y-qHM4XvFczf33pADRj1J/edit?usp=drive_link', // 16
-  'https://docs.google.com/document/d/1VfsHd8jFciFSvmjJQKcIqTgBfi1dGNDy/edit?usp=drive_link', // 17
-  'https://docs.google.com/document/d/1HCEi5ZVlVlIGkQwdqspY0ItzyCsGPMrh/edit?usp=drive_link', // 18
-  'https://docs.google.com/document/d/177Ze5tioVn1QmJ9gFufxvicANIMCgGKB/edit?usp=drive_link', // 19
-  'https://docs.google.com/document/d/1TX-BT1PVS2FtugtFhIKz1bDXDyiyZFsO/edit?usp=drive_link', // 20
-  'https://docs.google.com/document/d/1Kn_IMxNnX2bPQwET5Vc_6P-4OMwEoLq8/edit?usp=drive_link', // 21
-  'https://docs.google.com/document/d/14H10Q2fFiAkxjA4hpsrYvP-QhgovZI-t/edit?usp=drive_link', // 22
-  'https://docs.google.com/document/d/1mwW2ZGAR3dTVIC1cVhMLVKo212QpOCIr/edit?usp=drive_link', // 23
-  'https://docs.google.com/document/d/1N58qRs1642nrx0-iBdUgulgNG68KmV4B/edit?usp=drive_link', // 24
-  'https://docs.google.com/document/d/1y9bcqVXFhrgmD4rykHoX0wlXphc7EKmX/edit?usp=drive_link', // 25
-  'https://docs.google.com/document/d/10AaOMbpOR97KB8pFr67y72LPgY2eYktB/edit?usp=drive_link', // 26
-  'https://docs.google.com/document/d/1GFvJc6dh6gf3WFu2Xy2MlIDC3mKXl6hc/edit?usp=drive_link', // 27
-  'https://docs.google.com/document/d/163fHpkxx1zmQ9Q27MtWSdcTNIGPKMRMy/edit?usp=drive_link', // 28
-  'https://docs.google.com/document/d/1jZuv9adl3KykoT6yNYSXaReZTCXFfrDT/edit?usp=drive_link', // 29
-  'https://docs.google.com/document/d/100qNMYv6gyIdRIC-CqhIm-fxXNrTEFMN/edit?usp=drive_link', // 30
-  'https://docs.google.com/document/d/1DEojH3Z6uljkDR-Kihfn9MfkSHQFbXah/edit?usp=drive_link', // 31
-  'https://docs.google.com/document/d/1vbVdRKGnKebspnMEyY1czP9oBIqj6uvX/edit?usp=drive_link', // 32
-  'https://docs.google.com/document/d/15HZQO59pcRY5Gxq7OGunAk42x5DpnqzQ/edit?usp=drive_link', // 33
-  'https://docs.google.com/document/d/1jUhINK-WmX2BWEctXr3hzimvivjQE42J/edit?usp=drive_link', // 34
-  'https://docs.google.com/document/d/1dIXQV8WUJ12UPaK_MADD9yg1iR1Ma_iA/edit?usp=drive_link', // 35
-  'https://docs.google.com/document/d/15skZ513aok6O6PUxpXtLrd9d84_i1az5/edit?usp=drive_link', // 36
-  'https://docs.google.com/document/d/1oa2_tClNXaqeWdRiQY4ZC414QBsHz_ZM/edit?usp=drive_link', // 37
-  'https://docs.google.com/document/d/1E3GWzqPd15DkRmPWNCPvJ7v5mDHYXMIn/edit?usp=drive_link', // 38
-  'https://docs.google.com/document/d/1LcaL3rX-IdMld8otsGBAvcHGnZrhFDem/edit?usp=drive_link', // 39
-  'https://docs.google.com/document/d/1P80WP-fRT9lOd_Iav5diSvrjNRNAhjBd/edit?usp=drive_link', // 40
-  'https://docs.google.com/document/d/1hw1jUWNOg3hTwtDoj2lHdax-qeQd7ClM/edit?usp=drive_link', // 41
-];
+// English links — mapped by website story ID
+const EN: Record<number, string> = {
+  1:  e('1rUMNlz4ciLC35WnJCFEoOXUYVEVfwtoD'), // Story01_ArroganceofGenerocity
+  2:  e('17UZMqsKenPkkDOxe-n4dvkh2Zyx0ggyx'), // Story02_AvocadoTree
+  3:  e('15V93XvzayMSuFezIdLkA7BxuP6zxs0xm'), // Story17_AHastySolution
+  4:  e('1WO9H9vQJhC8pLKbpj2IMGYUIef9WH0MY'), // Story04_MulticulturalFamily
+  5:  e('17QD51DGDOM2NRtWUxox6N50qvIlN1Adv'), // Story05_DakorosGift
+  6:  e('1hd3jOkh4EPB6H5ST_yvlHKlBX7mJaGxK'), // Story06_MotorBoats
+  7:  e('1wLLS0sSa6NiyjRlHi3cTG-5tEEqelNST'), // Story24_SacrificingMyself
+  8:  e('1IMhtJVBs-m3qGNfOACZMWb5XEUNI9Dti'), // Story08_JusticeAndMercy
+  9:  e('1lEmZ_B3pu5vbmlgloAx5R0owFrYLskBO'), // Story09_IAmSpeakingToMySon
+  10: e('1g-yYBB1IrddX-E-nyW8iQr-ExBQr-QnC'), // Story10_DiscriminationSexualMinorities
+  11: e('10roRzQhNGCoVUDusC67tws_6dwrtkzoR'), // Story11_HowManyPeople
+  12: e('1GRKjFfMMJ_d87jiKcvOy7NMMpOc67PhV'), // Story14_NthDegreeEquation
+  13: e('1PenqwDh18_F-3eO2Kqn4Mrz3v0oeVXIh'), // Story13_Disaster
+  14: e('1sXzAyDIcSYjnC8EKbieYN2KBmY1C_zyo'), // Story07_ThePowerOfHumility
+  15: e('1BstoWqXlEMdGwsNtz5K7Wzh1_gcnQ4AD'), // Story15_QuantityQualityTruth
+  16: e('1HDItjzdndvsI7qZK2Tyz-fwLGst2r2Zp'), // Story16_AdultFromRuralChurchCongo
+  17: e('1QiP6a9HCKNaGsMVlP344qU_bdipaN3z0'), // Story12_NeighborNotGeographical
+  18: e('1OT0f54IFE_Ws2maA9aFZ0KDhioU2uPDh'), // Story18_SteppingAside
+  19: e('1p0b-ap4Xc86XhMizgon5D6irTDjU2pBC'), // Story19_TaxilaChristianHospital
+  20: e('1eShMcCBDpGeI9HNNMY3p-NUcCIIr6lDJ'), // Story20_LearningALanguage
+  21: e('1pQ0UtuZhKjH18x2F2H9axGkOs5j-0JNU'), // Story21_TeachingWithHumility
+  22: e('1QFBtoymQs3uFZD86EhHO3zUY36C79qbZ'), // Story22_AsIGo
+  23: e('1fJV29t6u-DQmFK-wLKcoiXzmVQ8MEPlo'), // Story23_MissionariesLearningFromNeighbors
+  24: e('1DzOJ7WiLNoM5xWTEUaYelg6B-sUa9W6x'), // Story03_HistoricalFactsAndTruth
+  25: e('1-dkaITP2H-FDtIlV8nRfmi4VkMmpRzxq'), // Story25_TheresNothingIDontKnow
+  26: e('1jK_ltelFN9LkTdy0nxvz8Eh0aXOVbGFF'), // Story26_PursuingTheBest
+  27: e('1Inc42aRacEBrz-eAfKMhQIHK1wLN6gPJ'), // Story27_GodsGraceIsSufficient
+  28: e('1HrT9tGbz9n9_WP4efk2RxK_EikqjSDer'), // Story28_BeyondTheEnemy
+  29: e('1npUkWWjfE8aFIUSUvyeQslxaHqXwXi49'), // Story29_AfterDeathBodyDisposition
+  30: e('122ePSzSpLG6OG8ta5Vx4txAHXXVobYNb'), // Story30_DiseaseOfTheZealous
+  31: e('100FxFnNuaVv9CMTniO98cNmrISDiTc0x'), // Story31_HamburgerAndFries
+  32: e('1CxLhr869z9PFyti_lQBHHuHyLK6DATbx'), // Story32_ReactAndRespond
+  33: e('1QkWh67OVuo9H9rzEW3mzSovV0Bv7uJAs'), // Story33_MayIHelpYOU
+  34: e('1nD6uWXyq2q5XuQR_Pn-x_EBeuWlyKBBW'), // Story34_WhatDifferenceDoesOneDeathMake
+  35: e('1tqOs6pVslfLRa4DFKgGOmqMCELOzPQiW'), // Story35_AStoryMadeTogetherWithReaders
+  36: e('1U45hWW2MKBetTAsJP9c5p9RZiOlN9S8q'), // Story36_TheSchoolUniform
+  37: e('1u8rpdC50zsNSI6N7eBCfhrMuRKYfbdtc'), // Story37_RealityIsDifferent
+  38: e('1DJ1RivJ876jChKSAyxscHHskrsQUEy3k'), // Story38_WholePersonHealing
+  39: e('1_vofaDacmh1nxIFuH2Iow6AnKReQjCfg'), // Story39_ASmallSmile
+  40: e('1xf51YOW8sha_zYIZFaJjZaWTR03Zy5ek'), // Story40_SocialJustice
+  41: e('1Y362Bn0BpHBszqmIdyvTWuOpqp-p4udGI10FnAISjtg'), // Story41_FindingMyMissionField
+};
+
+// Korean links — same website ID mapping as English
+const KO: Record<number, string> = {
+  1:  e('1UAjceY0LwK3dHCY4Hs5T5aB9qBaUBAUc'), // 이야기01_베풂의교만
+  2:  e('1xy-uc0-qvZcinmPF6iEPIzYKYQ84B9bu'), // 이야기02_아보카도나무
+  3:  e('163fHpkxx1zmQ9Q27MtWSdcTNIGPKMRMy'), // 이야기17_섣부른해결책
+  4:  e('1hw1jUWNOg3hTwtDoj2lHdax-qeQd7ClM'), // 이야기04_요한이
+  5:  e('1P80WP-fRT9lOd_Iav5diSvrjNRNAhjBd'), // 이야기5_다코로의선물
+  6:  e('1LcaL3rX-IdMld8otsGBAvcHGnZrhFDem'), // 이야기6_기선범선부선
+  7:  e('1Kn_IMxNnX2bPQwET5Vc_6P-4OMwEoLq8'), // 이야기24_나하나를바쳐서
+  8:  e('1oa2_tClNXaqeWdRiQY4ZC414QBsHz_ZM'), // 이야기8_정의와자비
+  9:  e('15skZ513aok6O6PUxpXtLrd9d84_i1az5'), // 이야기9_내아들에게말하는중이다
+  10: e('1dIXQV8WUJ12UPaK_MADD9yg1iR1Ma_iA'), // 이야기10_성소수자차별
+  11: e('1jUhINK-WmX2BWEctXr3hzimvivjQE42J'), // 이야기11_몇명이나전도했어요
+  12: e('1DEojH3Z6uljkDR-Kihfn9MfkSHQFbXah'), // 이야기14_N차방정식
+  13: e('1vbVdRKGnKebspnMEyY1czP9oBIqj6uvX'), // 이야기13_재난
+  14: e('1E3GWzqPd15DkRmPWNCPvJ7v5mDHYXMIn'), // 이야기7_겸손의힘
+  15: e('100qNMYv6gyIdRIC-CqhIm-fxXNrTEFMN'), // 이야기15_모양과질그리고진실
+  16: e('1jZuv9adl3KykoT6yNYSXaReZTCXFfrDT'), // 이야기16_콩고시골교회어른
+  17: e('15HZQO59pcRY5Gxq7OGunAk42x5DpnqzQ'), // 이야기12_이웃은지리적용어가아닙니다
+  18: e('1GFvJc6dh6gf3WFu2Xy2MlIDC3mKXl6hc'), // 이야기18_길에서벗어나모자를기울이기
+  19: e('10AaOMbpOR97KB8pFr67y72LPgY2eYktB'), // 이야기19_탁실라기독병원
+  20: e('1y9bcqVXFhrgmD4rykHoX0wlXphc7EKmX'), // 이야기20_언어배우기
+  21: e('1N58qRs1642nrx0-iBdUgulgNG68KmV4B'), // 이야기21_겸손과신뢰로가르치다
+  22: e('1mwW2ZGAR3dTVIC1cVhMLVKo212QpOCIr'), // 이야기22_내가가서
+  23: e('14H10Q2fFiAkxjA4hpsrYvP-QhgovZI-t'), // 이야기23_이웃에게서배우는선교사
+  24: e('1Z-LzHPJUiuxBkS1qSFqTQbp4oYAI9cYe'), // 이야기03_역사적사실과진실
+  25: e('1TX-BT1PVS2FtugtFhIKz1bDXDyiyZFsO'), // 이야기25_모르는것없어요
+  26: e('177Ze5tioVn1QmJ9gFufxvicANIMCgGKB'), // 이야기26_선교사의은퇴
+  27: e('1HCEi5ZVlVlIGkQwdqspY0ItzyCsGPMrh'), // 이야기27_극대화와충분함
+  28: e('1VfsHd8jFciFSvmjJQKcIqTgBfi1dGNDy'), // 이야기28_HIVAIDS
+  29: e('15YEt7s-ybs6Y-qHM4XvFczf33pADRj1J'), // 이야기29_사후시신처리선호순위
+  30: e('14_M9bWSmRjLM9iCV53IiJk_dZoWsSNTy'), // 이야기30_열심있는사람들의병
+  31: e('1xHibnhaaUzSffhRIij-Xa5r6W-HsLP9r'), // 이야기31_HamburgerandFries
+  32: e('1GOVCdeZ2TMGOxKrcLLr9iz44Id_Bxs0f'), // 이야기32_반응하기vs응답하기
+  33: e('1jHxka8hmMaDh7mz5FyRmLP1awPkJRRmI'), // 이야기33_MayIHelpYOU
+  34: e('14XCkAg9G34JZR6STCsFs65LoF_qZFs7U'), // 이야기34_한사람의죽음이무슨차이를
+  35: e('1gAwREYZd7Y3dhL6tp-y3roOOBuMKDjoz'), // 이야기35_독자들과같이만드는이야기
+  36: e('18VlAlUZN_K1CIqJqSkyR3fyPoKaztJ4I'), // 이야기36_경기고교복
+  37: e('1Dk6qJZCM4oYef8p1qASjXCiCdeU2e0eY'), // 이야기37_현실은다르다
+  38: e('1ppL6khnlrm3BtxDPWvsJ3pJacdG4cSP3'), // 이야기38_전인치유
+  39: e('1CwzUEX5-PSMdUyiBr6wypIOCuhPGM_Ag'), // 이야기39_작은미소
+  40: e('1cpyixwSLd-UBHdl06NT6ycMmY82SEe23'), // 이야기40_사회정의
+  41: e('1no9VgPF71gM1t0xWiwmt_3SuhQ-ebbX1'), // 이야기41_집동네에서나의선교지를찾다
+};
 
 export const stories: Story[] = [
   {
@@ -419,16 +419,17 @@ export const stories: Story[] = [
     ],
   },
   {
-    id: 24, slug: 'sacrificing-myself-2',
-    titleKo: '나 하나를 바쳐서 (2)', titleEn: 'Sacrificing Myself — Revisited',
-    tags: ['devotion', 'legacy'],
-    audiences: ['mid-career', 'retirees'],
+    id: 24, slug: 'historical-facts-and-truth',
+    titleKo: '역사적 사실과 진실', titleEn: 'Historical Facts and Truth',
+    tags: ['history', 'truth'],
+    audiences: ['young-adults', 'mid-career', 'mission-trainees'],
     driveFileEn: EN[24], driveFileKo: KO[24],
-    textEn: `Looking back at the student I tried to discourage from demonstrating in 1982 — I realize now what I missed.\n\nHis logic was not about winning. It was about witness. He was willing to be arrested not because he thought it would end the dictatorship, but because he believed that keeping the memory of Gwangju alive was itself an act of faithfulness.\n\nI asked the strategic question: will this work? He was asking the moral question: is this true? Is this worth remembering?\n\nThirty years later, I think he was right. Some things are worth being arrested for — not because arrest changes things, but because the willingness to pay a cost is itself a form of testimony.`,
+    textEn: `History is not simply a collection of facts. Facts can be selected, arranged, and framed to tell very different stories — each one technically accurate, none of them complete.\n\nDuring the Cold War, both sides taught their people a version of history that made the enemy inhuman and their own side righteous. Students on both sides grew up inside a story that left no room for the humanity of the other.\n\nThe photograph changes everything. Not an argument. Not a lecture. Just a face — smiling.\n\nThe work of reconciliation begins not with agreeing on facts, but with recovering the humanity that selective history has hidden. Facts are the beginning. Truth — the kind that makes peace possible — requires something more: the willingness to see the person behind the event.`,
     questionsEn: [
-      'When have you asked the strategic question when the moral question was more important?',
-      'Is there a cause or truth you would be willing to pay a cost for — not because it would work, but because it is true?',
-      'What does it mean to be a witness rather than an agent of change?',
+      'Has a single image or encounter ever changed how you saw an entire group of people?',
+      'What is the difference between historical facts and historical truth?',
+      'What story have you been told about a group — that a face, a meeting, or a friendship later complicated?',
+      'Where in your own community is selective history hiding someone\'s humanity?',
     ],
   },
   {
@@ -677,7 +678,6 @@ export const tagLabels: Record<string, string> = {
   'mercy': '자비 · Mercy',
   'human-rights': '인권 · Rights',
   'faith': '신앙 · Faith',
-
   'burnout': '번아웃 · Burnout',
   'witness': '증거 · Witness',
   'life-possibilities': '삶의가능성',
