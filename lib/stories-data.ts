@@ -424,13 +424,15 @@ export const stories: Story[] = [
     tags: ['history', 'truth'],
     audiences: ['young-adults', 'mid-career', 'mission-trainees'],
     driveFileEn: EN[24], driveFileKo: KO[24],
-    textEn: `History is not simply a collection of facts. Facts can be selected, arranged, and framed to tell very different stories — each one technically accurate, none of them complete.\n\nDuring the Cold War, both sides taught their people a version of history that made the enemy inhuman and their own side righteous. Students on both sides grew up inside a story that left no room for the humanity of the other.\n\nThe photograph changes everything. Not an argument. Not a lecture. Just a face — smiling.\n\nThe work of reconciliation begins not with agreeing on facts, but with recovering the humanity that selective history has hidden. Facts are the beginning. Truth — the kind that makes peace possible — requires something more: the willingness to see the person behind the event.`,
+   textEn: `In 2011, I led a group of Young Adult Volunteers from the United States and students from Hannam University on a visit to Japan. It was a meaningful gathering — young people from three countries coming together to discuss shared challenges: environment, discrimination, and peace.\n\nAfter the discussions, we visited the Hiroshima Peace Memorial Museum together. We walked quietly through it — each person silently taking in the traces of August 6, 1945.\n\nThen the three groups gathered to share their reflections. American students, Korean students, Japanese students — standing in the same place, yet their words were entirely different.\n\nAmerican perspective: Thanks to Truman's decision, the war ended early, and more lives were saved.\n\nKorean perspective: Japan's surrender following the atomic bombings allowed the Republic of Korea to regain its independence.\n\nJapanese perspective: This tragedy, which took tens of thousands of lives, must never be repeated in human history.\n\nA moment of silence passed.\n\nAll three statements were facts. Not one of them was wrong. And yet none of them, alone, was the whole truth.\n\nCould most of what we call "facts" be something like this? Not wrong — but partial. A truth that contains only what is visible from where I am standing.`,
     questionsEn: [
-      'Has a single image or encounter ever changed how you saw an entire group of people?',
-      'What is the difference between historical facts and historical truth?',
-      'What story have you been told about a group — that a face, a meeting, or a friendship later complicated?',
-      'Where in your own community is selective history hiding someone\'s humanity?',
+      'All three perspectives were factually accurate. How is it possible for something to be true and incomplete at the same time?',
+      'Which of the three perspectives was closest to the one you would have instinctively offered? What does that reveal about where you are standing?',
+      'Have you ever been in a conversation where everyone was stating facts — and yet no one was hearing the whole truth?',
+      'What would it take to hold all three perspectives at once — without erasing any of them?',
+      'Is there a situation in your own life where your "facts" might be someone else\'s partial truth?',
     ],
+    
   },
   {
     id: 25, slug: 'nothing-i-dont-know',
