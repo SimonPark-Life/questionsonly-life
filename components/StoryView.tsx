@@ -69,18 +69,60 @@ export default function StoryView({ story, prev, next }: Props) {
       }} />
 
       <div className="story-view__body">
-        {lang === 'ko' && (
+               <div style={{
+          background: '#fffbea',
+          border: '1px solid #e8d88a',
+          borderLeft: '4px solid #8B6914',
+          borderRadius: 'var(--r)',
+          padding: '14px 18px',
+          marginBottom: 24,
+        }}>
           <div style={{
-            background: 'var(--green-pale)',
-            borderRadius: 'var(--r)',
-            padding: '10px 14px',
-            marginBottom: 20,
-            fontSize: 12,
-            color: 'var(--green)'
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+            marginBottom: 6,
           }}>
-            한국어 원문은 다운로드 파일에서 확인하세요. · Korean original available in the downloadable file below.
+            <span style={{
+              background: '#8B6914',
+              color: '#fff',
+              fontSize: 10,
+              fontWeight: 700,
+              letterSpacing: '.08em',
+              textTransform: 'uppercase' as const,
+              padding: '2px 8px',
+              borderRadius: 4,
+            }}>
+              안내 · Note
+            </span>
+            <span style={{
+              fontSize: 13,
+              fontWeight: 700,
+              color: '#5a3e00',
+            }}>
+              이야기 요약본입니다
+            </span>
           </div>
-        )}
+          <p style={{
+            fontSize: 13,
+            fontWeight: 600,
+            color: '#4a3200',
+            lineHeight: 1.7,
+            marginBottom: 4,
+          }}>
+            이 페이지에 표시된 이야기는 소개를 위한 요약본입니다.
+            이야기 원문을 보시려면 아래 다운로드 파일에서 확인하세요.
+          </p>
+          <p style={{
+            fontSize: 12,
+            color: '#6a5200',
+            lineHeight: 1.7,
+          }}>
+            The story shown on this page is an edited digest for preview purposes.
+            The complete original story — including full text, discussion guides,
+            and Leader's Guide — is available in the downloadable file below.
+          </p>
+        </div>
         {bodyParagraphs.map((para, i) => (
           <p key={i}>{para}</p>
         ))}

@@ -198,7 +198,7 @@ export const stories: Story[] = [
     tags: ['devotion', 'witness'],
     audiences: ['young-adults', 'mid-career'],
     driveFileEn: EN[7], driveFileKo: KO[7],
-    textEn: `When I joined Korea University's Business School as a new professor in 1975, student activism was at its height. On May 18, 1982, I tried to talk a student leader out of joining a demonstration.\n\n"Do you really think democracy will come faster if you clash with the police today?"\n\n"I don't expect democracy to arrive today. But today is the second anniversary of the Gwangju uprising. If we go out and get arrested, people will ask why — and we'll say: Today is Gwangju. If our being arrested keeps that memory alive, I am willing."\n\nI had no answer for that.\n\n"I will go to the police station to get you out," I said. "To preserve my self-respect."`,
+    textEn: `When I joined Korea University's Business School as a new professor in 1981, student activism was at its height. On May 18, 1982, I tried to talk a student leader out of joining a demonstration.\n\n"Do you really think democracy will come faster if you clash with the police today?"\n\n"I don't expect democracy to arrive today. But today is the second anniversary of the Gwangju uprising. If we go out and get arrested, people will ask why — and we'll say: Today is Gwangju. If our being arrested keeps that memory alive, I am willing."\n\nI had no answer for that.\n\n"I will go to the police station to get you out," I said. "To preserve my self-respect."`,
     questionsEn: [
       'Has there been a time when you did something costly with no realistic chance of immediate change?',
       'What is the difference between the student\'s logic (memory and witness) and Dr. Park\'s strategic question (effectiveness)?',
