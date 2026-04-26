@@ -128,7 +128,7 @@ export default function StoryView({ story, prev, next }: Props) {
         ))}
       </div>
 
-      <div className="dl-bar">
+        <div className="dl-bar">
         <span style={{
           fontSize: 12,
           color: 'var(--faint)',
@@ -145,8 +145,13 @@ export default function StoryView({ story, prev, next }: Props) {
           className="dl-btn dl-btn--ko">
           ↓ 한국어 이야기 + 나눔 자료 (.docx)
         </a>
+        {story.drivePptKo && (
+          <a href={story.drivePptKo} target="_blank" rel="noopener noreferrer"
+            className="dl-btn dl-btn--ko">
+            ↓ 배경 자료 · Background Slides (.pptx)
+          </a>
+        )}
       </div>
-
       <div className="disc-sec">
         <div className="disc-title">
           토론 질문 · Discussion Questions

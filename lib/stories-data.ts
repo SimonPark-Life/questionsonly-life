@@ -11,6 +11,7 @@ export interface Story {
   questionsEn: string[];
   driveFileEn?: string;
   driveFileKo?: string;
+  drivePptKo?: string;
 }
 
 const e = (id: string) => `https://docs.google.com/document/d/${id}/edit`;
@@ -126,7 +127,7 @@ export const stories: Story[] = [
     titleKo: '아보카도 나무', titleEn: 'The Avocado Tree',
     tags: ['neighbor', 'being-vs-doing'],
     audiences: ['young-adults', 'mid-career', 'mission-trainees'],
-    driveFileEn: EN[2], driveFileKo: KO[2],
+    driveFileEn: EN[2], driveFileKo: KO[2], drivePptKo: 'https://docs.google.com/presentation/d/11xgA0Eity6nTIiX1T9zd00CS-A6L9J1D/edit?usp=drive_link',
     textEn: `My wife and I were assigned to our first mission field — Good Shepherd Hospital in the DR Congo. In the front yard of our house stood a large avocado tree. Avocados were precious — the most sought-after food in the neighborhood.\n\nOur gardener Bilolo suggested: "Papa Simon, the avocados are ripe. Let the neighborhood children knock them down with long poles. Whatever falls and breaks — the children can take home."\n\nI agreed without much thought. But the number of broken avocados kept growing. Bilolo blamed the children: "They're unreliable and dishonest."\n\nIt was only after leaving Congo that I finally understood. The children were not the problem. From the beginning, I had structured our relationship as owner and worker. They understood the system clearly: the only way to get a fair share was for more fruit to break.\n\nWhat if I had regarded those children as my neighbors — as equals — from the very start? Doing flows from being. You cannot produce the right being through doing alone.`,
     questionsEn: [
       'Have you ever treated someone as less than an equal — without meaning to?',
@@ -141,7 +142,7 @@ export const stories: Story[] = [
     titleKo: '섣부른 해결책', titleEn: 'Hasty Solutions',
     tags: ['cross-cultural', 'good-intentions'],
     audiences: ['young-adults', 'mid-career', 'mission-trainees'],
-    driveFileEn: EN[3], driveFileKo: KO[3],
+    driveFileEn: EN[3], driveFileKo: KO[3], drivePptKo: 'https://docs.google.com/presentation/d/1Aq0-QyFqWQq2a5s9GEX4QOWtvGSnkNF9/edit?usp=drive_link',
     textEn: `Shortly after arriving at Good Shepherd Hospital in Congo — my first mission post — I began seeing things that puzzled me. Problems with seemingly simple solutions.\n\nWe attended Sunday worship at a church the missionaries had begun building. The congregation sat on logs. We offered to provide lumber for proper benches. They thanked us. When the service ended — the girls carried the heavy benches out on their heads. "If we leave them here, they will be stolen before next Sunday."\n\nThe logs they had used before were not worth stealing. But the benches were. I had wanted to provide comfort, only to create a new burden.\n\nChristmas was coming. I bought umbrellas for all 200 hospital staff. The next heavy rain — nothing had changed. "The umbrellas are precious gifts. We keep them for special occasions."\n\nOne doctor said afterward: "We could see it wouldn't work. But we couldn't intervene beforehand. So we said nothing."`,
     questionsEn: [
       'Have you tried to help with something and made it worse?',
@@ -251,7 +252,7 @@ export const stories: Story[] = [
     titleKo: '몇 명이나 전도 했어요?', titleEn: 'How Many Did You Evangelize?',
     tags: ['witness', 'mission'],
     audiences: ['mission-trainees', 'young-adults'],
-    driveFileEn: EN[11], driveFileKo: KO[11],
+    driveFileEn: EN[11], driveFileKo: KO[11], drivePptKo: 'https://docs.google.com/presentation/d/1ShrpJjdK1iTqmd62LMvdffONA5339sVd/edit?usp=drive_link',
     textEn: `As a missionary, this is a question I hear often — but it's the wrong question.\n\nAfter four weeks working in Niger, Amodou asked: "Simon, our country is Muslim. Why do you and your Christian colleagues endure such hardship to help us?"\n\n"Amodou, I don't think I can make you understand. But I'm certain that if you keep asking that question, someday you will meet my Savior, Jesus."\n\nSix months later, returning to check on the relief system, Amodou said: "I still think about our conversation. I haven't met the Jesus you speak of yet. But I wanted to remember our time together — so I'm giving you this cross, made by the nomads of our desert."\n\nThis gift stands as the closest thing to an evangelistic event during my entire ministry.`,
     questionsEn: [
       'Has someone\'s life — not their words — ever created a question in you?',
@@ -317,7 +318,7 @@ export const stories: Story[] = [
     titleKo: '콩고 시골교회 어른', titleEn: 'The Elder of the Congo Village Church',
     tags: ['presence', 'faith'],
     audiences: ['young-adults', 'mid-career', 'retirees', 'first-small-group'],
-    driveFileEn: EN[16], driveFileKo: KO[16],
+    driveFileEn: EN[16], driveFileKo: KO[16], drivePptKo: 'https://docs.google.com/presentation/d/1mJLohny-L9sarIwodBdaV3CaZE65KVcF/edit?usp=drive_link',
     textEn: `In December 2000, the Presbyterian Church (USA) asked me to visit churches, schools, and clinics in Congo. American Presbyterian missionaries had served these communities for many years before pulling out in the mid-1960s when civil war made it too dangerous to stay.\n\nThe journey was hard: broken roads, soldiers demanding money at roadblocks, nights full of insects. I also knew that people along the way were hoping I had brought gifts. I had not.\n\nBut when I arrived at one village, an elderly man came to speak to me:\n\n"When the missionaries left, they told us they would come back soon. But thirty years passed, and no one came. We began to think the missionaries had abandoned us. We even began to think that God had forgotten us. But today — you have come. Now I know: God still remembers us."\n\nEvery complaint I had been carrying — the roads, the roadblocks, the insects — all of it was gone.`,
     questionsEn: [
       'Have you been waiting for someone to come back — any sign you had not been forgotten?',
@@ -358,7 +359,7 @@ export const stories: Story[] = [
     titleKo: '탁실라 기독 병원', titleEn: 'Taxila Christian Hospital',
     tags: ['forgiveness', 'martyrdom'],
     audiences: ['mission-trainees', 'mid-career', 'retirees'],
-    driveFileEn: EN[19], driveFileKo: KO[19],
+    driveFileEn: EN[19], driveFileKo: KO[19],drivePptKo: 'https://docs.google.com/presentation/d/1yZQ8P9irrj0_E7C6wzl5I37xZ2ilD2mu/edit?usp=drive_link',
     textEn: `In August 2002, four nurses walking out of the chapel at Taxila Christian Hospital in Pakistan were killed in a bomb attack.\n\nThree years later, Dr. Park visited. The same staff — who had buried their sisters — were fundraising for earthquake victims and treating the injured. Most were Muslim.\n\nDr. Park asked: "How can you show such love to the Muslims who killed your sisters?"\n\nThey answered: "We are convinced that the most glorious way to honor our sisters is to repay evil with good."\n\nThis missionary is convinced that they — who accept Muslims as neighbors in the name of their fallen sisters — are more mature disciples of Jesus than this missionary.`,
     questionsEn: [
       'Has someone ever responded to being wronged in a way that surprised you?',
@@ -423,7 +424,7 @@ export const stories: Story[] = [
     titleKo: '역사적 사실과 진실', titleEn: 'Historical Facts and Truth',
     tags: ['history', 'truth'],
     audiences: ['young-adults', 'mid-career', 'mission-trainees'],
-    driveFileEn: EN[24], driveFileKo: KO[24],
+    driveFileEn: EN[24], driveFileKo: KO[24],drivePptKo: 'https://docs.google.com/presentation/d/1C5Q7uwREZ503et4paCsLJYS5NiN5Pbs-/edit?usp=drive_link',
    textEn: `In 2011, I led a group of Young Adult Volunteers from the United States and students from Hannam University on a visit to Japan. It was a meaningful gathering — young people from three countries coming together to discuss shared challenges: environment, discrimination, and peace.\n\nAfter the discussions, we visited the Hiroshima Peace Memorial Museum together. We walked quietly through it — each person silently taking in the traces of August 6, 1945.\n\nThen the three groups gathered to share their reflections. American students, Korean students, Japanese students — standing in the same place, yet their words were entirely different.\n\nAmerican perspective: Thanks to Truman's decision, the war ended early, and more lives were saved.\n\nKorean perspective: Japan's surrender following the atomic bombings allowed the Republic of Korea to regain its independence.\n\nJapanese perspective: This tragedy, which took tens of thousands of lives, must never be repeated in human history.\n\nA moment of silence passed.\n\nAll three statements were facts. Not one of them was wrong. And yet none of them, alone, was the whole truth.\n\nCould most of what we call "facts" be something like this? Not wrong — but partial. A truth that contains only what is visible from where I am standing.`,
     questionsEn: [
       'All three perspectives were factually accurate. How is it possible for something to be true and incomplete at the same time?',
@@ -439,7 +440,7 @@ export const stories: Story[] = [
     titleKo: '모르는 것 없어요', titleEn: 'There Is Nothing I Don\'t Know',
     tags: ['humility', 'education'],
     audiences: ['young-adults', 'mid-career', 'first-small-group'],
-    driveFileEn: EN[25], driveFileKo: KO[25],
+    driveFileEn: EN[25], driveFileKo: KO[25],drivePptKo: 'https://docs.google.com/presentation/d/1dyCBh20zfH0wt0d0oaCrF_bAWsGTVPMP/edit?usp=drive_link',
     textEn: `In November 2011, I visited Pyongyang University of Science and Technology. I asked six graduate students: what would you like to learn?\n\nThey discussed among themselves. Their answer: "Nothing."\n\nThrough continued conversation, we arrived at the explanation. They had all been taught exactly the same content. Independent additional study was not permitted. They had therefore never encountered the boundary of what they knew.\n\nNot knowing what you don't know had been interpreted as knowing everything.\n\nUniform education and the mindset it produces had turned not-knowing into knowing-everything. Society as a whole becomes a religious cult: a convenient mob to govern.`,
     questionsEn: [
       'What does it take to discover the edge of your own knowledge?',
@@ -478,7 +479,7 @@ export const stories: Story[] = [
     titleKo: 'HIV/AIDS — 누구의 책임인가?', titleEn: 'Beyond the Enemy',
     tags: ['justice', 'care'],
     audiences: ['mission-trainees', 'mid-career', 'retirees'],
-    driveFileEn: EN[28], driveFileKo: KO[28],
+    driveFileEn: EN[28], driveFileKo: KO[28], drivePptKo: 'https://docs.google.com/presentation/d/1mDUazuAd-CPtdJ4DpGQX5_SwICMIGzYO/edit?usp=drive_link',
     textEn: `In the early 2000s, Africa was helpless against HIV/AIDS. The women of LISAP in northern Malawi began caring for patients — bathing them, serving meals, training children who would become orphans.\n\nThe number of infected women was three times higher than men. Regardless of the route of infection, blame fell on women.\n\nBeyond the enemy of incurable disease, I saw a human being whom God loves. That is what the women of LISAP saw first. That is what made everything else possible.`,
     questionsEn: [
       'Have you been afraid of a situation and found that getting closer changed what you saw?',
