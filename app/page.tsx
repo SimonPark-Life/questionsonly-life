@@ -119,30 +119,14 @@ export default function HomePage() {
                 textDecoration: 'underline',
               }}>
                 downloadable files
-              </Link>.
+              </Link>
             </p>
           </div>
 
         </div>
       </div>
 
-      {/* Featured */}
-      <section className="sec sec--alt">
-        <div className="wrap">
-          <h2 className="sec__title">추천 이야기 · Featured Stories</h2>
-          <p className="sec__sub">Click any story to read</p>
-          <div className="feat-grid">
-            {featured.map(s => (
-              <Link href={`/stories/${s.slug}`} key={s.id} className="feat-card">
-                <span className="feat-card__num">이야기 #{s.id}</span>
-                <div className="feat-card__title">{s.titleEn}</div>
-                <div className="feat-card__ko">{s.titleKo}</div>
-                <span className="feat-card__link">읽기 · Read →</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+     
 
       {/* Quote */}
       <section className="sec">
