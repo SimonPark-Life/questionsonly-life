@@ -20,6 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <a href="/stories">이야기 Stories</a>
             <a href="/how-to-use">활용법 How to Use</a>
             <a href="/about">소개 About</a>
+            <a href="/contact">문의 Contact</a>
             <a href="/download">다운로드 Download</a>
           </nav>
           <p className="site-footer__attr">

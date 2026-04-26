@@ -27,6 +27,9 @@ export default function NavClient() {
           </Link>
           <Link href="/about" className={isActive('/about') ? 'active' : ''}>
             소개 About
+          </Link> 
+          <Link href="/contact" className={isActive('/contact') ? 'active' : ''}>
+            문의 Contact
           </Link>
           <Link href="/download" className={isActive('/download') ? 'active' : ''}>
             다운로드 Download
