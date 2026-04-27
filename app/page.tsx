@@ -140,9 +140,9 @@ export default function HomePage() {
                 Arrogant Generosity
               </div>
               <div style={{ fontSize: 13, color: 'rgba(255,255,255,.6)', marginBottom: 16 }}>
-                42 files · Read Me First + Stories 1–41
+                Read Me First 
               </div>
-              <a href="https://drive.google.com/drive/folders/1fic0Tmt5yHOdDy0IFiQuq8ACBnBoFBAG" target="_blank" rel="noopener noreferrer" className="dl-btn dl-btn--en">
+              <a href="https://docs.google.com/document/d/1bhCEx6M7Y9_9Uiql62jpugu_B0JiM2SP/edit" target="_blank" rel="noopener noreferrer" className="dl-btn dl-btn--en">
                 ↓ Open English Folder
               </a>
             </div>
@@ -155,13 +155,13 @@ export default function HomePage() {
                 베풂의 교만 이야기
               </div>
               <div style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 16 }}>
-                42개 파일 · 먼저읽어주세요 + 이야기 1–41편
+                먼저읽어주세요 
               </div>
-              <a href="https://drive.google.com/drive/folders/1uSVy-diqAlv0s6KABtewHF7SYiG96jok" target="_blank" rel="noopener noreferrer" className="dl-btn dl-btn--ko">
+              <a href="https://docs.google.com/document/d/1nqi3Ms9JqXTuMPLAK7QzkmpLNTg-sS3V/edit" target="_blank" rel="noopener noreferrer" className="dl-btn dl-btn--ko">
                 ↓ 한국어 폴더 열기
               </a>
             </div>
-
+git add .
           </div>
         </div>
       </section>
