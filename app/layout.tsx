@@ -24,7 +24,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <a href="/download">다운로드 Download</a>
           </nav>
           <p className="site-footer__attr">
-            © 박숭현 (Simon Park) · 동연출판사 · QuestionsOnly.Life · 비상업적 소그룹 사용 가능
+            © 박숭현 (Simon Park) · QuestionsOnly.Life · 비상업적 소그룹 사용 가능
           </p>
         </footer>
       </body>
