@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Story } from '@/lib/stories-data';
+import GiscusComments from '@/components/GiscusComments';
 
 interface Props {
   story: Story;
@@ -180,7 +181,7 @@ export default function StoryView({ story, prev, next }: Props) {
           </Link>
         )}
       </div>
-
+      <GiscusComments />
     </div>
   );
 }
