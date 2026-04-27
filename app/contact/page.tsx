@@ -182,7 +182,7 @@ export default function ContactPage() {
               }}
             >
               <option>질문 · Question</option>
-              <option>줌 세션 요청 · Zoom Session Request</option>
+              <option>구글 밑 세션 요청 · Google Meet Session Request</option>
               <option>소그룹 나눔 문의 · Small Group Inquiry</option>
               <option>기타 · Other</option>
             </select>
