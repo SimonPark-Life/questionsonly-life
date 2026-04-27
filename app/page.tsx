@@ -125,6 +125,97 @@ export default function HomePage() {
 
         </div>
       </div>
+      {/* Download cards */}
+      <section className="sec">
+        <div className="wrap">
+          <h2 className="sec__title">파일 다운로드 · Download Files</h2>
+          <p className="sec__sub">Complete story files with discussion guides and leader's notes</p>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+            gap: 16,
+          }}>
+            
+              href="https://drive.google.com/drive/folders/1fic0Tmt5yHOdDy0IFiQuq8ACBnBoFBAG"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'block',
+                background: 'var(--green-dark)',
+                borderRadius: 'var(--r)',
+                padding: '24px 28px',
+                textDecoration: 'none',
+                transition: 'opacity .15s',
+              }}
+            >
+              <div style={{
+                fontSize: 11, fontWeight: 700, color: 'rgba(255,255,255,.5)',
+                letterSpacing: '.08em', textTransform: 'uppercase' as const,
+                marginBottom: 8,
+              }}>
+                영어 · English
+              </div>
+              <div style={{
+                fontFamily: 'var(--serif)', fontStyle: 'italic',
+                fontSize: '1.3rem', color: '#fff', marginBottom: 6,
+              }}>
+                Arrogant Generosity
+              </div>
+              <div style={{ fontSize: 13, color: 'rgba(255,255,255,.6)', marginBottom: 16 }}>
+                42 files · Read Me First + Stories 1–41
+              </div>
+              <div style={{
+                display: 'inline-flex', alignItems: 'center', gap: 6,
+                background: 'rgba(255,255,255,.15)', color: '#fff',
+                fontSize: 12, fontWeight: 700, padding: '7px 14px',
+                borderRadius: 6,
+              }}>
+                ↓ Open English Folder
+              </div>
+            </a>
+
+            
+              href="https://drive.google.com/drive/folders/1uSVy-diqAlv0s6KABtewHF7SYiG96jok"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: 'block',
+                background: 'var(--cream-dark)',
+                border: '1px solid var(--green-mid)',
+                borderRadius: 'var(--r)',
+                padding: '24px 28px',
+                textDecoration: 'none',
+                transition: 'opacity .15s',
+              }}
+            >
+              <div style={{
+                fontSize: 11, fontWeight: 700, color: 'var(--green)',
+                letterSpacing: '.08em', textTransform: 'uppercase' as const,
+                marginBottom: 8,
+              }}>
+                한국어 · Korean
+              </div>
+              <div style={{
+                fontFamily: 'var(--serif)', fontStyle: 'italic',
+                fontSize: '1.3rem', color: 'var(--ink)', marginBottom: 6,
+              }}>
+                베풂의 교만 이야기
+              </div>
+              <div style={{ fontSize: 13, color: 'var(--muted)', marginBottom: 16 }}>
+                42개 파일 · 먼저읽어주세요 + 이야기 1–41편
+              </div>
+              <div style={{
+                display: 'inline-flex', alignItems: 'center', gap: 6,
+                background: 'var(--green)', color: '#fff',
+                fontSize: 12, fontWeight: 700, padding: '7px 14px',
+                borderRadius: 6,
+              }}>
+                ↓ 한국어 폴더 열기
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
 
      
 
