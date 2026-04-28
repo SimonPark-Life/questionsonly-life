@@ -305,7 +305,7 @@ export const stories: Story[] = [
     titleKo: '양과 질, 그리고 진실', titleEn: 'Quantity, Quality, and Truth',
     tags: ['history', 'prejudice'],
     audiences: ['mission-trainees', 'mid-career', 'young-adults'],
-    driveFileEn: EN[15], driveFileKo: KO[15],
+    driveFileEn: EN[15], driveFileKo: KO[15], drivePptKo: 'https://docs.google.com/presentation/d/1mJLohny-L9sarIwodBdaV3CaZE65KVcF/edit?usp=drive_link',
     textEn: `On January 1, 1983, I got a five-day visa to visit Guangzhou, China. A Party official said: "The jacket I wear and Comrade Deng Xiaoping's are exactly the same."\n\nI asked the guide: "Was the official's jacket really the same?" "Yes and no. The cut and style are the same. But the quality of the cloth is completely different."\n\nBack in Korea, I showed photos to students. When one saw a photo of Chinese children, he looked up in genuine surprise: "Wait — they smile too!"\n\nAt the time, Korean education had sorted the world into two opposing camps. This student had grown up learning that people on the other side were fundamentally different. The photo undid that in a moment.`,
     questionsEn: [
       'Has something you saw — a photo, a face — made you realize your picture of a group was wrong?',
@@ -318,7 +318,7 @@ export const stories: Story[] = [
     titleKo: '콩고 시골교회 어른', titleEn: 'The Elder of the Congo Village Church',
     tags: ['presence', 'faith'],
     audiences: ['young-adults', 'mid-career', 'retirees', 'first-small-group'],
-    driveFileEn: EN[16], driveFileKo: KO[16], drivePptKo: 'https://docs.google.com/presentation/d/1mJLohny-L9sarIwodBdaV3CaZE65KVcF/edit?usp=drive_link',
+    driveFileEn: EN[16], driveFileKo: KO[16],  drivePptKo: 'https://docs.google.com/presentation/d/1fhFd4q3cWNGvoVLpMTKG9rBtIpPcaKdA/edit?usp=drive_link',
     textEn: `In December 2000, the Presbyterian Church (USA) asked me to visit churches, schools, and clinics in Congo. American Presbyterian missionaries had served these communities for many years before pulling out in the mid-1960s when civil war made it too dangerous to stay.\n\nThe journey was hard: broken roads, soldiers demanding money at roadblocks, nights full of insects. I also knew that people along the way were hoping I had brought gifts. I had not.\n\nBut when I arrived at one village, an elderly man came to speak to me:\n\n"When the missionaries left, they told us they would come back soon. But thirty years passed, and no one came. We began to think the missionaries had abandoned us. We even began to think that God had forgotten us. But today — you have come. Now I know: God still remembers us."\n\nEvery complaint I had been carrying — the roads, the roadblocks, the insects — all of it was gone.`,
     questionsEn: [
       'Have you been waiting for someone to come back — any sign you had not been forgotten?',
