@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { LangProvider } from '@/lib/language-context';
 import NavClient from '@/components/NavClient';
+import FooterClient from '@/components/FooterClient';
 
 export const metadata: Metadata = {
   title: '베풂의 교만 이야기 · Arrogant Generosity',
@@ -11,24 +13,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ko">
       <body>
-        <NavClient />
-        <main>{children}</main>
-        <footer className="site-footer">
-          <div className="site-footer__title">베풂의 교만 이야기 · Arrogant Generosity</div>
-          <nav className="site-footer__links">
-            <a href="/">홈 Home</a>
-            <a href="/stories">이야기 Stories</a>
-            <a href="/how-to-use">활용법 How to Use</a>
-            <a href="/about">소개 About</a>
-            <a href="/contact">문의 Contact</a>
-            <a href="/download">다운로드 Download</a>
-          </nav>
-          <p className="site-footer__attr">
-            © 박숭현 (Simon Park) · QuestionsOnly.Life · 비상업적 소그룹 사용 가능
-          </p>
-        </footer>
+        <LangProvider>
+          <NavClient />
+          <main>{children}</main>
+          <FooterClient />
+        </LangProvider>
       </body>
     </html>
   );
 }
-
