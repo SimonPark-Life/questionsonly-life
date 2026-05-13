@@ -1,168 +1,160 @@
-'use client';
-import { useLang } from '@/lib/language-context';
-import { readMeFirst } from '@/lib/stories-data';
+'use client'
 
-export default function WelcomePage() {
-  const { lang, setLang } = useLang();
+import { useRouter } from 'next/navigation'
+import { useLang, t } from '@/lib/language-context'
+import { stories, partLabels } from '@/lib/stories-data'
 
-  const handleChoose = (chosen: 'ko' | 'en') => {
-    setLang(chosen);
-    window.open(readMeFirst[chosen], '_blank');
-  };
+export default function StoriesPage() {
+  const { lang } = useLang()
+  const router = useRouter()
+
+  // Group stories by part
+  const parts = [1, 2, 3, 4, 5, 6]
 
   return (
     <div style={styles.page}>
       <div style={styles.container}>
+        <h1 style={styles.heading}>
+          {lang === 'ko' ? '베풂의 교만 이야기' : 'Arrogant Generosity'}
+        </h1>
+        <p style={styles.subheading}>
+          {lang === 'ko' ? '38편 · 6부' : '38 Stories · 6 Parts'}
+        </p>
 
-        {/* Series title */}
-        <div style={styles.titleBlock}>
-          <p style={styles.seriesLabel}>
-            소그룹 나눔 자료 · Small Group Discussion Series
-          </p>
-          <h1 style={styles.titleKo}>베풂의 교만 이야기</h1>
-          <h2 style={styles.titleEn}>Arrogant Generosity</h2>
-          <p style={styles.author}>
-            박숭현 선교사 (Simon Park) · QuestionsOnly.Life
-          </p>
-        </div>
+        {parts.map(part => {
+          const partStories = stories.filter(s => s.part === part)
+          const label = partLabels[part]
+          const partText = lang === 'ko' ? label.ko : label.en
 
-        {/* Language choice */}
-        <div style={styles.choiceBlock}>
-          <p style={styles.choiceLabel}>언어를 선택해 주세요</p>
-          <p style={styles.choiceLabelEn}>Please choose your preferred language</p>
+          return (
+            <div key={part} style={styles.partSection}>
+              <h2 style={styles.partHeading}>{partText}</h2>
+              <div style={styles.grid}>
+                {partStories.map(story => {
+                  const title = lang === 'ko' ? story.titleKo : story.titleEn
+                  const subtitle = lang === 'ko' ? story.subtitleKo : story.subtitleEn
+                  const hasPpt = !!story.drivePptKo
 
-          <div style={styles.btnRow}>
-            {/* Korean */}
-            <button
-              onClick={() => handleChoose('ko')}
-              style={styles.btnKo}
-            >
-              <span style={styles.btnMain}>한국어로 시작하기</span>
-              <span style={styles.btnSub}>먼저읽어주세요 열기 →</span>
-            </button>
-
-            {/* English */}
-            <button
-              onClick={() => handleChoose('en')}
-              style={styles.btnEn}
-            >
-              <span style={styles.btnMain}>Start in English</span>
-              <span style={styles.btnSub}>Open Read Me First →</span>
-            </button>
-          </div>
-
-          <p style={styles.switchNote}>
-            언제든지 다른 언어로 전환할 수 있습니다<br />
-            You can switch languages at any time while browsing
-          </p>
-        </div>
-
+                  return (
+                    <div
+                      key={story.id}
+                      style={styles.card}
+                      onClick={() => router.push(`/stories/${story.id}`)}
+                    >
+                      <div style={styles.cardHeader}>
+                        <span style={styles.storyNum}>
+                          {lang === 'ko' ? `이야기 ${story.id}` : `Story ${story.id}`}
+                        </span>
+                        {hasPpt && (
+                          <span style={styles.pptBadge}>PPT</span>
+                        )}
+                      </div>
+                      <h3 style={styles.cardTitle}>{title}</h3>
+                      {subtitle && (
+                        <p style={styles.cardSubtitle}>{subtitle}</p>
+                      )}
+                      <span style={styles.readMore}>
+                        {lang === 'ko' ? '읽기 →' : 'Read →'}
+                      </span>
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )
+        })}
       </div>
     </div>
-  );
+  )
 }
 
 const styles: Record<string, React.CSSProperties> = {
   page: {
     minHeight: '100vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     backgroundColor: 'var(--bg)',
-    padding: '2rem 1rem',
+    padding: '2rem 1rem 4rem',
   },
   container: {
-    maxWidth: '480px',
-    width: '100%',
-    textAlign: 'center',
+    maxWidth: '900px',
+    margin: '0 auto',
   },
-  titleBlock: {
-    marginBottom: '3rem',
-  },
-  seriesLabel: {
-    fontSize: '0.8rem',
-    color: 'var(--faint)',
-    letterSpacing: '0.05em',
-    marginBottom: '1rem',
-  },
-  titleKo: {
+  heading: {
     fontSize: '2rem',
     fontWeight: 700,
     color: 'var(--text)',
     marginBottom: '0.25rem',
   },
-  titleEn: {
-    fontSize: '1.3rem',
-    fontWeight: 400,
-    color: 'var(--faint)',
-    marginBottom: '0.75rem',
+  subheading: {
+    fontSize: '0.95rem',
+    color: 'var(--text-muted)',
+    marginBottom: '3rem',
   },
-  author: {
-    fontSize: '0.85rem',
-    color: 'var(--faint)',
+  partSection: {
+    marginBottom: '3rem',
   },
-  choiceBlock: {
+  partHeading: {
+    fontSize: '1rem',
+    fontWeight: 600,
+    color: 'var(--accent)',
+    textTransform: 'uppercase',
+    letterSpacing: '0.06em',
+    marginBottom: '1rem',
+    paddingBottom: '0.5rem',
+    borderBottom: '1px solid var(--border)',
+  },
+  grid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+    gap: '1rem',
+  },
+  card: {
     backgroundColor: 'var(--card-bg)',
-    borderRadius: '16px',
-    padding: '2rem 1.5rem',
-    border: '1px solid var(--rule)',
+    border: '1px solid var(--border)',
+    borderRadius: '12px',
+    padding: '1.25rem',
+    cursor: 'pointer',
+    transition: 'border-color 0.15s, box-shadow 0.15s',
+    display: 'flex',
+    flexDirection: 'column',
   },
-  choiceLabel: {
-    fontSize: '1.1rem',
+  cardHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: '0.5rem',
+  },
+  storyNum: {
+    fontSize: '0.75rem',
+    color: 'var(--text-muted)',
+    fontWeight: 500,
+  },
+  pptBadge: {
+    fontSize: '0.65rem',
+    backgroundColor: 'var(--accent)',
+    color: '#fff',
+    borderRadius: '4px',
+    padding: '0.1rem 0.4rem',
+    fontWeight: 600,
+    letterSpacing: '0.05em',
+  },
+  cardTitle: {
+    fontSize: '1rem',
     fontWeight: 600,
     color: 'var(--text)',
-    marginBottom: '0.25rem',
+    lineHeight: 1.35,
+    marginBottom: '0.4rem',
   },
-  choiceLabelEn: {
-    fontSize: '0.9rem',
-    color: 'var(--faint)',
-    marginBottom: '1.5rem',
+  cardSubtitle: {
+    fontSize: '0.82rem',
+    color: 'var(--text-muted)',
+    lineHeight: 1.5,
+    marginBottom: '0.75rem',
+    flex: 1,
   },
-  btnRow: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '0.75rem',
-    marginBottom: '1.5rem',
+  readMore: {
+    fontSize: '0.82rem',
+    color: 'var(--accent)',
+    fontWeight: 600,
+    marginTop: 'auto',
   },
-  btnKo: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: '0.25rem',
-    backgroundColor: 'var(--green)',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '10px',
-    padding: '1rem',
-    cursor: 'pointer',
-    fontFamily: 'inherit',
-    width: '100%',
-  },
-  btnEn: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: '0.25rem',
-    backgroundColor: 'transparent',
-    color: 'var(--text)',
-    border: '1px solid var(--rule)',
-    borderRadius: '10px',
-    padding: '1rem',
-    cursor: 'pointer',
-    fontFamily: 'inherit',
-    width: '100%',
-  },
-  btnMain: {
-    fontSize: '1rem',
-    fontWeight: 700,
-  },
-  btnSub: {
-    fontSize: '0.8rem',
-    opacity: 0.8,
-  },
-  switchNote: {
-    fontSize: '0.78rem',
-    color: 'var(--faint)',
-    lineHeight: 1.6,
-  },
-};
+}
