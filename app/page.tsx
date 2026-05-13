@@ -1,173 +1,168 @@
 'use client';
-import { useRouter } from 'next/navigation';
-import { useLang, t } from '@/lib/language-context';
-import { stories, partLabels, readMeFirst } from '@/lib/stories-data';
+import { useLang } from '@/lib/language-context';
+import { readMeFirst } from '@/lib/stories-data';
 
-export default function HomePage() {
-  const { lang } = useLang();
-  const router = useRouter();
-  const T = (key: string) => t[key][lang];
+export default function WelcomePage() {
+  const { lang, setLang } = useLang();
 
-  const parts = [1, 2, 3, 4, 5, 6];
+  const handleChoose = (chosen: 'ko' | 'en') => {
+    setLang(chosen);
+    window.open(readMeFirst[chosen], '_blank');
+  };
 
   return (
-    <div className="wrap" style={{ paddingTop: 40, paddingBottom: 60 }}>
+    <div style={styles.page}>
+      <div style={styles.container}>
 
-      {/* ── Read Me First Card ── */}
-      <a
-        href={readMeFirst[lang]}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={rmfStyles.card}
-      >
-        <span style={rmfStyles.badge}>
-          {lang === 'ko' ? '먼저 읽어주세요' : 'Read Me First'}
-        </span>
-        <div style={rmfStyles.title}>
-          {lang === 'ko' ? '베풂의 교만 이야기' : 'Arrogant Generosity'}
+        {/* Series title */}
+        <div style={styles.titleBlock}>
+          <p style={styles.seriesLabel}>
+            소그룹 나눔 자료 · Small Group Discussion Series
+          </p>
+          <h1 style={styles.titleKo}>베풂의 교만 이야기</h1>
+          <h2 style={styles.titleEn}>Arrogant Generosity</h2>
+          <p style={styles.author}>
+            박숭현 선교사 (Simon Park) · QuestionsOnly.Life
+          </p>
         </div>
-        <div style={rmfStyles.desc}>
-          {lang === 'ko'
-            ? '이야기들을 어떻게 읽고, 나누고, 활용하는지 안내합니다.'
-            : 'How to read, share, and use these stories.'}
-        </div>
-        <span style={rmfStyles.btn}>
-          {lang === 'ko' ? '읽기 시작하기 →' : 'Start Here →'}
-        </span>
-      </a>
 
-      {/* ── Page heading ── */}
-      <h1 className="sec__title">{T('storiesTitle')}</h1>
-      <p className="sec__sub" style={{ marginBottom: 28 }}>
-        {lang === 'ko' ? '38편 · 6부' : '38 Stories · 6 Parts'}
-      </p>
+        {/* Language choice */}
+        <div style={styles.choiceBlock}>
+          <p style={styles.choiceLabel}>언어를 선택해 주세요</p>
+          <p style={styles.choiceLabelEn}>Please choose your preferred language</p>
 
-      {/* ── Stories by part ── */}
-      {parts.map(part => {
-        const partStories = stories.filter(s => s.part === part);
-        const label = partLabels[part];
-        const partText = lang === 'ko' ? label.ko : label.en;
+          <div style={styles.btnRow}>
+            {/* Korean */}
+            <button
+              onClick={() => handleChoose('ko')}
+              style={styles.btnKo}
+            >
+              <span style={styles.btnMain}>한국어로 시작하기</span>
+              <span style={styles.btnSub}>먼저읽어주세요 열기 →</span>
+            </button>
 
-        return (
-          <div key={part} style={{ marginBottom: '2.5rem' }}>
-            <h2 style={partHeadingStyle}>{partText}</h2>
-            <div className="card-grid">
-              {partStories.map(s => {
-                const title = lang === 'ko' ? s.titleKo : s.titleEn;
-                const otherTitle = lang === 'ko' ? s.titleEn : s.titleKo;
-                const hasPpt = !!s.drivePptKo;
-
-                return (
-                  <div
-                    key={s.id}
-                    className="story-card"
-                    onClick={() => router.push(`/stories/${s.id}`)}
-                    style={{ cursor: 'pointer' }}
-                  >
-                    <span className="story-card__num">
-                      {lang === 'ko' ? `이야기 #${s.id}` : `Story #${s.id}`}
-                    </span>
-
-                    <div className="story-card__ko">{title}</div>
-                    <div className="story-card__en">{otherTitle}</div>
-
-                    {hasPpt && (
-                      <div style={{ marginBottom: 6 }}>
-                        <span style={pptBadgeStyle}>
-                          {lang === 'ko' ? '배경자료 PPT' : 'PPT'}
-                        </span>
-                      </div>
-                    )}
-
-                    <div style={{ marginTop: 8 }}>
-                      <div style={readBtnStyle}>
-                        {lang === 'ko' ? '읽기 →' : 'Read →'}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
+            {/* English */}
+            <button
+              onClick={() => handleChoose('en')}
+              style={styles.btnEn}
+            >
+              <span style={styles.btnMain}>Start in English</span>
+              <span style={styles.btnSub}>Open Read Me First →</span>
+            </button>
           </div>
-        );
-      })}
+
+          <p style={styles.switchNote}>
+            언제든지 다른 언어로 전환할 수 있습니다<br />
+            You can switch languages at any time while browsing
+          </p>
+        </div>
+
+      </div>
     </div>
   );
 }
 
-// ── Styles ──
-
-const rmfStyles: Record<string, React.CSSProperties> = {
-  card: {
-    display: 'block',
-    backgroundColor: 'var(--green)',
-    color: '#fff',
-    borderRadius: '14px',
-    padding: '1.5rem',
-    textDecoration: 'none',
-    marginBottom: '2.5rem',
-    cursor: 'pointer',
+const styles: Record<string, React.CSSProperties> = {
+  page: {
+    minHeight: '100vh',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'var(--bg)',
+    padding: '2rem 1rem',
   },
-  badge: {
-    display: 'inline-block',
-    backgroundColor: 'rgba(255,255,255,0.25)',
-    borderRadius: '999px',
-    padding: '0.2rem 0.75rem',
-    fontSize: '0.75rem',
-    fontWeight: 700,
+  container: {
+    maxWidth: '480px',
+    width: '100%',
+    textAlign: 'center',
+  },
+  titleBlock: {
+    marginBottom: '3rem',
+  },
+  seriesLabel: {
+    fontSize: '0.8rem',
+    color: 'var(--faint)',
     letterSpacing: '0.05em',
-    textTransform: 'uppercase' as const,
+    marginBottom: '1rem',
+  },
+  titleKo: {
+    fontSize: '2rem',
+    fontWeight: 700,
+    color: 'var(--text)',
+    marginBottom: '0.25rem',
+  },
+  titleEn: {
+    fontSize: '1.3rem',
+    fontWeight: 400,
+    color: 'var(--faint)',
     marginBottom: '0.75rem',
   },
-  title: {
-    fontSize: '1.3rem',
-    fontWeight: 700,
-    marginBottom: '0.4rem',
+  author: {
+    fontSize: '0.85rem',
+    color: 'var(--faint)',
   },
-  desc: {
+  choiceBlock: {
+    backgroundColor: 'var(--card-bg)',
+    borderRadius: '16px',
+    padding: '2rem 1.5rem',
+    border: '1px solid var(--rule)',
+  },
+  choiceLabel: {
+    fontSize: '1.1rem',
+    fontWeight: 600,
+    color: 'var(--text)',
+    marginBottom: '0.25rem',
+  },
+  choiceLabelEn: {
     fontSize: '0.9rem',
-    opacity: 0.9,
-    marginBottom: '1rem',
+    color: 'var(--faint)',
+    marginBottom: '1.5rem',
+  },
+  btnRow: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '0.75rem',
+    marginBottom: '1.5rem',
+  },
+  btnKo: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '0.25rem',
+    backgroundColor: 'var(--green)',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '10px',
+    padding: '1rem',
+    cursor: 'pointer',
+    fontFamily: 'inherit',
+    width: '100%',
+  },
+  btnEn: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '0.25rem',
+    backgroundColor: 'transparent',
+    color: 'var(--text)',
+    border: '1px solid var(--rule)',
+    borderRadius: '10px',
+    padding: '1rem',
+    cursor: 'pointer',
+    fontFamily: 'inherit',
+    width: '100%',
+  },
+  btnMain: {
+    fontSize: '1rem',
+    fontWeight: 700,
+  },
+  btnSub: {
+    fontSize: '0.8rem',
+    opacity: 0.8,
+  },
+  switchNote: {
+    fontSize: '0.78rem',
+    color: 'var(--faint)',
     lineHeight: 1.6,
   },
-  btn: {
-    display: 'inline-block',
-    backgroundColor: '#fff',
-    color: 'var(--green)',
-    borderRadius: '8px',
-    padding: '0.4rem 1rem',
-    fontWeight: 700,
-    fontSize: '0.85rem',
-  },
-};
-
-const partHeadingStyle: React.CSSProperties = {
-  fontSize: '0.85rem',
-  fontWeight: 600,
-  color: 'var(--faint)',
-  textTransform: 'uppercase',
-  letterSpacing: '0.06em',
-  marginBottom: '0.75rem',
-  paddingBottom: '0.4rem',
-  borderBottom: '1px solid var(--rule)',
-};
-
-const pptBadgeStyle: React.CSSProperties = {
-  display: 'inline-block',
-  fontSize: 9,
-  fontWeight: 700,
-  background: '#e8f0fb',
-  color: '#1a4a8a',
-  padding: '2px 7px',
-  borderRadius: 999,
-};
-
-const readBtnStyle: React.CSSProperties = {
-  background: 'var(--green)',
-  color: '#fff',
-  fontSize: 11,
-  fontWeight: 700,
-  padding: '6px 10px',
-  borderRadius: 6,
-  textAlign: 'center',
 };
