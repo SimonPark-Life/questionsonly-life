@@ -15,7 +15,12 @@ export interface Story {
   digestEn: string
   driveKo: string
   driveEn: string
+  driveFileKo: string
+  driveFileEn: string
   drivePptKo?: string
+  slug?: string
+  audiences?: string[]
+  tags?: string[]
 }
 
 const d = (id: string) => `https://docs.google.com/document/d/${id}/edit`
@@ -36,6 +41,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Arrogant Generosity card text -->',
     driveKo: d('1UAjceY0'),
     driveEn: d('1rUMNlz4'),
+    driveFileKo: d('1UAjceY0'),
+    driveFileEn: d('1rUMNlz4'),
   },
   {
     id: 2,
@@ -48,6 +55,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Hamburger and Fries card text (EN) -->',
     driveKo: d('1xy-uc0-'),
     driveEn: d('17UZMqsK'),
+    driveFileKo: d('1xy-uc0-'),
+    driveFileEn: d('17UZMqsK'),
   },
   {
     id: 3,
@@ -60,6 +69,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: May I Help YOU? card text (EN) -->',
     driveKo: d('163fHpkx'),
     driveEn: d('15V93Xvz'),
+    driveFileKo: d('163fHpkx'),
+    driveFileEn: d('15V93Xvz'),
   },
   {
     id: 4,
@@ -72,6 +83,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: React and Respond card text -->',
     driveKo: d('1hw1jUWN'),
     driveEn: d('1WO9H9vQ'),
+    driveFileKo: d('1hw1jUWN'),
+    driveFileEn: d('1WO9H9vQ'),
   },
   {
     id: 5,
@@ -84,6 +97,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Motor Boats, Sail Boats, Barges card text -->',
     driveKo: d('1P80WP-f'),
     driveEn: d('17QD51DG'),
+    driveFileKo: d('1P80WP-f'),
+    driveFileEn: d('17QD51DG'),
   },
 
   // ─── 2부 · Part 2 — 이웃으로 산다는 것 · On Living as a Neighbor ───
@@ -99,6 +114,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Neighbor Is Not a Geographical Term card text -->',
     driveKo: d('1LcaL3rX'),
     driveEn: d('1hd3jOkh'),
+    driveFileKo: d('1LcaL3rX'),
+    driveFileEn: d('1hd3jOkh'),
   },
   {
     id: 7,
@@ -111,6 +128,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Stepping Aside and Tipping the Hat card text -->',
     driveKo: d('1Kn_IMxN'),
     driveEn: d('1wLLS0sS'),
+    driveFileKo: d('1Kn_IMxN'),
+    driveFileEn: d('1wLLS0sS'),
   },
   {
     id: 8,
@@ -123,6 +142,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: The Avocado Tree card text -->',
     driveKo: d('1oa2_tCl'),
     driveEn: d('1IMhtJVB'),
+    driveFileKo: d('1oa2_tCl'),
+    driveFileEn: d('1IMhtJVB'),
   },
   {
     id: 9,
@@ -135,6 +156,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Teaching with Humility and Trust card text -->',
     driveKo: d('15skZ513'),
     driveEn: d('1lEmZ_B3'),
+    driveFileKo: d('15skZ513'),
+    driveFileEn: d('1lEmZ_B3'),
   },
   {
     id: 10,
@@ -147,6 +170,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: The Power of Humility card text -->',
     driveKo: d('1dIXQV8W'),
     driveEn: d('1g-yYBB1'),
+    driveFileKo: d('1dIXQV8W'),
+    driveFileEn: d('1g-yYBB1'),
   },
   {
     id: 11,
@@ -159,6 +184,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: A Missionary Learning from Neighbors card text -->',
     driveKo: d('1jUhINK-'),
     driveEn: d('10roRzQh'),
+    driveFileKo: d('1jUhINK-'),
+    driveFileEn: d('10roRzQh'),
     drivePptKo: p('1ShrpJjd'),
   },
   {
@@ -172,6 +199,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Learning a Language card text -->',
     driveKo: d('1DEojH3Z'),
     driveEn: d('1GRKjFfM'),
+    driveFileKo: d('1DEojH3Z'),
+    driveFileEn: d('1GRKjFfM'),
   },
   {
     id: 13,
@@ -184,6 +213,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: How Many People Have You Converted? card text -->',
     driveKo: d('1vbVdRKG'),
     driveEn: d('1PenqwDh'),
+    driveFileKo: d('1vbVdRKG'),
+    driveFileEn: d('1PenqwDh'),
     drivePptKo: p('1ShrpJjd'),
   },
   {
@@ -197,6 +228,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: An Elderly Man from a Rural Church in Congo card text -->',
     driveKo: d('1E3GWzqP'),
     driveEn: d('1sXzAyDI'),
+    driveFileKo: d('1E3GWzqP'),
+    driveFileEn: d('1sXzAyDI'),
     drivePptKo: p('1fhFd4q3'),
   },
 
@@ -213,6 +246,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Hasty Solutions card text -->',
     driveKo: d('100qNMYv'),
     driveEn: d('1BstoWqX'),
+    driveFileKo: d('100qNMYv'),
+    driveFileEn: d('1BstoWqX'),
     drivePptKo: p('1Aq0-QyF'),
   },
   {
@@ -226,6 +261,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Dakoro\'s Gift card text -->',
     driveKo: d('1jZuv9ad'),
     driveEn: d('1HDItjzd'),
+    driveFileKo: d('1jZuv9ad'),
+    driveFileEn: d('1HDItjzd'),
     drivePptKo: p('1fhFd4q3'),
   },
   {
@@ -239,6 +276,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: As I Go card text -->',
     driveKo: d('15HZQO59'),
     driveEn: d('1QiP6a9H'),
+    driveFileKo: d('15HZQO59'),
+    driveFileEn: d('1QiP6a9H'),
   },
   {
     id: 18,
@@ -251,6 +290,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: The Disease of the Zealous card text -->',
     driveKo: d('1GFvJc6d'),
     driveEn: d('1OT0f54I'),
+    driveFileKo: d('1GFvJc6d'),
+    driveFileEn: d('1OT0f54I'),
   },
   {
     id: 19,
@@ -263,6 +304,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Disaster card text -->',
     driveKo: d('10AaOMbp'),
     driveEn: d('1p0b-ap4'),
+    driveFileKo: d('10AaOMbp'),
+    driveFileEn: d('1p0b-ap4'),
   },
   {
     id: 20,
@@ -275,6 +318,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: I Am Speaking to My Son card text -->',
     driveKo: d('1y9bcqVX'),
     driveEn: d('1eShMcCB'),
+    driveFileKo: d('1y9bcqVX'),
+    driveFileEn: d('1eShMcCB'),
   },
 
   // ─── 4부 · Part 4 — 편견에 갇힌 우리 · Caught Inside Our Own Frames ───
@@ -290,6 +335,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Yo-han card text -->',
     driveKo: d('1N58qRs1'),
     driveEn: d('1pQ0UtuZ'),
+    driveFileKo: d('1N58qRs1'),
+    driveFileEn: d('1pQ0UtuZ'),
   },
   {
     id: 22,
@@ -302,6 +349,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Today\'s Discrimination Against Sexual Minorities card text -->',
     driveKo: d('1mwW2ZGA'),
     driveEn: d('1QFBtoym'),
+    driveFileKo: d('1mwW2ZGA'),
+    driveFileEn: d('1QFBtoym'),
   },
   {
     id: 23,
@@ -314,6 +363,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Quantity, Quality card text -->',
     driveKo: d('14H10Q2f'),
     driveEn: d('1fJV29t6'),
+    driveFileKo: d('14H10Q2f'),
+    driveFileEn: d('1fJV29t6'),
     drivePptKo: p('1mJLohny'),
   },
   {
@@ -327,6 +378,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Historical Facts and Truth card text -->',
     driveKo: d('1Z-LzHPJ'),
     driveEn: d('1DzOJ7Wi'),
+    driveFileKo: d('1Z-LzHPJ'),
+    driveFileEn: d('1DzOJ7Wi'),
     drivePptKo: p('1C5Q7uwR'),
   },
   {
@@ -340,6 +393,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: There\'s Nothing We Don\'t Know card text -->',
     driveKo: d('1TX-BT1P'),
     driveEn: d('1-dkaITP'),
+    driveFileKo: d('1TX-BT1P'),
+    driveFileEn: d('1-dkaITP'),
   },
   {
     id: 26,
@@ -352,6 +407,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Nth-Degree Equation card text -->',
     driveKo: d('177Ze5ti'),
     driveEn: d('1jK_ltel'),
+    driveFileKo: d('177Ze5ti'),
+    driveFileEn: d('1jK_ltel'),
   },
   {
     id: 27,
@@ -364,6 +421,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Sacrificing Myself card text -->',
     driveKo: d('1HCEi5ZV'),
     driveEn: d('1Inc42aR'),
+    driveFileKo: d('1HCEi5ZV'),
+    driveFileEn: d('1Inc42aR'),
   },
 
   // ─── 5부 · Part 5 — 정의와 치유 · Justice and Healing ───
@@ -379,6 +438,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Justice and Mercy card text -->',
     driveKo: d('1VfsHd8j'),
     driveEn: d('1HrT9tGb'),
+    driveFileKo: d('1VfsHd8j'),
+    driveFileEn: d('1HrT9tGb'),
   },
   {
     id: 29,
@@ -391,6 +452,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Taxila Christian Hospital card text -->',
     driveKo: d('15YEt7s-'),
     driveEn: d('1npUkWWj'),
+    driveFileKo: d('15YEt7s-'),
+    driveFileEn: d('1npUkWWj'),
     drivePptKo: p('1yZQ8P9i'),
   },
   {
@@ -404,6 +467,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Whole Person Healing card text -->',
     driveKo: d('14_M9bWS'),
     driveEn: d('122ePSzS'),
+    driveFileKo: d('14_M9bWS'),
+    driveFileEn: d('122ePSzS'),
     drivePptKo: p('1yZQ8P9i'),
   },
   {
@@ -417,6 +482,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Beyond the Enemy card text -->',
     driveKo: d('1xHibnha'),
     driveEn: d('100FxFnN'),
+    driveFileKo: d('1xHibnha'),
+    driveFileEn: d('100FxFnN'),
     drivePptKo: p('1mDUazuA'),
   },
   {
@@ -430,6 +497,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Social Justice card text -->',
     driveKo: d('1GOVCdeZ'),
     driveEn: d('1CxLhr86'),
+    driveFileKo: d('1GOVCdeZ'),
+    driveFileEn: d('1CxLhr86'),
   },
 
   // ─── 6부 · Part 6 — 풍성한 삶이란? · What Is a Full Life? ───
@@ -445,6 +514,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Pursuing the Best card text -->',
     driveKo: d('1jHxka8h'),
     driveEn: d('1QkWh67O'),
+    driveFileKo: d('1jHxka8h'),
+    driveFileEn: d('1QkWh67O'),
   },
   {
     id: 34,
@@ -457,6 +528,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: God\'s Grace Is Sufficient card text -->',
     driveKo: d('14XCkAg9'),
     driveEn: d('1nD6uWXy'),
+    driveFileKo: d('14XCkAg9'),
+    driveFileEn: d('1nD6uWXy'),
   },
   {
     id: 35,
@@ -469,6 +542,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: What Difference Does One Person\'s Death Make? card text -->',
     driveKo: d('1gAwREYZ'),
     driveEn: d('1tqOs6pV'),
+    driveFileKo: d('1gAwREYZ'),
+    driveFileEn: d('1tqOs6pV'),
   },
   {
     id: 36,
@@ -481,6 +556,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: A Story Made Together with Readers card text -->',
     driveKo: d('18VlAlUZ'),
     driveEn: d('1U45hWW2'),
+    driveFileKo: d('18VlAlUZ'),
+    driveFileEn: d('1U45hWW2'),
   },
   {
     id: 37,
@@ -493,6 +570,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: Finding My Mission Field at Home card text -->',
     driveKo: d('1Dk6qJZC'),
     driveEn: d('1u8rpdC5'),
+    driveFileKo: d('1Dk6qJZC'),
+    driveFileEn: d('1u8rpdC5'),
   },
   {
     id: 38,
@@ -505,6 +584,8 @@ export const stories: Story[] = [
     digestEn: '<!-- TODO: A Small Smile card text -->',
     driveKo: d('1ppL6khn'),
     driveEn: d('1DJ1RivJ'),
+    driveFileKo: d('1ppL6khn'),
+    driveFileEn: d('1DJ1RivJ'),
   },
 ]
 
@@ -524,8 +605,3 @@ export const readMeFirst = {
   en: 'https://docs.google.com/document/d/1bhCEx6M7Y9_9Uiql62jpugu_B0JiM2SP/edit',
 }
 
-// Add driveFileKo / driveFileEn aliases for backward compatibility
-stories.forEach(s => {
-  ;(s as any).driveFileKo = s.driveKo
-  ;(s as any).driveFileEn = s.driveEn
-})
