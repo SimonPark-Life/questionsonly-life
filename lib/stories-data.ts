@@ -523,3 +523,9 @@ export const readMeFirst = {
   ko: 'https://docs.google.com/document/d/1nqi3Ms9JqXTuMPLAK7QzkmpLNTg-sS3V/edit',
   en: 'https://docs.google.com/document/d/1bhCEx6M7Y9_9Uiql62jpugu_B0JiM2SP/edit',
 }
+
+// Add driveFileKo / driveFileEn aliases for backward compatibility
+stories.forEach(s => {
+  ;(s as any).driveFileKo = s.driveKo
+  ;(s as any).driveFileEn = s.driveEn
+})
