@@ -1,154 +1,160 @@
-'use client';
-import { useState } from 'react';
-import { useLang, t } from '@/lib/language-context';
-import { stories } from '@/lib/stories-data';
+'use client'
 
-const audienceKeys: Record<string, string> = {
-  'young-adults':      'youngAdults',
-  'mid-career':        'midCareer',
-  'retirees':          'retirees',
-  'mission-trainees':  'missionTrainees',
-  'first-small-group': 'firstSmallGroup',
-};
+import { useRouter } from 'next/navigation'
+import { useLang, t } from '@/lib/language-context'
+import { stories, partLabels } from '@/lib/stories-data'
 
 export default function StoriesPage() {
-  const { lang } = useLang();
-  const T = (key: string) => t[key][lang];
-  const [filter, setFilter] = useState('all');
+  const { lang } = useLang()
+  const router = useRouter()
 
-  const visible = stories.filter(s =>
-    filter === 'all' || s.audiences.includes(filter)
-  );
+  // Group stories by part
+  const parts = [1, 2, 3, 4, 5, 6]
 
   return (
-    <div className="wrap" style={{ paddingTop: 40, paddingBottom: 60 }}>
+    <div style={styles.page}>
+      <div style={styles.container}>
+        <h1 style={styles.heading}>
+          {lang === 'ko' ? '베풂의 교만 이야기' : 'Arrogant Generosity'}
+        </h1>
+        <p style={styles.subheading}>
+          {lang === 'ko' ? '38편 · 6부' : '38 Stories · 6 Parts'}
+        </p>
 
-      <h1 className="sec__title">{T('storiesTitle')}</h1>
-      <p className="sec__sub" style={{ marginBottom: 28 }}>
-        {T('storiesSub')}
-      </p>
+        {parts.map(part => {
+          const partStories = stories.filter(s => s.part === part)
+          const label = partLabels[part]
+          const partText = lang === 'ko' ? label.ko : label.en
 
-      <div className="filter-bar">
-        <span className="filter-bar__label">{T('filterLabel')}</span>
-        <button
-          className={`fbtn${filter === 'all' ? ' active' : ''}`}
-          onClick={() => setFilter('all')}
-        >
-          {T('allAudience')}
-        </button>
-        {Object.entries(audienceKeys).map(([k, tk]) => (
-          <button
-            key={k}
-            className={`fbtn${filter === k ? ' active' : ''}`}
-            onClick={() => setFilter(k)}
-          >
-            {T(tk)}
-          </button>
-        ))}
-      </div>
+          return (
+            <div key={part} style={styles.partSection}>
+              <h2 style={styles.partHeading}>{partText}</h2>
+              <div style={styles.grid}>
+                {partStories.map(story => {
+                  const title = lang === 'ko' ? story.titleKo : story.titleEn
+                  const subtitle = lang === 'ko' ? story.subtitleKo : story.subtitleEn
+                  const hasPpt = !!story.drivePptKo
 
-      <p style={{ fontSize: 12, color: 'var(--faint)', marginBottom: 20 }}>
-        {visible.length}{lang === 'ko' ? '편' : ' stories'}
-      </p>
-
-           <div className="card-grid">
-            {visible.map(s => (
-              <div
-                key={s.id}
-                className="story-card"
-                onClick={() => window.open(lang === 'ko' ? (s.driveFileKo || '/download') : (s.driveFileEn || '/download'), '_blank')}
-                style={{ cursor: 'pointer' }}
-              >
-                <span className="story-card__num">
-                  {lang === 'ko' ? `이야기 #${s.id}` : `Story #${s.id}`}
-                </span>
-                <div className="story-card__ko">
-                  {lang === 'ko' ? s.titleKo : s.titleEn}
-                </div>
-                <div className="story-card__en">
-                  {lang === 'ko' ? s.titleEn : s.titleKo}
-                </div>
-
-                {lang === 'ko' && s.drivePptKo && (
-                  <div style={{ marginBottom: 6 }}>
-                    <span style={{
-                      display: 'inline-block',
-                      fontSize: 9,
-                      fontWeight: 700,
-                      background: '#e8f0fb',
-                      color: '#1a4a8a',
-                      padding: '2px 7px',
-                      borderRadius: 999,
-                    }}>
-                      배경자료 PPT
-                    </span>
-                  </div>
-                )}
-
-                <div style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: 5,
-                  marginTop: 8,
-                }}>
-                  <div style={{
-                    background: 'var(--green)',
-                    color: '#fff',
-                    fontSize: 11,
-                    fontWeight: 700,
-                    padding: '6px 10px',
-                    borderRadius: 6,
-                    textAlign: 'center',
-                  }}>
-                    {lang === 'ko' ? '↓ 한국어 다운로드' : '↓ Download English'}
-                  </div>
-
-                  
-                  <a href={lang === 'ko' ? (s.driveFileEn || '/download') : (s.driveFileKo || '/download')}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={e => e.stopPropagation()}
-                    style={{
-                      display: 'block',
-                      background: 'transparent',
-                      color: 'var(--faint)',
-                      fontSize: 10,
-                      fontWeight: 600,
-                      padding: '4px 10px',
-                      borderRadius: 6,
-                      textDecoration: 'none',
-                      textAlign: 'center',
-                      border: '1px solid var(--rule)',
-                    }}
-                  >
-                    {lang === 'ko' ? '↓ English' : '↓ 한국어'}
-                  </a>
-
-                  {lang === 'ko' && s.drivePptKo && (
-                    
-                  <a href={s.drivePptKo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={e => e.stopPropagation()}
-                      style={{
-                        display: 'block',
-                        background: '#e8f0fb',
-                        color: '#1a4a8a',
-                        fontSize: 10,
-                        fontWeight: 700,
-                        padding: '4px 10px',
-                        borderRadius: 6,
-                        textDecoration: 'none',
-                        textAlign: 'center',
-                      }}
+                  return (
+                    <div
+                      key={story.id}
+                      style={styles.card}
+                      onClick={() => router.push(`/stories/${story.id}`)}
                     >
-                      ↓ 배경자료 PPT
-                    </a>
-                  )}
-                </div>
+                      <div style={styles.cardHeader}>
+                        <span style={styles.storyNum}>
+                          {lang === 'ko' ? `이야기 ${story.id}` : `Story ${story.id}`}
+                        </span>
+                        {hasPpt && (
+                          <span style={styles.pptBadge}>PPT</span>
+                        )}
+                      </div>
+                      <h3 style={styles.cardTitle}>{title}</h3>
+                      {subtitle && (
+                        <p style={styles.cardSubtitle}>{subtitle}</p>
+                      )}
+                      <span style={styles.readMore}>
+                        {lang === 'ko' ? '읽기 →' : 'Read →'}
+                      </span>
+                    </div>
+                  )
+                })}
               </div>
-            ))}
-          </div>
+            </div>
+          )
+        })}
+      </div>
     </div>
-  );
+  )
+}
+
+const styles: Record<string, React.CSSProperties> = {
+  page: {
+    minHeight: '100vh',
+    backgroundColor: 'var(--bg)',
+    padding: '2rem 1rem 4rem',
+  },
+  container: {
+    maxWidth: '900px',
+    margin: '0 auto',
+  },
+  heading: {
+    fontSize: '2rem',
+    fontWeight: 700,
+    color: 'var(--text)',
+    marginBottom: '0.25rem',
+  },
+  subheading: {
+    fontSize: '0.95rem',
+    color: 'var(--text-muted)',
+    marginBottom: '3rem',
+  },
+  partSection: {
+    marginBottom: '3rem',
+  },
+  partHeading: {
+    fontSize: '1rem',
+    fontWeight: 600,
+    color: 'var(--accent)',
+    textTransform: 'uppercase',
+    letterSpacing: '0.06em',
+    marginBottom: '1rem',
+    paddingBottom: '0.5rem',
+    borderBottom: '1px solid var(--border)',
+  },
+  grid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
+    gap: '1rem',
+  },
+  card: {
+    backgroundColor: 'var(--card-bg)',
+    border: '1px solid var(--border)',
+    borderRadius: '12px',
+    padding: '1.25rem',
+    cursor: 'pointer',
+    transition: 'border-color 0.15s, box-shadow 0.15s',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  cardHeader: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: '0.5rem',
+  },
+  storyNum: {
+    fontSize: '0.75rem',
+    color: 'var(--text-muted)',
+    fontWeight: 500,
+  },
+  pptBadge: {
+    fontSize: '0.65rem',
+    backgroundColor: 'var(--accent)',
+    color: '#fff',
+    borderRadius: '4px',
+    padding: '0.1rem 0.4rem',
+    fontWeight: 600,
+    letterSpacing: '0.05em',
+  },
+  cardTitle: {
+    fontSize: '1rem',
+    fontWeight: 600,
+    color: 'var(--text)',
+    lineHeight: 1.35,
+    marginBottom: '0.4rem',
+  },
+  cardSubtitle: {
+    fontSize: '0.82rem',
+    color: 'var(--text-muted)',
+    lineHeight: 1.5,
+    marginBottom: '0.75rem',
+    flex: 1,
+  },
+  readMore: {
+    fontSize: '0.82rem',
+    color: 'var(--accent)',
+    fontWeight: 600,
+    marginTop: 'auto',
+  },
 }
