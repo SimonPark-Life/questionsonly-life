@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 import { useLang, t } from '@/lib/language-context'
-import { stories, partLabels } from '@/lib/stories-data'
+import { stories, partLabels, readMeFirst } from '@/lib/stories-data'
 
 export default function StoriesPage() {
   const { lang } = useLang()
@@ -17,6 +17,19 @@ export default function StoriesPage() {
         <h1 style={styles.heading}>
           {lang === 'ko' ? '베풂의 교만 이야기' : 'Arrogant Generosity'}
         </h1>
+        /* Read Me First banner */
+        <a
+          href={readMeFirst[lang]}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={styles.readMeFirstBanner}
+        >
+          <span style={styles.rmfLabel}>
+            {lang === 'ko' ? '먼저 읽어주세요' : 'Read Me First'}
+          </span>
+          <span style={styles.rmfArrow}>↗</span>
+        </a>
+
         <p style={styles.subheading}>
           {lang === 'ko' ? '38편 · 6부' : '38 Stories · 6 Parts'}
         </p>
@@ -150,6 +163,25 @@ const styles: Record<string, React.CSSProperties> = {
     lineHeight: 1.5,
     marginBottom: '0.75rem',
     flex: 1,
+  },
+  readMeFirstBanner: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: 'var(--green)',
+    color: '#fff',
+    borderRadius: '10px',
+    padding: '0.75rem 1.25rem',
+    textDecoration: 'none',
+    marginBottom: '1.5rem',
+    fontSize: '0.95rem',
+    fontWeight: 600,
+  },
+  rmfLabel: {
+    display: 'inline' as const,
+  },
+  rmfArrow: {
+    fontSize: '1.1rem',
   },
   readMore: {
     fontSize: '0.82rem',
