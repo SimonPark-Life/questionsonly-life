@@ -21,6 +21,8 @@ export interface Story {
   slug?: string
   audiences?: string[]
   tags?: string[]
+  textEn?: string
+  questionsEn?: string[]
 }
 
 const d = (id: string) => `https://docs.google.com/document/d/${id}/edit`
