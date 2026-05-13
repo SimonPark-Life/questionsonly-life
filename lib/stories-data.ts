@@ -1,725 +1,525 @@
-// lib/stories-data.ts
+// stories-data.ts
+// 베풂의 교만 이야기 · Arrogant Generosity
+// 38편 · 6부 — Final arrangement
+
+export type Lang = 'ko' | 'en'
 
 export interface Story {
-  id: number;
-  slug: string;
-  titleKo: string;
-  titleEn: string;
-  tags: string[];
-  audiences: string[];
-  textEn: string;
-  questionsEn: string[];
-  driveFileEn?: string;
-  driveFileKo?: string;
-  drivePptKo?: string;
+  id: number
+  part: number
+  titleKo: string
+  titleEn: string
+  subtitleKo: string
+  subtitleEn: string
+  digestKo: string
+  digestEn: string
+  driveKo: string
+  driveEn: string
+  drivePptKo?: string
 }
 
-const e = (id: string) => `https://docs.google.com/document/d/${id}/edit`;
-
-// English links — mapped by website story ID
-const EN: Record<number, string> = {
-  1:  e('1rUMNlz4ciLC35WnJCFEoOXUYVEVfwtoD'), // Story01_ArroganceofGenerocity
-  2:  e('17UZMqsKenPkkDOxe-n4dvkh2Zyx0ggyx'), // Story02_AvocadoTree
-  3:  e('15V93XvzayMSuFezIdLkA7BxuP6zxs0xm'), // Story17_AHastySolution
-  4:  e('1WO9H9vQJhC8pLKbpj2IMGYUIef9WH0MY'), // Story04_MulticulturalFamily
-  5:  e('17QD51DGDOM2NRtWUxox6N50qvIlN1Adv'), // Story05_DakorosGift
-  6:  e('1hd3jOkh4EPB6H5ST_yvlHKlBX7mJaGxK'), // Story06_MotorBoats
-  7:  e('1wLLS0sSa6NiyjRlHi3cTG-5tEEqelNST'), // Story24_SacrificingMyself
-  8:  e('1IMhtJVBs-m3qGNfOACZMWb5XEUNI9Dti'), // Story08_JusticeAndMercy
-  9:  e('1lEmZ_B3pu5vbmlgloAx5R0owFrYLskBO'), // Story09_IAmSpeakingToMySon
-  10: e('1g-yYBB1IrddX-E-nyW8iQr-ExBQr-QnC'), // Story10_DiscriminationSexualMinorities
-  11: e('10roRzQhNGCoVUDusC67tws_6dwrtkzoR'), // Story11_HowManyPeople
-  12: e('1GRKjFfMMJ_d87jiKcvOy7NMMpOc67PhV'), // Story14_NthDegreeEquation
-  13: e('1PenqwDh18_F-3eO2Kqn4Mrz3v0oeVXIh'), // Story13_Disaster
-  14: e('1sXzAyDIcSYjnC8EKbieYN2KBmY1C_zyo'), // Story07_ThePowerOfHumility
-  15: e('1BstoWqXlEMdGwsNtz5K7Wzh1_gcnQ4AD'), // Story15_QuantityQualityTruth
-  16: e('1HDItjzdndvsI7qZK2Tyz-fwLGst2r2Zp'), // Story16_AdultFromRuralChurchCongo
-  17: e('1QiP6a9HCKNaGsMVlP344qU_bdipaN3z0'), // Story12_NeighborNotGeographical
-  18: e('1OT0f54IFE_Ws2maA9aFZ0KDhioU2uPDh'), // Story18_SteppingAside
-  19: e('1p0b-ap4Xc86XhMizgon5D6irTDjU2pBC'), // Story19_TaxilaChristianHospital
-  20: e('1eShMcCBDpGeI9HNNMY3p-NUcCIIr6lDJ'), // Story20_LearningALanguage
-  21: e('1pQ0UtuZhKjH18x2F2H9axGkOs5j-0JNU'), // Story21_TeachingWithHumility
-  22: e('1QFBtoymQs3uFZD86EhHO3zUY36C79qbZ'), // Story22_AsIGo
-  23: e('1fJV29t6u-DQmFK-wLKcoiXzmVQ8MEPlo'), // Story23_MissionariesLearningFromNeighbors
-  24: e('1DzOJ7WiLNoM5xWTEUaYelg6B-sUa9W6x'), // Story03_HistoricalFactsAndTruth
-  25: e('1-dkaITP2H-FDtIlV8nRfmi4VkMmpRzxq'), // Story25_TheresNothingIDontKnow
-  26: e('1jK_ltelFN9LkTdy0nxvz8Eh0aXOVbGFF'), // Story26_PursuingTheBest
-  27: e('1Inc42aRacEBrz-eAfKMhQIHK1wLN6gPJ'), // Story27_GodsGraceIsSufficient
-  28: e('1HrT9tGbz9n9_WP4efk2RxK_EikqjSDer'), // Story28_BeyondTheEnemy
-  29: e('1npUkWWjfE8aFIUSUvyeQslxaHqXwXi49'), // Story29_AfterDeathBodyDisposition
-  30: e('122ePSzSpLG6OG8ta5Vx4txAHXXVobYNb'), // Story30_DiseaseOfTheZealous
-  31: e('100FxFnNuaVv9CMTniO98cNmrISDiTc0x'), // Story31_HamburgerAndFries
-  32: e('1CxLhr869z9PFyti_lQBHHuHyLK6DATbx'), // Story32_ReactAndRespond
-  33: e('1QkWh67OVuo9H9rzEW3mzSovV0Bv7uJAs'), // Story33_MayIHelpYOU
-  34: e('1nD6uWXyq2q5XuQR_Pn-x_EBeuWlyKBBW'), // Story34_WhatDifferenceDoesOneDeathMake
-  35: e('1tqOs6pVslfLRa4DFKgGOmqMCELOzPQiW'), // Story35_AStoryMadeTogetherWithReaders
-  36: e('1U45hWW2MKBetTAsJP9c5p9RZiOlN9S8q'), // Story36_TheSchoolUniform
-  37: e('1u8rpdC50zsNSI6N7eBCfhrMuRKYfbdtc'), // Story37_RealityIsDifferent
-  38: e('1DJ1RivJ876jChKSAyxscHHskrsQUEy3k'), // Story38_WholePersonHealing
-  39: e('1_vofaDacmh1nxIFuH2Iow6AnKReQjCfg'), // Story39_ASmallSmile
-  40: e('1xf51YOW8sha_zYIZFaJjZaWTR03Zy5ek'), // Story40_SocialJustice
-  41: e('1Y362Bn0BpHBszqmIdyvTWuOpqp-p4udGI10FnAISjtg'), // Story41_FindingMyMissionField
-};
-
-// Korean links — same website ID mapping as English
-const KO: Record<number, string> = {
-  1:  e('1UAjceY0LwK3dHCY4Hs5T5aB9qBaUBAUc'), // 이야기01_베풂의교만
-  2:  e('1xy-uc0-qvZcinmPF6iEPIzYKYQ84B9bu'), // 이야기02_아보카도나무
-  3:  e('163fHpkxx1zmQ9Q27MtWSdcTNIGPKMRMy'), // 이야기17_섣부른해결책
-  4:  e('1hw1jUWNOg3hTwtDoj2lHdax-qeQd7ClM'), // 이야기04_요한이
-  5:  e('1P80WP-fRT9lOd_Iav5diSvrjNRNAhjBd'), // 이야기5_다코로의선물
-  6:  e('1LcaL3rX-IdMld8otsGBAvcHGnZrhFDem'), // 이야기6_기선범선부선
-  7:  e('1Kn_IMxNnX2bPQwET5Vc_6P-4OMwEoLq8'), // 이야기24_나하나를바쳐서
-  8:  e('1oa2_tClNXaqeWdRiQY4ZC414QBsHz_ZM'), // 이야기8_정의와자비
-  9:  e('15skZ513aok6O6PUxpXtLrd9d84_i1az5'), // 이야기9_내아들에게말하는중이다
-  10: e('1dIXQV8WUJ12UPaK_MADD9yg1iR1Ma_iA'), // 이야기10_성소수자차별
-  11: e('1jUhINK-WmX2BWEctXr3hzimvivjQE42J'), // 이야기11_몇명이나전도했어요
-  12: e('1DEojH3Z6uljkDR-Kihfn9MfkSHQFbXah'), // 이야기14_N차방정식
-  13: e('1vbVdRKGnKebspnMEyY1czP9oBIqj6uvX'), // 이야기13_재난
-  14: e('1E3GWzqPd15DkRmPWNCPvJ7v5mDHYXMIn'), // 이야기7_겸손의힘
-  15: e('100qNMYv6gyIdRIC-CqhIm-fxXNrTEFMN'), // 이야기15_모양과질그리고진실
-  16: e('1jZuv9adl3KykoT6yNYSXaReZTCXFfrDT'), // 이야기16_콩고시골교회어른
-  17: e('15HZQO59pcRY5Gxq7OGunAk42x5DpnqzQ'), // 이야기12_이웃은지리적용어가아닙니다
-  18: e('1GFvJc6dh6gf3WFu2Xy2MlIDC3mKXl6hc'), // 이야기18_길에서벗어나모자를기울이기
-  19: e('10AaOMbpOR97KB8pFr67y72LPgY2eYktB'), // 이야기19_탁실라기독병원
-  20: e('1y9bcqVXFhrgmD4rykHoX0wlXphc7EKmX'), // 이야기20_언어배우기
-  21: e('1N58qRs1642nrx0-iBdUgulgNG68KmV4B'), // 이야기21_겸손과신뢰로가르치다
-  22: e('1mwW2ZGAR3dTVIC1cVhMLVKo212QpOCIr'), // 이야기22_내가가서
-  23: e('14H10Q2fFiAkxjA4hpsrYvP-QhgovZI-t'), // 이야기23_이웃에게서배우는선교사
-  24: e('1Z-LzHPJUiuxBkS1qSFqTQbp4oYAI9cYe'), // 이야기03_역사적사실과진실
-  25: e('1TX-BT1PVS2FtugtFhIKz1bDXDyiyZFsO'), // 이야기25_모르는것없어요
-  26: e('177Ze5tioVn1QmJ9gFufxvicANIMCgGKB'), // 이야기26_선교사의은퇴
-  27: e('1HCEi5ZVlVlIGkQwdqspY0ItzyCsGPMrh'), // 이야기27_극대화와충분함
-  28: e('1VfsHd8jFciFSvmjJQKcIqTgBfi1dGNDy'), // 이야기28_HIVAIDS
-  29: e('15YEt7s-ybs6Y-qHM4XvFczf33pADRj1J'), // 이야기29_사후시신처리선호순위
-  30: e('14_M9bWSmRjLM9iCV53IiJk_dZoWsSNTy'), // 이야기30_열심있는사람들의병
-  31: e('1xHibnhaaUzSffhRIij-Xa5r6W-HsLP9r'), // 이야기31_HamburgerandFries
-  32: e('1GOVCdeZ2TMGOxKrcLLr9iz44Id_Bxs0f'), // 이야기32_반응하기vs응답하기
-  33: e('1jHxka8hmMaDh7mz5FyRmLP1awPkJRRmI'), // 이야기33_MayIHelpYOU
-  34: e('14XCkAg9G34JZR6STCsFs65LoF_qZFs7U'), // 이야기34_한사람의죽음이무슨차이를
-  35: e('1gAwREYZd7Y3dhL6tp-y3roOOBuMKDjoz'), // 이야기35_독자들과같이만드는이야기
-  36: e('18VlAlUZN_K1CIqJqSkyR3fyPoKaztJ4I'), // 이야기36_경기고교복
-  37: e('1Dk6qJZCM4oYef8p1qASjXCiCdeU2e0eY'), // 이야기37_현실은다르다
-  38: e('1ppL6khnlrm3BtxDPWvsJ3pJacdG4cSP3'), // 이야기38_전인치유
-  39: e('1CwzUEX5-PSMdUyiBr6wypIOCuhPGM_Ag'), // 이야기39_작은미소
-  40: e('1cpyixwSLd-UBHdl06NT6ycMmY82SEe23'), // 이야기40_사회정의
-  41: e('1no9VgPF71gM1t0xWiwmt_3SuhQ-ebbX1'), // 이야기41_집동네에서나의선교지를찾다
-};
+const d = (id: string) => `https://docs.google.com/document/d/${id}/edit`
+const p = (id: string) => `https://docs.google.com/presentation/d/${id}/edit`
 
 export const stories: Story[] = [
-  {
-    id: 1, slug: 'pride-of-giving',
-    titleKo: '베풂의 교만', titleEn: 'The Pride of Giving',
-    tags: ['humility', 'giving'],
-    audiences: ['young-adults', 'mid-career', 'retirees', 'first-small-group'],
-    driveFileEn: EN[1], driveFileKo: KO[1],
-    textEn: `If I am not kind to myself, who will be kind to me? But if I am not kind to others, what kind of person am I? — Rabbi Hillel\n\nIn 1976, I joined the faculty at the University of Illinois. Korean students were beginning to arrive in the United States one by one. My wife and I were already there, and we naturally helped them settle in. A night or two on our couch before their apartment was ready. A warm meal. A ride to the bank.\n\nBefore long, the students would cautiously bring it up: "Professor, we'd like to take you and your wife to dinner sometime — just to say thank you."\n\nEach time, I waved them off. "What have I done? I just did it because I was happy to. It's fine." I thought I was being humble.\n\nThen one day, a student said quietly: "We know you helped us willingly and without expecting anything in return — and we're truly grateful. But we're not inviting you out of obligation. We simply want to share a meal with you, for our own joy. So why won't you let us? Isn't that refusal also a kind of pride?"\n\nWithout noticing, I had positioned myself permanently as the giver — the one who helps freely, who needs nothing in return. Sometimes, the most generous thing you can do is to be a gracious receiver.`,
-    questionsEn: [
-      'Have you recently done something kind for someone? How did it feel when someone tried to thank you?',
-      'Have you ever felt awkward receiving someone else\'s kindness? What was underneath that?',
-      'The student said: "Isn\'t that also a form of pride?" Do you agree?',
-      'Between giving and receiving, which comes more naturally to you? Why?',
-      'Is there an area of your life where you hold onto the giver\'s role?',
-    ],
-  },
-  {
-    id: 2, slug: 'avocado-tree',
-    titleKo: '아보카도 나무', titleEn: 'The Avocado Tree',
-    tags: ['neighbor', 'being-vs-doing'],
-    audiences: ['young-adults', 'mid-career', 'mission-trainees'],
-    driveFileEn: EN[2], driveFileKo: KO[2], drivePptKo: 'https://docs.google.com/presentation/d/11xgA0Eity6nTIiX1T9zd00CS-A6L9J1D/edit?usp=drive_link',
-    textEn: `My wife and I were assigned to our first mission field — Good Shepherd Hospital in the DR Congo. In the front yard of our house stood a large avocado tree. Avocados were precious — the most sought-after food in the neighborhood.\n\nOur gardener Bilolo suggested: "Papa Simon, the avocados are ripe. Let the neighborhood children knock them down with long poles. Whatever falls and breaks — the children can take home."\n\nI agreed without much thought. But the number of broken avocados kept growing. Bilolo blamed the children: "They're unreliable and dishonest."\n\nIt was only after leaving Congo that I finally understood. The children were not the problem. From the beginning, I had structured our relationship as owner and worker. They understood the system clearly: the only way to get a fair share was for more fruit to break.\n\nWhat if I had regarded those children as my neighbors — as equals — from the very start? Doing flows from being. You cannot produce the right being through doing alone.`,
-    questionsEn: [
-      'Have you ever treated someone as less than an equal — without meaning to?',
-      'At what point does it become clear that Dr. Park saw the children as workers rather than neighbors?',
-      'If the children broke avocados intentionally to get a fair share — is that their fault?',
-      'What is the difference between serving people and receiving them as equals?',
-      '"Doing flows from being." Where do you see that in your own life?',
-    ],
-  },
-  {
-    id: 3, slug: 'hasty-solutions',
-    titleKo: '섣부른 해결책', titleEn: 'Hasty Solutions',
-    tags: ['cross-cultural', 'good-intentions'],
-    audiences: ['young-adults', 'mid-career', 'mission-trainees'],
-    driveFileEn: EN[3], driveFileKo: KO[3], drivePptKo: 'https://docs.google.com/presentation/d/1Aq0-QyFqWQq2a5s9GEX4QOWtvGSnkNF9/edit?usp=drive_link',
-    textEn: `Shortly after arriving at Good Shepherd Hospital in Congo — my first mission post — I began seeing things that puzzled me. Problems with seemingly simple solutions.\n\nWe attended Sunday worship at a church the missionaries had begun building. The congregation sat on logs. We offered to provide lumber for proper benches. They thanked us. When the service ended — the girls carried the heavy benches out on their heads. "If we leave them here, they will be stolen before next Sunday."\n\nThe logs they had used before were not worth stealing. But the benches were. I had wanted to provide comfort, only to create a new burden.\n\nChristmas was coming. I bought umbrellas for all 200 hospital staff. The next heavy rain — nothing had changed. "The umbrellas are precious gifts. We keep them for special occasions."\n\nOne doctor said afterward: "We could see it wouldn't work. But we couldn't intervene beforehand. So we said nothing."`,
-    questionsEn: [
-      'Have you tried to help with something and made it worse?',
-      'How often does outside knowledge override accurate local knowledge?',
-      'The doctor stayed silent. What would it have cost him to speak up beforehand?',
-      'What adaptations has your community developed that outsiders might label as problems?',
-    ],
-  },
-  {
-    id: 4, slug: 'yohani',
-    titleKo: '요한이', titleEn: 'Yohani',
-    tags: ['identity', 'prejudice'],
-    audiences: ['young-adults', 'mid-career', 'retirees'],
-    driveFileEn: EN[4], driveFileKo: KO[4],
-    textEn: `In June 2012, I was pushing our first grandson Yo-han's stroller at Seoul Station when an elderly woman looked down and asked: "Is that child a twi-gi?" — a pejorative term meaning mixed breed.\n\nI paused briefly: "Yes. But this baby is my grandson."\n\nThe woman disappeared without another word.\n\nTo her, Yo-han was a mixed breed. To me, Yo-han was Yo-han — my precious grandchild. We were looking at the same child. We were seeing completely different things.\n\nShe was not a bad person. A perspective formed over a lifetime in a mono-ethnic society had simply taken root in her. If Yo-han had not been my grandson, what would I have seen first?`,
-    questionsEn: [
-      'Have you ever had a thought cross your mind when you first encountered someone different from you?',
-      'What did you feel when you read the word twi-gi?',
-      'Dr. Park asks: "If Yo-han had not been my grandson, what would I have seen first?" How does that apply to you?',
-      'What is the difference between a church that serves multicultural families as a ministry target, and one that welcomes them as full members?',
-    ],
-  },
-  {
-    id: 5, slug: 'gift-of-dakoro',
-    titleKo: '다코로의 선물', titleEn: 'The Gift of Dakoro',
-    tags: ['mutuality', 'community'],
-    audiences: ['mission-trainees', 'mid-career'],
-    driveFileEn: EN[5], driveFileKo: KO[5],
-    textEn: `In September 2005, I was asked to join a famine relief team in Niger. On distribution day, a young man approached with a neighbor whose child was just born — but there was no food at home.\n\nThree options flashed through my mind. All three were wrong: Give a special distribution — breaking agreed rules. Use my own money — Message: problems are solved by wealthy outsiders. Refuse — Message: rules matter more than a newborn.\n\nI asked quietly: "How did you handle situations like this before the famine?"\n\n"Before the famine, we would all share a little."\n\nA young man rose silently, took the empty sack, and walked into the village. Ten minutes later, he returned — the sack held food. Each household had contributed a small portion.\n\n"Sir, today you did not only give us food. You gave our custom back to us."\n\nI had not shared any food. I had simply helped them remember what their village already possessed.`,
-    questionsEn: [
-      'Have you ever faced a situation where following the rules felt wrong, but breaking them also felt wrong?',
-      '"How did you handle this before?" — Why was that question so important?',
-      'Can outside help sometimes weaken what a community already has?',
-      'What distinguishes a genuine leader from someone who is merely good at solving problems?',
-    ],
-  },
-  {
-    id: 6, slug: 'motor-boat-sailboat-barge',
-    titleKo: '기선, 범선, 부선', titleEn: 'Motor Boat, Sailboat, Barge',
-    tags: ['mission', 'self-reflection'],
-    audiences: ['mission-trainees', 'mid-career', 'retirees'],
-    driveFileEn: EN[6], driveFileKo: KO[6],
-    textEn: `There are three types of vessels that traverse open waters.\n\nMotor Boat: Propelled by engine power. Advances by overcoming its environment. The captain's will determines everything.\n\nSail Boat: Moves through the harmony of wind and sails. It heads toward its destination — but moves with the wind.\n\nBarge: No self-propulsion. Its direction is determined entirely by whatever vessel is towing it.\n\nLooking back at myself — I have lived much of my life as a motor boat. Admission, employment, promotion: a hurdle race, clearing one wall only to find the next.\n\nBut now, as I look toward the end of my life, I want to live like a sail boat. A life moving with the wind — toward meaningful relationships with neighbors, toward positive influence and harmony.`,
-    questionsEn: [
-      'What kind of vessel does your life feel like right now?',
-      'Where do you see the motor boat mentality most in your daily life?',
-      'What would it look like to shift from motor boat to sail boat mode?',
-      'Is barge life always negative, or are there seasons when it makes sense?',
-    ],
-  },
-  {
-    id: 7, slug: 'sacrificing-myself',
-    titleKo: '나 하나를 바쳐서', titleEn: 'Sacrificing Myself',
-    tags: ['devotion', 'witness'],
-    audiences: ['young-adults', 'mid-career'],
-    driveFileEn: EN[7], driveFileKo: KO[7],
-    textEn: `When I joined Korea University's Business School as a new professor in 1981, student activism was at its height. On May 18, 1982, I tried to talk a student leader out of joining a demonstration.\n\n"Do you really think democracy will come faster if you clash with the police today?"\n\n"I don't expect democracy to arrive today. But today is the second anniversary of the Gwangju uprising. If we go out and get arrested, people will ask why — and we'll say: Today is Gwangju. If our being arrested keeps that memory alive, I am willing."\n\nI had no answer for that.\n\n"I will go to the police station to get you out," I said. "To preserve my self-respect."`,
-    questionsEn: [
-      'Has there been a time when you did something costly with no realistic chance of immediate change?',
-      'What is the difference between the student\'s logic (memory and witness) and Dr. Park\'s strategic question (effectiveness)?',
-      'When is witness — keeping something true in public memory — a sufficient reason for action?',
-    ],
-  },
-  {
-    id: 8, slug: 'justice-and-mercy',
-    titleKo: '정의와 자비', titleEn: 'Justice and Mercy',
-    tags: ['justice', 'mercy'],
-    audiences: ['young-adults', 'mid-career', 'retirees'],
-    driveFileEn: EN[8], driveFileKo: KO[8],
-    textEn: `In 1964, two immigration officers arrived at my job in Washington, D.C.\n\n"You entered on a student visa, took a leave, and got a job. You are subject to deportation."\n\nOne officer quietly said: "We must proceed according to the law. But I will give you the contact information for an immigration attorney."\n\nWith that help, I applied for permanent residency — made possible by the 1965 Immigration Act, itself the fruit of the Black civil rights movement.\n\nYears later, when my own family expressed anti-immigrant sentiment, I said: "You all live in America because of your connection to me — an undocumented immigrant. And because of rights won by Black Americans."\n\nWhy can't we first build relationships with those who suffer as neighbors — and then find a way forward together?`,
-    questionsEn: [
-      'The immigration officer enforced the law and showed compassion in the same moment. How was that possible?',
-      'Dr. Park\'s family\'s life in America was built on rights won by the Black civil rights movement. Does awareness of that change anything?',
-      '"Build relationships first, then find the way forward" — is that realistic?',
-    ],
-  },
-  {
-    id: 9, slug: 'speaking-to-my-son',
-    titleKo: '내 아들에게 말하는 중이다', titleEn: 'I Am Speaking to My Son',
-    tags: ['burnout', 'faith'],
-    audiences: ['young-adults', 'mid-career', 'mission-trainees'],
-    driveFileEn: EN[9], driveFileKo: KO[9],
-    textEn: `In early 1999, I set foot for the first time in the rural Congo. By my third year, I began to protest to God:\n\n"Why did You send us to this land, only to disappoint these people? Why make us look at them not with love, but with resentment? Either give us the strength — or let us go."\n\nThen one early morning, something came to me with unusual clarity:\n\n"What I am asking of you is not for you, Simon, to carry alone. I am asking it of my Son Jesus — the one who lives within you. Empty your heart and follow."\n\nSince then, whenever something exceeds my capacity, I try to take one deliberate step back. And every time, the same thought follows: I should have done that sooner.`,
-    questionsEn: [
-      'When you face a situation that exceeds your capacity, what is your instinct?',
-      'How does Dr. Park\'s prayer of protest strike you — too honest, or recognizable?',
-      'Stepping back one step — how is that different from giving up?',
-      'Is there something you are currently trying to carry alone?',
-    ],
-  },
-  {
-    id: 10, slug: 'sexual-minority-discrimination',
-    titleKo: '오늘의 성 소수자 차별', titleEn: 'Sexual Minority Discrimination Today',
-    tags: ['justice', 'human-rights'],
-    audiences: ['young-adults', 'mid-career'],
-    driveFileEn: EN[10], driveFileKo: KO[10],
-    textEn: `Recently in Seoul, I had the opportunity to hear a presentation about discrimination that sexual minorities face. Listening, I saw many similarities to the racial discrimination I experienced in America fifty years ago.\n\nI asked an older colleague: "How can anti-discrimination laws make white people love people of color?"\n\nHis answer: "You can't make people love each other by law. But the law can stop people from hitting each other. That gives time for a normal relationship to grow."\n\nThe treatment I received — not because of anything I had done, but because of who I was — feels similar to the suffering experienced by sexual minorities today.`,
-    questionsEn: [
-      'Have you ever been treated differently because of something about you that you did not choose?',
-      'What similarities do you see between racial discrimination and discrimination against sexual minorities?',
-      '"You can\'t make people love each other by law, but you can stop them from hitting each other" — what do you make of that?',
-      'What does it mean concretely to welcome someone as a neighbor?',
-    ],
-  },
-  {
-    id: 11, slug: 'how-many-did-you-evangelize',
-    titleKo: '몇 명이나 전도 했어요?', titleEn: 'How Many Did You Evangelize?',
-    tags: ['witness', 'mission'],
-    audiences: ['mission-trainees', 'young-adults'],
-    driveFileEn: EN[11], driveFileKo: KO[11], drivePptKo: 'https://docs.google.com/presentation/d/1ShrpJjdK1iTqmd62LMvdffONA5339sVd/edit?usp=drive_link',
-    textEn: `As a missionary, this is a question I hear often — but it's the wrong question.\n\nAfter four weeks working in Niger, Amodou asked: "Simon, our country is Muslim. Why do you and your Christian colleagues endure such hardship to help us?"\n\n"Amodou, I don't think I can make you understand. But I'm certain that if you keep asking that question, someday you will meet my Savior, Jesus."\n\nSix months later, returning to check on the relief system, Amodou said: "I still think about our conversation. I haven't met the Jesus you speak of yet. But I wanted to remember our time together — so I'm giving you this cross, made by the nomads of our desert."\n\nThis gift stands as the closest thing to an evangelistic event during my entire ministry.`,
-    questionsEn: [
-      'Has someone\'s life — not their words — ever created a question in you?',
-      'Amodou gave a cross without fully understanding what it meant. What does that act say?',
-      'What sustains a relationship whose outcome is still unknown?',
-    ],
-  },
-  {
-    id: 12, slug: 'nth-degree-equation',
-    titleKo: 'N차 방정식', titleEn: 'The Nth Degree Equation',
-    tags: ['life-possibilities', 'education'],
-    audiences: ['young-adults', 'mid-career'],
-    driveFileEn: EN[12], driveFileKo: KO[12],
-    textEn: `Ko OO was a mathematics education student participating in a multicultural leadership training program. During a break, I shared:\n\n"My life has not been a straight line toward goals. It has been a mix — a weaving together — of everything I have done: the successes and the failures, all of it."\n\nKo OO heard something in it as a student of mathematics:\n\n"I knew that an nth-degree equation doesn't have just one answer — it has n answers. But I have been living in a world that ranks people by test scores, as if there is only one right answer. I think I can live more fully from now on."`,
-    questionsEn: [
-      'Does the "one right answer" mentality resonate with your experience?',
-      'Does your life feel more like a straight line or a weaving?',
-      'What is the "one right answer" that the system around you has been grading your life against?',
-    ],
-  },
-  {
-    id: 13, slug: 'disaster',
-    titleKo: '재난', titleEn: 'Disaster',
-    tags: ['disaster-relief', 'healing'],
-    audiences: ['mission-trainees', 'mid-career'],
-    driveFileEn: EN[13], driveFileKo: KO[13],
-    textEn: `When we watch disaster news on TV, the camera almost always shows collapsed buildings. But those of us who do disaster relief focus on the people.\n\nWe define a disaster as any situation where people cannot get back to normal life on their own.\n\nDisaster relief means walking alongside people until they can stand on their own. A full life means three things: being able to carry the hard experience — not just surviving it, but growing through it; working to prevent man-made disasters from happening again; and finding ways to reduce the damage when a natural disaster strikes in the future.\n\nThe real work begins after the TV cameras and reporters have left. That is where the neighbor is.`,
-    questionsEn: [
-      'Does Dr. Park\'s definition of disaster surprise you?',
-      '"The real work begins after the TV cameras have left." What does that mean in practice?',
-      'Where in your community might there be a disaster — by Dr. Park\'s definition — that no camera covers?',
-    ],
-  },
-  {
-    id: 14, slug: 'power-of-humility',
-    titleKo: '겸손의 힘', titleEn: 'The Power of Humility',
-    tags: ['humility', 'faith'],
-    audiences: ['young-adults', 'mid-career', 'retirees', 'first-small-group'],
-    driveFileEn: EN[14], driveFileKo: KO[14],
-    textEn: `Dr. Lee — top of his class from Seoul National University Physics — smiled and said: "Mr. Park, if you sing just one hymn for us, I'll attend church."\n\nEveryone knew I have absolutely no musical talent. My wife Haejung said: "How can you refuse just because you're embarrassed? I'll sing with you."\n\nWe began. We got halfway through the first verse before stopping. I was completely off-key. Everyone burst out laughing.\n\nA dozen years later, Dr. Lee said: "It was that night you sang the hymn. I was a man of logic and pride. But I saw a man willing to be completely humiliated for something he cared about. Who is this Jesus, that he values him more than the shame he endures? A true scientist must explore that question."`,
-    questionsEn: [
-      'Has an embarrassing moment ever opened a door in a relationship?',
-      'Dr. Lee was not moved by argument — but by watching someone endure humiliation. Why?',
-      'How can showing weakness create trust?',
-      'If Haejung had not stepped in, how does this story end?',
-    ],
-  },
-  {
-    id: 15, slug: 'quantity-quality-truth',
-    titleKo: '양과 질, 그리고 진실', titleEn: 'Quantity, Quality, and Truth',
-    tags: ['history', 'prejudice'],
-    audiences: ['mission-trainees', 'mid-career', 'young-adults'],
-    driveFileEn: EN[15], driveFileKo: KO[15], drivePptKo: 'https://docs.google.com/presentation/d/1mJLohny-L9sarIwodBdaV3CaZE65KVcF/edit?usp=drive_link',
-    textEn: `On January 1, 1983, I got a five-day visa to visit Guangzhou, China. A Party official said: "The jacket I wear and Comrade Deng Xiaoping's are exactly the same."\n\nI asked the guide: "Was the official's jacket really the same?" "Yes and no. The cut and style are the same. But the quality of the cloth is completely different."\n\nBack in Korea, I showed photos to students. When one saw a photo of Chinese children, he looked up in genuine surprise: "Wait — they smile too!"\n\nAt the time, Korean education had sorted the world into two opposing camps. This student had grown up learning that people on the other side were fundamentally different. The photo undid that in a moment.`,
-    questionsEn: [
-      'Has something you saw — a photo, a face — made you realize your picture of a group was wrong?',
-      '"They smile too" — what does it mean to grow up inside a system where the basic humanity of the other side is invisible?',
-      'What photograph or encounter might undo the packaging you are living inside?',
-    ],
-  },
-  {
-    id: 16, slug: 'elder-of-congo-village-church',
-    titleKo: '콩고 시골교회 어른', titleEn: 'The Elder of the Congo Village Church',
-    tags: ['presence', 'faith'],
-    audiences: ['young-adults', 'mid-career', 'retirees', 'first-small-group'],
-    driveFileEn: EN[16], driveFileKo: KO[16],  drivePptKo: 'https://docs.google.com/presentation/d/1fhFd4q3cWNGvoVLpMTKG9rBtIpPcaKdA/edit?usp=drive_link',
-    textEn: `In December 2000, the Presbyterian Church (USA) asked me to visit churches, schools, and clinics in Congo. American Presbyterian missionaries had served these communities for many years before pulling out in the mid-1960s when civil war made it too dangerous to stay.\n\nThe journey was hard: broken roads, soldiers demanding money at roadblocks, nights full of insects. I also knew that people along the way were hoping I had brought gifts. I had not.\n\nBut when I arrived at one village, an elderly man came to speak to me:\n\n"When the missionaries left, they told us they would come back soon. But thirty years passed, and no one came. We began to think the missionaries had abandoned us. We even began to think that God had forgotten us. But today — you have come. Now I know: God still remembers us."\n\nEvery complaint I had been carrying — the roads, the roadblocks, the insects — all of it was gone.`,
-    questionsEn: [
-      'Have you been waiting for someone to come back — any sign you had not been forgotten?',
-      'The old man took one person showing up as evidence that God has not forgotten. Is that a sound way to read a visit?',
-      'Dr. Park arrived with no gifts. What did the old man actually receive?',
-      'Who is waiting for a sign that they have not been forgotten?',
-    ],
-  },
-  {
-    id: 17, slug: 'neighbor-not-geographical',
-    titleKo: '이웃은 지리적 용어가 아닙니다', titleEn: 'Neighbor Is Not a Geographical Term',
-    tags: ['neighbor', 'mission'],
-    audiences: ['young-adults', 'mid-career', 'mission-trainees', 'first-small-group'],
-    driveFileEn: EN[17], driveFileKo: KO[17],
-    textEn: `"Neighbor is not a geographical term. It is a moral concept." — Rabbi Joachim Prinz\n\nMission is not about focusing on reaching distant places. It is about caring for one another — building a whole and mutually respectful community. Mission begins in cherishing one another as equals within marriage, the home, the church, and the workplace.\n\nIt is a lifelong task, both obvious and difficult. It also means we are all living on the mission field at all times.\n\nEven at my age — 78 — when I still crave work and rush out of the house whenever someone asks for help, my wife one day said something different: "I need you too."\n\n"The darkest place is under the lamp," I realized. When I said, "I can't do it," my neighbors replied, "We understand," and I felt grateful.`,
-    questionsEn: [
-      '"Neighbor is not a geographical term, but a moral concept." What does that mean to you in practice?',
-      '"I need you too." Why does it take courage to say that? Why might it be hard to hear?',
-      '"The darkest place is under the lamp." Where is your lamp? Who might be in that shadow?',
-      'We are all living on the mission field at all times. What does that ask of you this week?',
-    ],
-  },
-  {
-    id: 18, slug: 'stepping-aside-tipping-hat',
-    titleKo: '길에서 벗어나 모자를 기울이기', titleEn: 'Stepping Off the Path and Tipping the Hat',
-    tags: ['dignity', 'equality'],
-    audiences: ['young-adults', 'mid-career', 'retirees'],
-    driveFileEn: EN[18], driveFileKo: KO[18],
-    textEn: `When a BBC interviewer asked Desmond Tutu about the defining moment of his life, he spoke of an ordinary day — a walk with his mother.\n\nIn apartheid South Africa, when a Black person and a white person met on the sidewalk, the Black person stepped aside and bowed. But that day, before young Tutu and his mother could move, the white man stepped off the sidewalk first — and tipped his hat to her.\n\nThat man was Trevor Huddleston, an Anglican priest and fierce opponent of apartheid. When Tutu's mother explained he was a man of God, Tutu found his direction.\n\nMy prayer is that we all strive to be God's people — who willingly step aside, who tip our hats, to our sisters and brothers, especially those the world has made invisible.`,
-    questionsEn: [
-      'Has a small gesture — something someone may not remember doing — stayed with you?',
-      'Huddleston did not give a speech. He just stepped aside. Why does a body speak louder than an argument?',
-      'Who is required to step aside in your daily world, and have you accepted that as normal?',
-    ],
-  },
-  {
-    id: 19, slug: 'taxila-christian-hospital',
-    titleKo: '탁실라 기독 병원', titleEn: 'Taxila Christian Hospital',
-    tags: ['forgiveness', 'martyrdom'],
-    audiences: ['mission-trainees', 'mid-career', 'retirees'],
-    driveFileEn: EN[19], driveFileKo: KO[19],drivePptKo: 'https://docs.google.com/presentation/d/1yZQ8P9irrj0_E7C6wzl5I37xZ2ilD2mu/edit?usp=drive_link',
-    textEn: `In August 2002, four nurses walking out of the chapel at Taxila Christian Hospital in Pakistan were killed in a bomb attack.\n\nThree years later, Dr. Park visited. The same staff — who had buried their sisters — were fundraising for earthquake victims and treating the injured. Most were Muslim.\n\nDr. Park asked: "How can you show such love to the Muslims who killed your sisters?"\n\nThey answered: "We are convinced that the most glorious way to honor our sisters is to repay evil with good."\n\nThis missionary is convinced that they — who accept Muslims as neighbors in the name of their fallen sisters — are more mature disciples of Jesus than this missionary.`,
-    questionsEn: [
-      'Has someone ever responded to being wronged in a way that surprised you?',
-      'The staff did not say "we have forgiven." They said "we are honoring our sisters." What is the difference?',
-      'Is there a person who has wronged you whom you now encounter? What would honoring what was lost look like?',
-    ],
-  },
-  {
-    id: 20, slug: 'learning-a-language',
-    titleKo: '언어 배우기', titleEn: 'Learning a Language',
-    tags: ['empathy', 'cross-cultural'],
-    audiences: ['mission-trainees', 'young-adults'],
-    driveFileEn: EN[20], driveFileKo: KO[20],
-    textEn: `I started learning French at fifty — to go as a missionary to the French-speaking Congo. On the first day, English was banned. I sat there as if deaf and mute for three weeks.\n\nIn Nepal, I saw the caste system deny lower castes and women any voice. The French classroom came back to me: the frustration of having thoughts and no words for them.\n\nPeople with limited language are treated as if they have no thoughts at all. The erasure is the same.\n\nIn the markets of Nepal, when I spoke a few halting words of Nepali, the merchants would all clap and welcome me warmly. They were honoring the effort of a foreigner who had tried to reach toward them.`,
-    questionsEn: [
-      'What does it feel like to have thoughts and no way to express them?',
-      'Dr. Park\'s broken Nepali did not impress anyone — but gave the merchants something. What?',
-      '"People with limited language are treated as thought-limited." Where do you see that today?',
-    ],
-  },
-  {
-    id: 21, slug: 'teaching-with-humility',
-    titleKo: '겸손과 신뢰로 가르치다', titleEn: 'Teaching with Humility and Trust',
-    tags: ['neighbor', 'humility'],
-    audiences: ['mission-trainees', 'mid-career', 'first-small-group'],
-    driveFileEn: EN[21], driveFileKo: KO[21],
-    textEn: `Before we left for our first mission post, we were introduced to Pastor Charles McKee, who had served in Congo for many years. He told us a story.\n\nA missionary retiring after thirty years called in Kalonji — his assistant for years — and asked what he wanted as a gift. Kalonji declined twice. Then:\n\n"Since you encourage me to be boldly honest, I will say it. I have always wished to enter your house through the door that your fellow missionaries use. To sit at the table where they sat. To drink coffee from the same porcelain cup."\n\nHearing this, the missionary realized that for all his years of labor, he had failed the Lord's command.\n\nCharles did not tell Dr. Park what not to do. He told a story and trusted him to find himself in it. That is still the finest teaching Dr. Park has ever received.`,
-    questionsEn: [
-      'Kalonji needed explicit permission before he could speak honestly. Who in your life needs that kind of permission from you?',
-      'The missionary educated seven of Kalonji\'s children — and got the door wrong. How do we miss something that obvious?',
-      'What is the difference between serving people and receiving them?',
-    ],
-  },
-  {
-    id: 22, slug: 'as-i-go',
-    titleKo: '내가 가서', titleEn: 'As I Go',
-    tags: ['mission', 'cultural-humility'],
-    audiences: ['mission-trainees', 'mid-career'],
-    driveFileEn: EN[22], driveFileKo: KO[22],
-    textEn: `When I began my life as a missionary in the United States, I came across a letter written in the early 1900s by a missionary about to leave for Korea. He wrote: "Armed with the Word, I obey the command to make these savages children of God."\n\nBefore that missionary arrived, the Korean people were a people with thousands of years of history, culture, art, and philosophy.\n\nToday, it is sometimes Korean missionaries who arrive in Southeast Asia with wealth and power — impatient for results, rushing communities they serve.\n\nI have lived in America for over sixty years. For most of those years, I was embarrassed by my accent. Only recently have I learned to speak without that shame.\n\nThe title is As I Go. Not Where I Arrived. Constant re-examination is not a phase. It is the practice.`,
-    questionsEn: [
-      'Has there been a moment when you realized you had been operating from an assumption that turned out to be completely wrong?',
-      'What does it mean to inherit the victim\'s history and reproduce the oppressor\'s pattern?',
-      'What assumption are you still carrying that the people you serve could correct, if you asked?',
-    ],
-  },
-  {
-    id: 23, slug: 'missionary-learning-from-neighbors',
-    titleKo: '이웃에게서 배우는 선교사', titleEn: 'A Missionary Learning from Neighbors',
-    tags: ['neighbor', 'learning'],
-    audiences: ['mission-trainees', 'mid-career', 'young-adults'],
-    driveFileEn: EN[23], driveFileKo: KO[23],
-    textEn: `When we served in Nepal, the government required our mission organization to conduct English classes. I taught using parables. I asked: "Which character in the Good Samaritan would you like to be?"\n\nEveryone said: the Samaritan. The hero.\n\nOne quiet security guard took a long time before answering:\n\n"I have neither knowledge nor skill. But I would want to be like the innkeeper — the one who faithfully carried out the Samaritan's request, who received the injured man, and tended to him with all her heart."\n\nI bowed my head. I had read that parable many times. I had never stopped to consider the innkeeper. Without her faithfulness, the story could not have been completed.`,
-    questionsEn: [
-      'Has someone outside your usual circles ever said something about faith or life that stopped you?',
-      'Everyone said the Samaritan. The security guard said the innkeeper. What made it possible for him to see what everyone missed?',
-      'The innkeeper has no lines. She acts faithfully without credit. What does it mean to aspire to be that character?',
-    ],
-  },
-  {
-    id: 24, slug: 'historical-facts-and-truth',
-    titleKo: '역사적 사실과 진실', titleEn: 'Historical Facts and Truth',
-    tags: ['history', 'truth'],
-    audiences: ['young-adults', 'mid-career', 'mission-trainees'],
-    driveFileEn: EN[24], driveFileKo: KO[24],drivePptKo: 'https://docs.google.com/presentation/d/1C5Q7uwREZ503et4paCsLJYS5NiN5Pbs-/edit?usp=drive_link',
-   textEn: `In 2011, I led a group of Young Adult Volunteers from the United States and students from Hannam University on a visit to Japan. It was a meaningful gathering — young people from three countries coming together to discuss shared challenges: environment, discrimination, and peace.\n\nAfter the discussions, we visited the Hiroshima Peace Memorial Museum together. We walked quietly through it — each person silently taking in the traces of August 6, 1945.\n\nThen the three groups gathered to share their reflections. American students, Korean students, Japanese students — standing in the same place, yet their words were entirely different.\n\nAmerican perspective: Thanks to Truman's decision, the war ended early, and more lives were saved.\n\nKorean perspective: Japan's surrender following the atomic bombings allowed the Republic of Korea to regain its independence.\n\nJapanese perspective: This tragedy, which took tens of thousands of lives, must never be repeated in human history.\n\nA moment of silence passed.\n\nAll three statements were facts. Not one of them was wrong. And yet none of them, alone, was the whole truth.\n\nCould most of what we call "facts" be something like this? Not wrong — but partial. A truth that contains only what is visible from where I am standing.`,
-    questionsEn: [
-      'All three perspectives were factually accurate. How is it possible for something to be true and incomplete at the same time?',
-      'Which of the three perspectives was closest to the one you would have instinctively offered? What does that reveal about where you are standing?',
-      'Have you ever been in a conversation where everyone was stating facts — and yet no one was hearing the whole truth?',
-      'What would it take to hold all three perspectives at once — without erasing any of them?',
-      'Is there a situation in your own life where your "facts" might be someone else\'s partial truth?',
-    ],
-    
-  },
-  {
-    id: 25, slug: 'nothing-i-dont-know',
-    titleKo: '모르는 것 없어요', titleEn: 'There Is Nothing I Don\'t Know',
-    tags: ['humility', 'education'],
-    audiences: ['young-adults', 'mid-career', 'first-small-group'],
-    driveFileEn: EN[25], driveFileKo: KO[25],drivePptKo: 'https://docs.google.com/presentation/d/1dyCBh20zfH0wt0d0oaCrF_bAWsGTVPMP/edit?usp=drive_link',
-    textEn: `In November 2011, I visited Pyongyang University of Science and Technology. I asked six graduate students: what would you like to learn?\n\nThey discussed among themselves. Their answer: "Nothing."\n\nThrough continued conversation, we arrived at the explanation. They had all been taught exactly the same content. Independent additional study was not permitted. They had therefore never encountered the boundary of what they knew.\n\nNot knowing what you don't know had been interpreted as knowing everything.\n\nUniform education and the mindset it produces had turned not-knowing into knowing-everything. Society as a whole becomes a religious cult: a convenient mob to govern.`,
-    questionsEn: [
-      'What does it take to discover the edge of your own knowledge?',
-      'These were the best students in the country. What does that say about high performance and epistemic blindness?',
-      'Can you honestly say "I don\'t know what I don\'t know" — and mean it as an invitation?',
-    ],
-  },
-  {
-    id: 26, slug: 'pursuing-the-best',
-    titleKo: '선교사의 은퇴, 은퇴 후 선교', titleEn: 'Pursuing the Best — and Finding It Late',
-    tags: ['retirement', 'mission'],
-    audiences: ['retirees', 'mid-career'],
-    driveFileEn: EN[26], driveFileKo: KO[26],
-    textEn: `Before becoming a missionary, my life was always about pursuing the best. Especially as a consultant, only the person providing the greatest value to the client that day gets the call. The phone never rings for second place.\n\nAfter fifteen years in the mission field, my retirement budget came in 40% less than my colleagues' projections — not because I sacrificed, but because I no longer needed what they needed.\n\nI no longer feel the urge to pay four times the economy fare to fly business class. I no longer need a corner office.\n\nAbove all, we learned to live contentedly without criticizing others' maximized lifestyles. We discovered that God's grace is sufficient for us.`,
-    questionsEn: [
-      'Is there a framework that helped you navigate a difficult transition?',
-      'Dr. Park stepped down from management to sit at the table. Is there a role you hold that keeps you at a distance from the work you actually want to do?',
-      'The story opens with pursuing the best and closes with a folding table. What did "the best" mean at the beginning — and at the end?',
-    ],
-  },
-  {
-    id: 27, slug: 'gods-grace-is-sufficient',
-    titleKo: '극대화와 충분함', titleEn: 'God\'s Grace Is Sufficient',
-    tags: ['simplicity', 'sufficiency'],
-    audiences: ['retirees', 'mid-career'],
-    driveFileEn: EN[27], driveFileKo: KO[27],
-    textEn: `Before becoming a missionary, my life was always about pursuing the best. As a consultant, only the person providing the greatest value to the client that day gets the call.\n\nAfter fifteen years in the mission field, my post-retirement living expenses came in 40% less than my colleagues projected — not because I sacrificed, but because I no longer needed what they needed.\n\nWorking in the field for 15 years taught me that living simply can yield 40% more income for the work itself.\n\nAbove all, we learned to live contentedly without criticizing the maximized lifestyles of our friends. We discovered that God's grace is sufficient for us.`,
-    questionsEn: [
-      'What changed in what you needed after a particular experience or season?',
-      'His desires changed through proximity — not through argument. Do you believe that kind of change is possible without that kind of experience?',
-      'What has your life taught you about the gap between what you pursued and what turned out to be enough?',
-    ],
-  },
-  {
-    id: 28, slug: 'beyond-the-enemy',
-    titleKo: 'HIV/AIDS — 누구의 책임인가?', titleEn: 'Beyond the Enemy',
-    tags: ['justice', 'care'],
-    audiences: ['mission-trainees', 'mid-career', 'retirees'],
-    driveFileEn: EN[28], driveFileKo: KO[28], drivePptKo: 'https://docs.google.com/presentation/d/1mDUazuAd-CPtdJ4DpGQX5_SwICMIGzYO/edit?usp=drive_link',
-    textEn: `In the early 2000s, Africa was helpless against HIV/AIDS. The women of LISAP in northern Malawi began caring for patients — bathing them, serving meals, training children who would become orphans.\n\nThe number of infected women was three times higher than men. Regardless of the route of infection, blame fell on women.\n\nBeyond the enemy of incurable disease, I saw a human being whom God loves. That is what the women of LISAP saw first. That is what made everything else possible.`,
-    questionsEn: [
-      'Have you been afraid of a situation and found that getting closer changed what you saw?',
-      'These women saw beyond the "enemy of incurable disease" to see one human being loved by God. What does it take to make that shift?',
-      'Is there someone in your life who needs not a solution but proximity — the signal that they have not been abandoned?',
-    ],
-  },
-  {
-    id: 29, slug: 'preferences-for-after-death',
-    titleKo: '사후 시신 처리 선호 순위', titleEn: 'Preferences for After Death',
-    tags: ['death', 'stewardship'],
-    audiences: ['retirees', 'mid-career'],
-    driveFileEn: EN[29], driveFileKo: KO[29],
-    textEn: `Now that I have reached eighty, news of people departing from this world comes more frequently.\n\nMy preference order: organ donation first, then body donation for medical education, then natural burial without chemicals in a woodland, then alkaline hydrolysis, then cremation.\n\nThis is not a recommendation for others to follow. The invitation is simply this: think about it while you are alive, and share your wishes with your family and medical team.\n\nHow we treat what remains of us after we are gone is one final act of stewardship — of the earth, of the people we leave behind, and of the values we carried.`,
-    questionsEn: [
-      'Have you thought about what happens to your body after death?',
-      'Does your family know your wishes?',
-      'What values shape your preferences?',
-      'How does thinking about death change how you live?',
-    ],
-  },
-  {
-    id: 30, slug: 'disease-of-the-zealous',
-    titleKo: '열심 있는 사람들의 병', titleEn: 'The Disease of the Zealous',
-    tags: ['zeal', 'burnout'],
-    audiences: ['mission-trainees', 'mid-career'],
-    driveFileEn: EN[30], driveFileKo: KO[30],
-    textEn: `The zealous have a particular disease: they believe their cause is so important that they have no time for rest, no time for relationships, no time for self-care.\n\nThe irony: the very intensity that makes them effective also makes them destructive — to others and to themselves.\n\nThe antidote is not less zeal but different zeal: zeal for the person in front of you, not only for the cause.`,
-    questionsEn: [
-      'Have you seen zeal become destructive — in yourself or in someone you know?',
-      'What is the difference between zeal for a cause and zeal for the person in front of you?',
-      'Is there a cause you are serving that is crowding out the people the cause is for?',
-    ],
-  },
-  {
-    id: 31, slug: 'hamburger-and-fries',
-    titleKo: 'Hamburger and Fries', titleEn: 'Hamburger and Fries',
-    tags: ['honesty', 'integrity'],
-    audiences: ['young-adults', 'mid-career', 'first-small-group'],
-    driveFileEn: EN[31], driveFileKo: KO[31],
-    textEn: `When I began my life in Washington, D.C. in 1964, the only Western food I was familiar with was hamburgers. I ordered one at every opportunity.\n\nOne day the server asked: "How was everything?" The hamburger had been excellent. The fries were terrible.\n\nI said: "Excellent."\n\nA small lie. But a lie. And I realized: I do this constantly. I smooth over the truth to avoid discomfort — for them and for me.\n\nThe question is not just about fries. It is about whether I am willing to tell the truth with love when it costs me something.`,
-    questionsEn: [
-      'Have you recently told a small smoothing-over lie? What was underneath it?',
-      'What is the difference between honesty and cruelty?',
-      'Where in your life is telling the truth with love most difficult?',
-    ],
-  },
-  {
-    id: 32, slug: 'react-and-respond',
-    titleKo: '반응하기 vs 응답하기', titleEn: 'React and Respond',
-    tags: ['maturity', 'communication'],
-    audiences: ['young-adults', 'mid-career', 'retirees'],
-    driveFileEn: EN[32], driveFileKo: KO[32],
-    textEn: `These two terms both refer to a verbal or behavioral response to a given situation. But they are fundamentally different.\n\nReact: A primal, instinctive behavior — an emotional response without consideration for the consequences of one's actions.\n\nRespond: An action taken after careful consideration of how one's behavior will affect the person interacting with them and whether it will lead to a more harmonious outcome for everyone.\n\nAs I grow older, I don't regret the responses I've given over the years, but I often think how wonderful it would be if I could take back the reactions I've shown.`,
-    questionsEn: [
-      'Think of the last time you said something you immediately wished you could take back. Was it a reaction or a response?',
-      'How do you tell the difference between a reaction and a response when you\'re inside it?',
-      'Is there a relationship where you find it hardest to move from reacting to responding?',
-    ],
-  },
-  {
-    id: 33, slug: 'may-i-help-you',
-    titleKo: 'May I Help YOU?', titleEn: 'May I Help YOU?',
-    tags: ['service', 'presence'],
-    audiences: ['young-adults', 'mid-career'],
-    driveFileEn: EN[33], driveFileKo: KO[33],
-    textEn: `There is a difference between efficiency and effectiveness.\n\nEfficiency: doing things right.\nEffectiveness: doing the right things.\n\n"May I help you?" — asked efficiently, from behind a counter, while already reaching for the next customer.\n\n"May I help YOU?" — asked with full attention, looking at this specific person in front of me.\n\nThe emphasis changes everything. The question becomes real.`,
-    questionsEn: [
-      'When did you last receive help that was truly focused on you — not on the transaction?',
-      'Where in your daily work do you offer efficient help rather than effective presence?',
-      'What would it look like to ask "May I help YOU?" with full attention — once today?',
-    ],
-  },
-  {
-    id: 34, slug: 'what-difference-one-death',
-    titleKo: '한 사람의 죽음이 무슨 차이를 만드는가', titleEn: 'What Difference Does One Death Make?',
-    tags: ['legacy', 'gratitude'],
-    audiences: ['retirees', 'mid-career', 'young-adults'],
-    driveFileEn: EN[34], driveFileKo: KO[34],
-    textEn: `In 2022, I lost my younger brother. He was 69.\n\nWhat do I want my death to mean?\n\nI would like everything physical about my life to blend into nature. No building with my name on it. No marker for my remains.\n\nI would like to stay alive in a few people's lives — as something that makes them laugh, or think, or find a reason to keep going.\n\nAfter fifteen years as a missionary, I now serve in the AARP Tax-Aide program. I value these encounters more and more. I am learning to see the people I sit across from past the labels the world puts on them.`,
-    questionsEn: [
-      'Has the death of someone changed your understanding of what your own life is for?',
-      'Dr. Park wants no headstone, no named building. What do you want to leave?',
-      'He values the Tax-Aide encounters more than his decorated missionary career. Why might that be?',
-    ],
-  },
-  {
-    id: 35, slug: 'story-made-with-readers',
-    titleKo: '독자들과 같이 만드는 이야기', titleEn: 'A Story Made Together with Readers',
-    tags: ['self-reflection', 'legacy'],
-    audiences: ['retirees', 'mid-career'],
-    driveFileEn: EN[35], driveFileKo: KO[35],
-    textEn: `Story 35 is a reserved seat.\n\nIt is being held for the stories you carry — the ones that belong to you and to the people in your group.\n\nDr. Park has shared 34 stories from his own life. Now he asks: what is the story from your life that belongs in this conversation?\n\nWe spend enormous energy avoiding the thought of our own death. But the people who have thought carefully about their death — their wishes, their values, what they want to leave — seem to live differently. More deliberately. With less anxiety about approval.\n\nHow about thinking about it while you are alive? Not as a morbid exercise. As a clarifying one.`,
-    questionsEn: [
-      'Have you thought seriously about your own death? What has prompted that?',
-      'What would change about how you live if you were clearer about what you want to leave?',
-      'What story from your own life belongs in this conversation?',
-      'What would it mean to live more deliberately starting this week?',
-    ],
-  },
-  {
-    id: 36, slug: 'school-uniform',
-    titleKo: '경기고 교복', titleEn: 'The School Uniform',
-    tags: ['dignity', 'identity'],
-    audiences: ['young-adults', 'mid-career', 'retirees'],
-    driveFileEn: EN[36], driveFileKo: KO[36],
-    textEn: `In the early 1960s, when I was in high school, I was returning home from a difficult day when I passed an elderly woman carrying a baby on her back. She murmured to herself:\n\n"How proud the parents of that Gyeonggi High School boy must be."\n\nShe was not speaking to me. She did not know I was the boy she was talking about.\n\nSixty years later, I still remember her words. She did not know what she gave me that day. A stranger's unsolicited acknowledgment — at exactly the moment I needed it.`,
-    questionsEn: [
-      'Has a stranger\'s word or gesture stayed with you unexpectedly? What was it?',
-      'What does an unsolicited word of acknowledgment do for a person?',
-      'Is there someone in your life who is walking home from a difficult day and could use a quiet word?',
-    ],
-  },
-  {
-    id: 37, slug: 'reality-is-different',
-    titleKo: '현실은 다르다', titleEn: 'Reality Is Different',
-    tags: ['principle', 'reality'],
-    audiences: ['mid-career', 'retirees', 'young-adults'],
-    driveFileEn: EN[37], driveFileKo: KO[37],
-    textEn: `I sometimes — or rather, often — come up with unconventional ideas. The usual response: "Your idea is correct in principle, but not practical."\n\nSelfish interest: motivation shaped by the constraints of reality.\nSelf-interest: making the achievement of a right, principled goal one's own.\n\nIf we set aside selfish interests and make principled goals our self-interest, we have a possibility of resolving the problems of reality one by one.\n\nReality is different — yes. But that is not the end of the sentence. It is the beginning of the work.`,
-    questionsEn: [
-      'Have you been told "correct in principle but not practical"? How did you respond?',
-      'What is the difference between selfish interest and self-interest?',
-      'Is there a principle you have quietly set aside as "not practical"?',
-    ],
-  },
-  {
-    id: 38, slug: 'whole-person-healing',
-    titleKo: '전인 치유', titleEn: 'Whole Person Healing',
-    tags: ['healing', 'community'],
-    audiences: ['mid-career', 'retirees', 'mission-trainees'],
-    driveFileEn: EN[38], driveFileKo: KO[38],
-    textEn: `In Osaka, Japan, there is Yodogawa Christian Hospital. After World War II, in 1955, the Women's Missionary Society donated their entire birthday offering — $208,077 — to establish a medical clinic in a poor neighborhood.\n\nBy 2009 it had become one of Japan's top three private medical institutions — operating under the motto of Whole Person Healing.\n\nWhen the hospital needed to relocate, 50,000 residents petitioned to keep it. The city sold them a former water treatment site without auction.\n\nFifty years after the original gift, the hospital donated the same amount — $208,077 — to medical missions in Southeast Asia.\n\nBefore the hospital moved in, residents got off one stop early and walked back, ashamed. After the hospital arrived, they got off at their own station.`,
-    questionsEn: [
-      'What does "Whole Person Healing" mean beyond physical care?',
-      '$208,077 planted in 1955, returned in the same amount fifty years later. What does that journey of a seed offering mean?',
-      'Who in your community is "getting off one stop early"?',
-    ],
-  },
-  {
-    id: 39, slug: 'a-small-smile',
-    titleKo: '작은 미소', titleEn: 'A Small Smile',
-    tags: ['legacy', 'gratitude'],
-    audiences: ['young-adults', 'mid-career', 'retirees', 'first-small-group'],
-    driveFileEn: EN[39], driveFileKo: KO[39],
-    textEn: `Tigers leave their hides; people leave their names.\n\nAn old Korean proverb. And not a wrong one. There are people who have left their names — in history, on buildings, on plaques.\n\nBut now, at 78, I find myself thinking differently when I stand before this proverb.\n\nI do not want to leave my name.\n\nInstead, I want to leave something small in the lives of the people I have met. Laughter. Reflection. In some cases, hope.\n\nI simply wish to leave a small smile in the hearts of those I encounter.`,
-    questionsEn: [
-      'What does "leaving your name behind" mean to you?',
-      'Leaving a name versus leaving a smile — what is the difference between these two kinds of legacy?',
-      'Complete the sentence: "The tiger leaves its hide. A person leaves their name. I want to leave ___."',
-      'What small smile have you received from someone that still lives in you?',
-    ],
-  },
-  {
-    id: 40, slug: 'social-justice',
-    titleKo: '사회정의', titleEn: 'Social Justice',
-    tags: ['justice', 'hope'],
-    audiences: ['young-adults', 'mid-career', 'retirees'],
-    driveFileEn: EN[40], driveFileKo: KO[40],
-    textEn: `Many people speak out for social justice at great personal cost. I have deep respect for them.\n\nTwo postures toward social justice:\n\nStruggle — Victory or Defeat: We must win. Not winning is losing. Anyone who opposes my struggle is an enemy.\n\nHope — Standing with the Vulnerable: Aims for progress rather than victory. Views opponents as people to be persuaded, not enemies to be defeated.\n\nEfforts to defeat cancer at its root are necessary. But treatments that extend life — and treatments that ease suffering — are also essential.\n\nEven as we fight for justice, we must not turn away from the neighbors who are suffering because of injustice.`,
-    questionsEn: [
-      'Have you seen both "struggle" and "hope" postures in action? What was the difference?',
-      '"Anyone who opposes my struggle is an enemy" — what does that framing produce over time?',
-      'Is there one person near you suffering from injustice where a small act of standing beside them is possible this week?',
-    ],
-  },
-  {
-    id: 41, slug: 'finding-mission-field-at-home',
-    titleKo: '집 동네에서 나의 선교지를 찾다', titleEn: 'Finding My Mission Field at Home',
-    tags: ['neighbor', 'mission', 'retirement'],
-    audiences: ['young-adults', 'mid-career', 'retirees', 'first-small-group'],
-    driveFileEn: EN[41], driveFileKo: KO[41],
-    textEn: `For fifteen years, I served as a missionary across Africa and Asia. Though my assignments and locations varied, my work distilled to a single essential truth: becoming a neighbor to people whose lives differed vastly from my own.\n\nMuch of my work centered on disaster relief, where I drew on my administrative and business background to help communities rebuild. The most profound moments arrived unexpectedly — people in the depths of suffering extending hospitality, offering their meager possessions as expressions of gratitude. I learned to weep and laugh alongside them, and discovered that these shared human moments enriched both our lives far more than any material assistance ever could.\n\nWhen I retired from field service, I assumed that chapter had closed — precious memories carefully filed away. Then everything changed. After relocating to a 55+ community in Orange County, NY, a friend suggested AARP Tax-Aide, recognizing my accounting background. I decided to volunteer.\n\nOver the past nine years, I have discovered something remarkable: our own communities are filled with neighbors whose stories are every bit as diverse and compelling as those I encountered on distant mission fields. I now look forward to each tax season with genuine anticipation, eager to reconnect with familiar faces and welcome new ones. When clients ask for my schedule so they can find me the following year, it moves my 80-year-old heart more deeply than any lucrative consulting engagement once did.\n\nBoth experiences have affirmed the same truth: genuine service transcends transaction. The missionary does not simply give — both parties are transformed. In the same way, Tax-Aide counselors and clients enrich one another in ways that extend far beyond the filing of a return.\n\nI have found my mission field right here at home. As a wise Rabbi once said, "Neighbor is not a geographical term, but a moral concept." Thank you, AARP, for reawakening my sense of purpose and reminding me that the work of neighboring never truly ends.`,
-    questionsEn: [
-      'When you think of "serving others," what image comes to mind? Is it near or far from where you live?',
-      'Dr. Park says the most profound moments were "shared human moments" — not material assistance. What does that distinction mean to you?',
-      '"Both parties are transformed." Have you experienced that in a service relationship?',
-      '"Neighbor is not a geographical term, but a moral concept." Where does that idea challenge you most?',
-      'Without traveling anywhere — where is your mission field this week?',
-    ],
-  },
-];
 
-export const tagLabels: Record<string, string> = {
-  'humility': '겸손 · Humility',
-  'giving': '베풂 · Giving',
-  'neighbor': '이웃됨 · Neighbor',
-  'being-vs-doing': '존재vs행위',
-  'cross-cultural': '문화이해 · Cross-Cultural',
-  'good-intentions': '선의 · Good Intentions',
-  'identity': '정체성 · Identity',
-  'prejudice': '편견 · Prejudice',
-  'mutuality': '상호성 · Mutuality',
-  'community': '공동체 · Community',
-  'mission': '선교 · Mission',
-  'self-reflection': '성찰 · Reflection',
-  'cultural-humility': '문화겸손',
-  'justice': '정의 · Justice',
-  'mercy': '자비 · Mercy',
-  'human-rights': '인권 · Rights',
-  'faith': '신앙 · Faith',
-  'burnout': '번아웃 · Burnout',
-  'witness': '증거 · Witness',
-  'life-possibilities': '삶의가능성',
-  'education': '교육 · Education',
-  'disaster-relief': '재난구호',
-  'healing': '치유 · Healing',
-  'presence': '임재 · Presence',
-  'empathy': '공감 · Empathy',
-  'communication': '소통 · Communication',
-  'maturity': '성숙 · Maturity',
-  'dignity': '존엄 · Dignity',
-  'equality': '평등 · Equality',
-  'forgiveness': '용서 · Forgiveness',
-  'martyrdom': '순교 · Martyrdom',
-  'learning': '배움 · Learning',
-  'history': '역사 · History',
-  'truth': '진실 · Truth',
-  'retirement': '은퇴 · Retirement',
-  'simplicity': '단순함 · Simplicity',
-  'sufficiency': '충분함 · Sufficiency',
-  'care': '돌봄 · Care',
-  'death': '죽음 · Death',
-  'stewardship': '청지기 · Stewardship',
-  'zeal': '열심 · Zeal',
-  'honesty': '솔직함 · Honesty',
-  'integrity': '진실성 · Integrity',
-  'service': '봉사 · Service',
-  'legacy': '유산 · Legacy',
-  'gratitude': '감사 · Gratitude',
-  'principle': '원칙 · Principle',
-  'reality': '현실 · Reality',
-  'hope': '소망 · Hope',
-  'devotion': '헌신 · Devotion',
-};
+  // ─── 1부 · Part 1 — 받고, 자라고, 베풀고 · Receiving, Growing, Giving ───
 
-export const audienceLabels: Record<string, string> = {
-  'young-adults': '청년 · Young Adults',
-  'mid-career': '중장년 · Mid-Career',
-  'retirees': '은퇴자 · Seniors',
-  'mission-trainees': '선교훈련 · Mission',
-  'first-small-group': '첫모임 · First Group',
-};
+  {
+    id: 1,
+    part: 1,
+    titleKo: '베풂의 교만',
+    titleEn: 'Arrogant Generosity',
+    subtitleKo: '주는 것도 교만이 될 수 있다',
+    subtitleEn: 'On giving, receiving, and the pride we don\'t see',
+    digestKo: '<!-- TODO: 베풂의 교만 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Arrogant Generosity card text -->',
+    driveKo: d('1UAjceY0'),
+    driveEn: d('1rUMNlz4'),
+  },
+  {
+    id: 2,
+    part: 1,
+    titleKo: 'Hamburger and Fries',
+    titleEn: 'Hamburger and Fries',
+    subtitleKo: '모르면서 모른다고 하지 못할 때',
+    subtitleEn: 'On not knowing what you don\'t know — and ordering anyway',
+    digestKo: '<!-- TODO: Hamburger and Fries 카드 텍스트 (KO) -->',
+    digestEn: '<!-- TODO: Hamburger and Fries card text (EN) -->',
+    driveKo: d('1xy-uc0-'),
+    driveEn: d('17UZMqsK'),
+  },
+  {
+    id: 3,
+    part: 1,
+    titleKo: 'May I Help YOU?',
+    titleEn: 'May I Help YOU?',
+    subtitleKo: '유효함과 효율성 사이에서',
+    subtitleEn: 'Between effectiveness and efficiency',
+    digestKo: '<!-- TODO: May I Help YOU? 카드 텍스트 (KO) -->',
+    digestEn: '<!-- TODO: May I Help YOU? card text (EN) -->',
+    driveKo: d('163fHpkx'),
+    driveEn: d('15V93Xvz'),
+  },
+  {
+    id: 4,
+    part: 1,
+    titleKo: '반응하기 vs 응답하기',
+    titleEn: 'React and Respond',
+    subtitleKo: '후회하는 것과 후회하지 않는 것',
+    subtitleEn: 'What we regret — and what we don\'t',
+    digestKo: '<!-- TODO: 반응하기 vs 응답하기 카드 텍스트 -->',
+    digestEn: '<!-- TODO: React and Respond card text -->',
+    driveKo: d('1hw1jUWN'),
+    driveEn: d('1WO9H9vQ'),
+  },
+  {
+    id: 5,
+    part: 1,
+    titleKo: '기선, 범선, 부선',
+    titleEn: 'Motor Boats, Sail Boats, Barges',
+    subtitleKo: '나는 어떤 배인가',
+    subtitleEn: 'On the direction of a life',
+    digestKo: '<!-- TODO: 기선, 범선, 부선 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Motor Boats, Sail Boats, Barges card text -->',
+    driveKo: d('1P80WP-f'),
+    driveEn: d('17QD51DG'),
+  },
+
+  // ─── 2부 · Part 2 — 이웃으로 산다는 것 · On Living as a Neighbor ───
+
+  {
+    id: 6,
+    part: 2,
+    titleKo: '이웃은 지리적 용어가 아닙니다',
+    titleEn: 'Neighbor Is Not a Geographical Term',
+    subtitleKo: '등잔 밑이 어두웠네',
+    subtitleEn: 'The lamp that doesn\'t shine on its own base',
+    digestKo: '<!-- TODO: 이웃은 지리적 용어가 아닙니다 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Neighbor Is Not a Geographical Term card text -->',
+    driveKo: d('1LcaL3rX'),
+    driveEn: d('1hd3jOkh'),
+  },
+  {
+    id: 7,
+    part: 2,
+    titleKo: '길에서 벗어나 모자를 기울이기',
+    titleEn: 'Stepping Aside and Tipping the Hat',
+    subtitleKo: '작은 몸짓, 그 엄청난 결과',
+    subtitleEn: 'On small gestures and their enormous consequences',
+    digestKo: '<!-- TODO: 길에서 벗어나 모자를 기울이기 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Stepping Aside and Tipping the Hat card text -->',
+    driveKo: d('1Kn_IMxN'),
+    driveEn: d('1wLLS0sS'),
+  },
+  {
+    id: 8,
+    part: 2,
+    titleKo: '아보카도 나무',
+    titleEn: 'The Avocado Tree',
+    subtitleKo: '구조, 공정함, 그리고 시선',
+    subtitleEn: 'On structure, fairness, and the way we see',
+    digestKo: '<!-- TODO: 아보카도 나무 카드 텍스트 -->',
+    digestEn: '<!-- TODO: The Avocado Tree card text -->',
+    driveKo: d('1oa2_tCl'),
+    driveEn: d('1IMhtJVB'),
+  },
+  {
+    id: 9,
+    part: 2,
+    titleKo: '겸손과 신뢰로 가르치다',
+    titleEn: 'Teaching with Humility and Trust',
+    subtitleKo: '칼론지의 소원이 드러낸 것',
+    subtitleEn: 'On the door thirty years of labor left unopened',
+    digestKo: '<!-- TODO: 겸손과 신뢰로 가르치다 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Teaching with Humility and Trust card text -->',
+    driveKo: d('15skZ513'),
+    driveEn: d('1lEmZ_B3'),
+  },
+  {
+    id: 10,
+    part: 2,
+    titleKo: '겸손의 힘',
+    titleEn: 'The Power of Humility',
+    subtitleKo: '약함이 진정한 변화의 조건',
+    subtitleEn: 'On weakness, witness, and the questions we don\'t expect to answer',
+    digestKo: '<!-- TODO: 겸손의 힘 카드 텍스트 -->',
+    digestEn: '<!-- TODO: The Power of Humility card text -->',
+    driveKo: d('1dIXQV8W'),
+    driveEn: d('1g-yYBB1'),
+  },
+  {
+    id: 11,
+    part: 2,
+    titleKo: '이웃에게서 배우는 선교사',
+    titleEn: 'A Missionary Learning from Neighbors',
+    subtitleKo: '대사 한 마디 없는 역이 완성한 이야기',
+    subtitleEn: 'On the character with no lines — and the one who saw him first',
+    digestKo: '<!-- TODO: 이웃에게서 배우는 선교사 카드 텍스트 -->',
+    digestEn: '<!-- TODO: A Missionary Learning from Neighbors card text -->',
+    driveKo: d('1jUhINK-'),
+    driveEn: d('10roRzQh'),
+    drivePptKo: p('1ShrpJjd'),
+  },
+  {
+    id: 12,
+    part: 2,
+    titleKo: '언어 배우기',
+    titleEn: 'Learning a Language',
+    subtitleKo: '발언하지 못하는 이들의 고난을 이해하고 공유하기',
+    subtitleEn: 'On voicelessness, power, and what broken Nepali can do',
+    digestKo: '<!-- TODO: 언어 배우기 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Learning a Language card text -->',
+    driveKo: d('1DEojH3Z'),
+    driveEn: d('1GRKjFfM'),
+  },
+  {
+    id: 13,
+    part: 2,
+    titleKo: '몇 명이나 전도했어요?',
+    titleEn: 'How Many People Have You Converted?',
+    subtitleKo: 'Amodou의 십자가에 대하여',
+    subtitleEn: 'On Amodou\'s cross — and the power of a relationship with no result yet',
+    digestKo: '<!-- TODO: 몇 명이나 전도했어요? 카드 텍스트 -->',
+    digestEn: '<!-- TODO: How Many People Have You Converted? card text -->',
+    driveKo: d('1vbVdRKG'),
+    driveEn: d('1PenqwDh'),
+    drivePptKo: p('1ShrpJjd'),
+  },
+  {
+    id: 14,
+    part: 2,
+    titleKo: '콩고 시골교회 어른',
+    titleEn: 'An Elderly Man from a Rural Church in Congo',
+    subtitleKo: '하나님이 아직 우리를 기억하신다',
+    subtitleEn: 'God still remembers us',
+    digestKo: '<!-- TODO: 콩고 시골교회 어른 카드 텍스트 -->',
+    digestEn: '<!-- TODO: An Elderly Man from a Rural Church in Congo card text -->',
+    driveKo: d('1E3GWzqP'),
+    driveEn: d('1sXzAyDI'),
+    drivePptKo: p('1fhFd4q3'),
+  },
+
+  // ─── 3부 · Part 3 — 배우며 실수하며 · Learning Through Mistakes ───
+
+  {
+    id: 15,
+    part: 3,
+    titleKo: '섣부른 해결책',
+    titleEn: 'Hasty Solutions',
+    subtitleKo: '이해하지 못하면서 해결하려 할 때',
+    subtitleEn: 'On the assumptions we carry — and the silences that teach us',
+    digestKo: '<!-- TODO: 섣부른 해결책 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Hasty Solutions card text -->',
+    driveKo: d('100qNMYv'),
+    driveEn: d('1BstoWqX'),
+    drivePptKo: p('1Aq0-QyF'),
+  },
+  {
+    id: 16,
+    part: 3,
+    titleKo: '다코로의 선물',
+    titleEn: 'Dakoro\'s Gift',
+    subtitleKo: '규칙, 생명, 그리고 공동체가 가진 지혜',
+    subtitleEn: 'On rules, lives, and the wisdom a community already holds',
+    digestKo: '<!-- TODO: 다코로의 선물 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Dakoro\'s Gift card text -->',
+    driveKo: d('1jZuv9ad'),
+    driveEn: d('1HDItjzd'),
+    drivePptKo: p('1fhFd4q3'),
+  },
+  {
+    id: 17,
+    part: 3,
+    titleKo: '내가 가서',
+    titleEn: 'As I Go',
+    subtitleKo: '"미개인"을 하나님의 자녀로 — 이 과오는 어디서 오는가',
+    subtitleEn: 'On the assumption of arrival — and the discipline of staying on the way',
+    digestKo: '<!-- TODO: 내가 가서 카드 텍스트 -->',
+    digestEn: '<!-- TODO: As I Go card text -->',
+    driveKo: d('15HZQO59'),
+    driveEn: d('1QiP6a9H'),
+  },
+  {
+    id: 18,
+    part: 3,
+    titleKo: '열심 있는 사람들의 병',
+    titleEn: 'The Disease of the Zealous',
+    subtitleKo: '열심과 소명을 혼동하는 위험',
+    subtitleEn: 'On mistaking passion for calling — and serving for leading',
+    digestKo: '<!-- TODO: 열심 있는 사람들의 병 카드 텍스트 -->',
+    digestEn: '<!-- TODO: The Disease of the Zealous card text -->',
+    driveKo: d('1GFvJc6d'),
+    driveEn: d('1OT0f54I'),
+  },
+  {
+    id: 19,
+    part: 3,
+    titleKo: '재난',
+    titleEn: 'Disaster',
+    subtitleKo: 'TV 카메라가 떠난 후부터 시작되는 것',
+    subtitleEn: 'What begins after the TV cameras leave',
+    digestKo: '<!-- TODO: 재난 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Disaster card text -->',
+    driveKo: d('10AaOMbp'),
+    driveEn: d('1p0b-ap4'),
+  },
+  {
+    id: 20,
+    part: 3,
+    titleKo: '내 아들에게 말하는 중이다',
+    titleEn: 'I Am Speaking to My Son',
+    subtitleKo: '감당할 수 없을 때 — 한 발자국 물러나는 것에 대하여',
+    subtitleEn: 'On limits, burnout, and the discipline of stepping back',
+    digestKo: '<!-- TODO: 내 아들에게 말하는 중이다 카드 텍스트 -->',
+    digestEn: '<!-- TODO: I Am Speaking to My Son card text -->',
+    driveKo: d('1y9bcqVX'),
+    driveEn: d('1eShMcCB'),
+  },
+
+  // ─── 4부 · Part 4 — 편견에 갇힌 우리 · Caught Inside Our Own Frames ───
+
+  {
+    id: 21,
+    part: 4,
+    titleKo: '요한이',
+    titleEn: 'Yo-han',
+    subtitleKo: '다문화 가정 · 첫인상 · 이름',
+    subtitleEn: 'Multicultural Family',
+    digestKo: '<!-- TODO: 요한이 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Yo-han card text -->',
+    driveKo: d('1N58qRs1'),
+    driveEn: d('1pQ0UtuZ'),
+  },
+  {
+    id: 22,
+    part: 4,
+    titleKo: '오늘의 성소수자 차별',
+    titleEn: 'Today\'s Discrimination Against Sexual Minorities',
+    subtitleKo: '행동(Doing)이 아니라 존재(Being) 때문에 받는 대우에 대하여',
+    subtitleEn: 'On being treated not for what you do, but for who you are',
+    digestKo: '<!-- TODO: 오늘의 성소수자 차별 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Today\'s Discrimination Against Sexual Minorities card text -->',
+    driveKo: d('1mwW2ZGA'),
+    driveEn: d('1QFBtoym'),
+  },
+  {
+    id: 23,
+    part: 4,
+    titleKo: '양과 질, 그리고 숨길 수 없는 진실',
+    titleEn: 'Quantity, Quality, and the Truth That Cannot Be Hidden',
+    subtitleKo: 'Yes and No',
+    subtitleEn: 'Yes and No',
+    digestKo: '<!-- TODO: 양과 질 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Quantity, Quality card text -->',
+    driveKo: d('14H10Q2f'),
+    driveEn: d('1fJV29t6'),
+    drivePptKo: p('1mJLohny'),
+  },
+  {
+    id: 24,
+    part: 4,
+    titleKo: '역사적 사실과 진실',
+    titleEn: 'Historical Facts and Truth',
+    subtitleKo: '부분적 진실, 전체 진실, 그리고 다른 목소리를 들을 용기',
+    subtitleEn: 'On partial truths, whole truth, and the courage to listen',
+    digestKo: '<!-- TODO: 역사적 사실과 진실 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Historical Facts and Truth card text -->',
+    driveKo: d('1Z-LzHPJ'),
+    driveEn: d('1DzOJ7Wi'),
+    drivePptKo: p('1C5Q7uwR'),
+  },
+  {
+    id: 25,
+    part: 4,
+    titleKo: '모르는 것 없어요',
+    titleEn: 'There\'s Nothing We Don\'t Know',
+    subtitleKo: '모르는 것을 모르는 것이 가장 위험한 모름이다',
+    subtitleEn: 'On the most dangerous kind of not-knowing',
+    digestKo: '<!-- TODO: 모르는 것 없어요 카드 텍스트 -->',
+    digestEn: '<!-- TODO: There\'s Nothing We Don\'t Know card text -->',
+    driveKo: d('1TX-BT1P'),
+    driveEn: d('1-dkaITP'),
+  },
+  {
+    id: 26,
+    part: 4,
+    titleKo: 'N차 방정식',
+    titleEn: 'Nth-Degree Equation',
+    subtitleKo: '답은 하나가 아닐 수 있습니다',
+    subtitleEn: 'Life has more than one answer',
+    digestKo: '<!-- TODO: N차 방정식 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Nth-Degree Equation card text -->',
+    driveKo: d('177Ze5ti'),
+    driveEn: d('1jK_ltel'),
+  },
+  {
+    id: 27,
+    part: 4,
+    titleKo: '나 하나를 바쳐서',
+    titleEn: 'Sacrificing Myself',
+    subtitleKo: '이 사건이 사람들의 기억에서 사라지지 않는 불씨가 된다면',
+    subtitleEn: 'On a student willing to be beaten for a spark',
+    digestKo: '<!-- TODO: 나 하나를 바쳐서 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Sacrificing Myself card text -->',
+    driveKo: d('1HCEi5ZV'),
+    driveEn: d('1Inc42aR'),
+  },
+
+  // ─── 5부 · Part 5 — 정의와 치유 · Justice and Healing ───
+
+  {
+    id: 28,
+    part: 5,
+    titleKo: '정의와 자비',
+    titleEn: 'Justice and Mercy',
+    subtitleKo: '법을 지키는 것과 자비를 베푸는 것은 양립할 수 있는가',
+    subtitleEn: 'On law, compassion, and the doors others opened for us',
+    digestKo: '<!-- TODO: 정의와 자비 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Justice and Mercy card text -->',
+    driveKo: d('1VfsHd8j'),
+    driveEn: d('1HrT9tGb'),
+  },
+  {
+    id: 29,
+    part: 5,
+    titleKo: '탁실라 기독병원',
+    titleEn: 'Taxila Christian Hospital',
+    subtitleKo: '악을 선으로 갚는 성숙함에 대하여',
+    subtitleEn: 'On repaying evil with good',
+    digestKo: '<!-- TODO: 탁실라 기독병원 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Taxila Christian Hospital card text -->',
+    driveKo: d('15YEt7s-'),
+    driveEn: d('1npUkWWj'),
+    drivePptKo: p('1yZQ8P9i'),
+  },
+  {
+    id: 30,
+    part: 5,
+    titleKo: '전인치유',
+    titleEn: 'Whole Person Healing',
+    subtitleKo: '한 생명의 보호로부터 역 한 정거장까지',
+    subtitleEn: 'From protecting one life — to one train stop away',
+    digestKo: '<!-- TODO: 전인치유 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Whole Person Healing card text -->',
+    driveKo: d('14_M9bWS'),
+    driveEn: d('122ePSzS'),
+    drivePptKo: p('1yZQ8P9i'),
+  },
+  {
+    id: 31,
+    part: 5,
+    titleKo: 'HIV/AIDS — 누구의 책임인가?',
+    titleEn: 'Beyond the Enemy',
+    subtitleKo: '불치병 너머의 사람을 본 여인들',
+    subtitleEn: 'On seeing the person inside the crisis',
+    digestKo: '<!-- TODO: HIV/AIDS 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Beyond the Enemy card text -->',
+    driveKo: d('1xHibnha'),
+    driveEn: d('100FxFnN'),
+    drivePptKo: p('1mDUazuA'),
+  },
+  {
+    id: 32,
+    part: 5,
+    titleKo: '사회정의',
+    titleEn: 'Social Justice',
+    subtitleKo: '설탕 한 포대 — 거시와 미시, 그리고 지금 내 앞의 이 사람',
+    subtitleEn: 'On the macro and the micro — and the sugar sack in between',
+    digestKo: '<!-- TODO: 사회정의 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Social Justice card text -->',
+    driveKo: d('1GOVCdeZ'),
+    driveEn: d('1CxLhr86'),
+  },
+
+  // ─── 6부 · Part 6 — 풍성한 삶이란? · What Is a Full Life? ───
+
+  {
+    id: 33,
+    part: 6,
+    titleKo: '선교사의 은퇴, 은퇴 후 선교',
+    titleEn: 'Pursuing the Best',
+    subtitleKo: '새로운 환경에서의 이웃됨은 반복된다',
+    subtitleEn: 'On missionary stages, retirement stages, and the folding table',
+    digestKo: '<!-- TODO: 선교사의 은퇴 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Pursuing the Best card text -->',
+    driveKo: d('1jHxka8h'),
+    driveEn: d('1QkWh67O'),
+  },
+  {
+    id: 34,
+    part: 6,
+    titleKo: '극대화와 충분함',
+    titleEn: 'God\'s Grace Is Sufficient',
+    subtitleKo: '40% 작은 삶이 더 풍성했다',
+    subtitleEn: 'On what a life of less taught about enough',
+    digestKo: '<!-- TODO: 극대화와 충분함 카드 텍스트 -->',
+    digestEn: '<!-- TODO: God\'s Grace Is Sufficient card text -->',
+    driveKo: d('14XCkAg9'),
+    driveEn: d('1nD6uWXy'),
+  },
+  {
+    id: 35,
+    part: 6,
+    titleKo: '한 사람의 죽음이 무슨 차이를 만드는가',
+    titleEn: 'What Difference Does One Person\'s Death Make?',
+    subtitleKo: '유산, 겸손, 그리고 세금 신고서',
+    subtitleEn: 'On legacy, humility, and tax returns',
+    digestKo: '<!-- TODO: 한 사람의 죽음이 카드 텍스트 -->',
+    digestEn: '<!-- TODO: What Difference Does One Person\'s Death Make? card text -->',
+    driveKo: d('1gAwREYZ'),
+    driveEn: d('1tqOs6pV'),
+  },
+  {
+    id: 36,
+    part: 6,
+    titleKo: '독자들과 같이 만드는 이야기',
+    titleEn: 'A Story Made Together with Readers',
+    subtitleKo: '예약된 자리',
+    subtitleEn: 'A reserved seat',
+    digestKo: '<!-- TODO: 독자들과 같이 만드는 이야기 카드 텍스트 -->',
+    digestEn: '<!-- TODO: A Story Made Together with Readers card text -->',
+    driveKo: d('18VlAlUZ'),
+    driveEn: d('1U45hWW2'),
+  },
+  {
+    id: 37,
+    part: 6,
+    titleKo: '집 동네에서 나의 선교지를 찾다',
+    titleEn: 'Finding My Mission Field at Home',
+    subtitleKo: '새로운 환경마다 이웃됨은 처음부터 다시 시작됩니다',
+    subtitleEn: 'The work of neighboring never truly ends',
+    digestKo: '<!-- TODO: 집 동네에서 나의 선교지를 찾다 카드 텍스트 -->',
+    digestEn: '<!-- TODO: Finding My Mission Field at Home card text -->',
+    driveKo: d('1Dk6qJZC'),
+    driveEn: d('1u8rpdC5'),
+  },
+  {
+    id: 38,
+    part: 6,
+    titleKo: '작은 미소',
+    titleEn: 'A Small Smile',
+    subtitleKo: '이름이 아니라 미소를 남기고 싶다',
+    subtitleEn: 'I want to leave a smile, not a name',
+    digestKo: '<!-- TODO: 작은 미소 카드 텍스트 -->',
+    digestEn: '<!-- TODO: A Small Smile card text -->',
+    driveKo: d('1ppL6khn'),
+    driveEn: d('1DJ1RivJ'),
+  },
+]
+
+// Part labels
+export const partLabels: Record<number, { ko: string; en: string }> = {
+  1: { ko: '1부 — 받고, 자라고, 베풀고', en: 'Part 1 — Receiving, Growing, Giving' },
+  2: { ko: '2부 — 이웃으로 산다는 것', en: 'Part 2 — On Living as a Neighbor' },
+  3: { ko: '3부 — 배우며 실수하며', en: 'Part 3 — Learning Through Mistakes' },
+  4: { ko: '4부 — 편견에 갇힌 우리', en: 'Part 4 — Caught Inside Our Own Frames' },
+  5: { ko: '5부 — 정의와 치유', en: 'Part 5 — Justice and Healing' },
+  6: { ko: '6부 — 풍성한 삶이란?', en: 'Part 6 — What Is a Full Life?' },
+}
+
+// Read Me First links
+export const readMeFirst = {
+  ko: 'https://docs.google.com/document/d/1nqi3Ms9JqXTuMPLAK7QzkmpLNTg-sS3V/edit',
+  en: 'https://docs.google.com/document/d/1bhCEx6M7Y9_9Uiql62jpugu_B0JiM2SP/edit',
+}
