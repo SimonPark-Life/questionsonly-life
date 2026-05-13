@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Story } from '@/lib/stories-data';
 import GiscusComments from '@/components/GiscusComments';
 
@@ -12,20 +12,28 @@ interface Props {
 
 export default function StoryView({ story, prev, next }: Props) {
   const [lang, setLang] = useState<'ko' | 'en'>('ko');
+  const router = useRouter();
 
-  const bodyParagraphs = story.textEn
+  const bodyText = story.textEn || story.digestEn || '';
+  const bodyParagraphs = bodyText
     .split('\n\n')
     .filter(Boolean);
 
-  const enHref = story.driveFileEn || '/download';
-  const koHref = story.driveFileKo || '/download';
+  const enHref = story.driveFileEn || story.driveEn || '/download';
+  const koHref = story.driveFileKo || story.driveKo || '/download';
+
+  const getStoryHref = (s: Story) =>
+    s.slug ? `/stories/${s.slug}` : `/stories/${s.id}`;
 
   return (
     <div className="story-view">
-
-      <Link href="/stories" className="story-view__back">
+      <button
+        onClick={() => router.push('/stories')}
+        className="story-view__back"
+        style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}
+      >
         ← 이야기 목록으로 · Back to Stories
-      </Link>
+      </button>
 
       <div style={{
         display: 'flex',
@@ -46,7 +54,6 @@ export default function StoryView({ story, prev, next }: Props) {
             {lang === 'ko' ? story.titleEn : story.titleKo}
           </div>
         </div>
-
         <div className="lang-tog">
           <button
             className={`lang-btn${lang === 'ko' ? ' active' : ''}`}
@@ -70,7 +77,7 @@ export default function StoryView({ story, prev, next }: Props) {
       }} />
 
       <div className="story-view__body">
-               <div style={{
+        <div style={{
           background: '#fffbea',
           border: '1px solid #e8d88a',
           borderLeft: '4px solid #8B6914',
@@ -120,16 +127,22 @@ export default function StoryView({ story, prev, next }: Props) {
             lineHeight: 1.7,
           }}>
             The story shown on this page is an edited digest for preview purposes.
-            The complete original story — including full text, discussion guides,
-            and Leader's Guide — is available in the downloadable file below.
+            The complete original story is available in the downloadable file below.
           </p>
         </div>
-        {bodyParagraphs.map((para, i) => (
-          <p key={i}>{para}</p>
-        ))}
+
+        {bodyParagraphs.length > 0 ? (
+          bodyParagraphs.map((para, i) => (
+            <p key={i}>{para}</p>
+          ))
+        ) : (
+          <p style={{ color: 'var(--faint)', fontStyle: 'italic' }}>
+            {lang === 'ko' ? '(준비 중입니다)' : '(Coming soon)'}
+          </p>
+        )}
       </div>
 
-        <div className="dl-bar">
+      <div className="dl-bar">
         <span style={{
           fontSize: 12,
           color: 'var(--faint)',
@@ -140,47 +153,58 @@ export default function StoryView({ story, prev, next }: Props) {
         </span>
         <a href={enHref} target="_blank" rel="noopener noreferrer"
           className="dl-btn dl-btn--en">
-          ↓ English Story + Guide (.docx)
+          ↓ English Story + Guide
         </a>
         <a href={koHref} target="_blank" rel="noopener noreferrer"
           className="dl-btn dl-btn--ko">
-          ↓ 한국어 이야기 + 나눔 자료 (.docx)
+          ↓ 한국어 이야기 + 나눔 자료
         </a>
         {story.drivePptKo && (
           <a href={story.drivePptKo} target="_blank" rel="noopener noreferrer"
             className="dl-btn dl-btn--ko">
-            ↓ 배경 자료 · Background Slides (.pptx)
+            ↓ 배경 자료 · Background Slides
           </a>
         )}
       </div>
-      <div className="disc-sec">
-        <div className="disc-title">
-          토론 질문 · Discussion Questions
+
+      {story.questionsEn && story.questionsEn.length > 0 && (
+        <div className="disc-sec">
+          <div className="disc-title">
+            토론 질문 · Discussion Questions
+          </div>
+          <ol className="q-list">
+            {story.questionsEn.map((q, i) => (
+              <li key={i}>{q}</li>
+            ))}
+          </ol>
         </div>
-        <ol className="q-list">
-          {story.questionsEn.map((q, i) => (
-            <li key={i}>{q}</li>
-          ))}
-        </ol>
-      </div>
+      )}
 
       <div className="story-nav">
         {prev ? (
-          <Link href={`/stories/${prev.slug}`} className="story-nav__btn">
+          <button
+            onClick={() => router.push(getStoryHref(prev))}
+            className="story-nav__btn"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit', textAlign: 'left' }}
+          >
             <small>← 이전 Previous</small>
             <span>{prev.titleKo}</span>
-          </Link>
+          </button>
         ) : (
           <div />
         )}
         {next && (
-          <Link href={`/stories/${next.slug}`}
-            className="story-nav__btn story-nav__btn--next">
+          <button
+            onClick={() => router.push(getStoryHref(next))}
+            className="story-nav__btn story-nav__btn--next"
+            style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit', textAlign: 'right' }}
+          >
             <small>다음 Next →</small>
             <span>{next.titleKo}</span>
-          </Link>
+          </button>
         )}
       </div>
+
       <GiscusComments />
     </div>
   );
