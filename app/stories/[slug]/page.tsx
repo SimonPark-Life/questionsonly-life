@@ -1,8 +1,8 @@
 'use client'
-
 import { useParams, useRouter } from 'next/navigation'
 import { useLang } from '@/lib/language-context'
 import { stories, partLabels } from '@/lib/stories-data'
+import GiscusComments from '@/components/GiscusComments'
 
 export default function StoryDigestPage() {
   const params = useParams()
@@ -39,6 +39,10 @@ export default function StoryDigestPage() {
   const pptLabel = lang === 'ko' ? 'PPT 배경 슬라이드' : 'PPT Background Slides'
   const backLabel = lang === 'ko' ? '← 목록으로' : '← Back to Stories'
   const storyNum = lang === 'ko' ? `이야기 ${story.id}` : `Story ${story.id}`
+  const commentsLabel = lang === 'ko' ? '댓글' : 'Comments'
+  const commentsNote = lang === 'ko'
+    ? 'GitHub 계정으로 댓글을 남길 수 있습니다.'
+    : 'Sign in with GitHub to leave a comment.'
 
   const isPlaceholder = digest && digest.startsWith('<!-- TODO')
 
@@ -81,8 +85,6 @@ export default function StoryDigestPage() {
 
         {/* Action buttons */}
         <div style={styles.buttonGroup}>
-
-          {/* Primary — full story in chosen language */}
           {primaryDrive && (
             <a
               href={primaryDrive}
@@ -93,8 +95,6 @@ export default function StoryDigestPage() {
               {downloadLabel} ↗
             </a>
           )}
-
-          {/* Secondary — other language */}
           {secondaryDrive && (
             <a
               href={secondaryDrive}
@@ -105,8 +105,6 @@ export default function StoryDigestPage() {
               {otherLangLabel} ↗
             </a>
           )}
-
-          {/* PPT — if available */}
           {story.drivePptKo && (
             <a
               href={story.drivePptKo}
@@ -137,6 +135,15 @@ export default function StoryDigestPage() {
               {lang === 'ko' ? '다음 이야기' : 'Next'} →
             </button>
           )}
+        </div>
+
+        {/* Comments section */}
+        <div style={styles.commentSection}>
+          <div style={styles.commentHeader}>
+            <h2 style={styles.commentTitle}>{commentsLabel}</h2>
+            <p style={styles.commentNote}>{commentsNote}</p>
+          </div>
+          <GiscusComments />
         </div>
 
       </div>
@@ -264,6 +271,7 @@ const styles: Record<string, React.CSSProperties> = {
     display: 'flex',
     justifyContent: 'space-between',
     gap: '1rem',
+    marginBottom: '3rem',
   },
   navBtn: {
     background: 'none',
@@ -273,5 +281,22 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: '0.9rem',
     fontFamily: 'inherit',
     padding: '0.5rem 0',
+  },
+  commentSection: {
+    borderTop: '1px solid var(--rule)',
+    paddingTop: '2rem',
+  },
+  commentHeader: {
+    marginBottom: '1.5rem',
+  },
+  commentTitle: {
+    fontSize: '1.1rem',
+    fontWeight: 700,
+    color: 'var(--text)',
+    marginBottom: '0.25rem',
+  },
+  commentNote: {
+    fontSize: '0.82rem',
+    color: 'var(--faint)',
   },
 }
