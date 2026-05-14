@@ -63,10 +63,10 @@ I had no answer.
 Without noticing, I had made myself permanently the giver — and shut the door on genuine fellowship.
 
 Sometimes, the most generous thing you can do is let someone else give.`,
-    driveKo: d('1UAjceY0'),
-    driveEn: d('1rUMNlz4'),
-    driveFileKo: d('1UAjceY0'),
-    driveFileEn: d('1rUMNlz4'),
+    driveKo: d('1UAjceY0LwK3dHCY4Hs5T5aB9qBaUBAUc'),
+    driveEn: d('1rUMNlz4ciLC35WnJCFEoOXUYVEVfwtoD'),
+    driveFileKo: d('1UAjceY0LwK3dHCY4Hs5T5aB9qBaUBAUc'),
+    driveFileEn: d('1rUMNlz4ciLC35WnJCFEoOXUYVEVfwtoD'),
   },
   {
     id: 2,
@@ -119,10 +119,10 @@ After a long pause.
 When we don't know what we don't know — we order what we always order.
 
 These days, because of diabetes, I can no longer eat hamburger and fries. What I learned by necessity turned out to be healthier.`,
-    driveKo: d('1xy-uc0-'),
-    driveEn: d('17UZMqsK'),
-    driveFileKo: d('1xy-uc0-'),
-    driveFileEn: d('17UZMqsK'),
+    driveKo: d('1xHibnhaaUzSffhRIij-Xa5r6W-HsLP9r'),
+    driveEn: d('100FxFnNuaVv9CMTniO98cNmrISDiTc0x'),
+    driveFileKo: d('1xHibnhaaUzSffhRIij-Xa5r6W-HsLP9r'),
+    driveFileEn: d('100FxFnNuaVv9CMTniO98cNmrISDiTc0x'),
   },
   {
     id: 3,
@@ -173,10 +173,10 @@ Effective — the bartender always got the right glass.
 Efficient — remarkably poor.
 
 When we don't know what we don't know — we set out all four glasses and wash them all.`,
-    driveKo: d('163fHpkx'),
-    driveEn: d('15V93Xvz'),
-    driveFileKo: d('163fHpkx'),
-    driveFileEn: d('15V93Xvz'),
+    driveKo: d('1jHxka8hmMaDh7mz5FyRmLP1awPkJRRmI'),
+    driveEn: d('1QkWh67OVuo9H9rzEW3mzSovV0Bv7uJAs'),
+    driveFileKo: d('1jHxka8hmMaDh7mz5FyRmLP1awPkJRRmI'),
+    driveFileEn: d('1QkWh67OVuo9H9rzEW3mzSovV0Bv7uJAs'),
   },
   {
     id: 4,
@@ -223,10 +223,10 @@ As I grow older, I do not regret the responses I have given. Even the difficult 
 But the reactions? The words I cannot take back?
 
 Before I speak — is this a reaction, or a response?`,
-    driveKo: d('1hw1jUWN'),
-    driveEn: d('1WO9H9vQ'),
-    driveFileKo: d('1hw1jUWN'),
-    driveFileEn: d('1WO9H9vQ'),
+    driveKo: d('1GOVCdeZ2TMGOxKrcLLr9iz44Id_Bxs0f'),
+    driveEn: d('1CxLhr869z9PFyti_lQBHHuHyLK6DATbx'),
+    driveFileKo: d('1GOVCdeZ2TMGOxKrcLLr9iz44Id_Bxs0f'),
+    driveFileEn: d('1CxLhr869z9PFyti_lQBHHuHyLK6DATbx'),
   },
   {
     id: 5,
@@ -265,10 +265,10 @@ But now, looking toward the end, I want to live like a sail boat.
 Not fighting the wind. Reading it.
 
 The wind is already blowing. Do I have my sails up?`,
-    driveKo: d('1P80WP-f'),
-    driveEn: d('17QD51DG'),
-    driveFileKo: d('1P80WP-f'),
-    driveFileEn: d('17QD51DG'),
+    driveKo: d('1LcaL3rX-IdMld8otsGBAvcHGnZrhFDem'),
+    driveEn: d('1hd3jOkh4EPB6H5ST_yvlHKlBX7mJaGxK'),
+    driveFileKo: d('1LcaL3rX-IdMld8otsGBAvcHGnZrhFDem'),
+    driveFileEn: d('1hd3jOkh4EPB6H5ST_yvlHKlBX7mJaGxK'),
   },
 
   // ─── 2부 · Part 2 — 이웃으로 산다는 것 · On Living as a Neighbor ───
@@ -311,10 +311,10 @@ It turns out receiving grace is also part of the work.
 — Rabbi Joachim Prinz
 
 We are all living on the mission field at all times. The field includes the person sitting beside you.`,
-    driveKo: d('1LcaL3rX'),
-    driveEn: d('1hd3jOkh'),
-    driveFileKo: d('1LcaL3rX'),
-    driveFileEn: d('1hd3jOkh'),
+    driveKo: d('15HZQO59pcRY5Gxq7OGunAk42x5DpnqzQ'),
+    driveEn: d('1QiP6a9HCKNaGsMVlP344qU_bdipaN3z0'),
+    driveFileKo: d('15HZQO59pcRY5Gxq7OGunAk42x5DpnqzQ'),
+    driveFileEn: d('1QiP6a9HCKNaGsMVlP344qU_bdipaN3z0'),
   },
   {
     id: 7,
@@ -359,10 +359,10 @@ Huddleston did not see a black woman required to step aside. He saw the image of
 
 Who are we stepping aside for today?
 And to whom have we not yet tipped our hat?`,
-    driveKo: d('1Kn_IMxN'),
-    driveEn: d('1wLLS0sS'),
-    driveFileKo: d('1Kn_IMxN'),
-    driveFileEn: d('1wLLS0sS'),
+    driveKo: d('1GFvJc6dh6gf3WFu2Xy2MlIDC3mKXl6hc'),
+    driveEn: d('1OT0f54IFE_Ws2maA9aFZ0KDhioU2uPDh'),
+    driveFileKo: d('1GFvJc6dh6gf3WFu2Xy2MlIDC3mKXl6hc'),
+    driveFileEn: d('1OT0f54IFE_Ws2maA9aFZ0KDhioU2uPDh'),
   },
   {
     id: 8,
@@ -401,10 +401,10 @@ I had good intentions. The structure did not care.
 The world's unfair structures cannot all be changed at once. But seeing the person in front of me as a neighbor — that is a choice available right now.
 
 How am I seeing the person in front of me?`,
-    driveKo: d('1oa2_tCl'),
-    driveEn: d('1IMhtJVB'),
-    driveFileKo: d('1oa2_tCl'),
-    driveFileEn: d('1IMhtJVB'),
+    driveKo: d('1xy-uc0-qvZcinmPF6iEPIzYKYQ84B9bu'),
+    driveEn: d('17UZMqsKenPkkDOxe-n4dvkh2Zyx0ggyx'),
+    driveFileKo: d('1xy-uc0-qvZcinmPF6iEPIzYKYQ84B9bu'),
+    driveFileEn: d('17UZMqsKenPkkDOxe-n4dvkh2Zyx0ggyx'),
     drivePptKo: p('11xgA0Ei'),
   },
   {
@@ -457,10 +457,10 @@ A lecture reaches the mind. A story reaches the life.
 
 Am I treating the person in front of me as an equal?
 And what am I teaching — without knowing it — by the way I live?`,
-    driveKo: d('15skZ513'),
-    driveEn: d('1lEmZ_B3'),
-    driveFileKo: d('15skZ513'),
-    driveFileEn: d('1lEmZ_B3'),
+    driveKo: d('1N58qRs1642nrx0-iBdUgulgNG68KmV4B'),
+    driveEn: d('1pQ0UtuZhKjH18x2F2H9axGkOs5j-0JNU'),
+    driveFileKo: d('1N58qRs1642nrx0-iBdUgulgNG68KmV4B'),
+    driveFileEn: d('1pQ0UtuZhKjH18x2F2H9axGkOs5j-0JNU'),
   },
   {
     id: 10,
@@ -506,10 +506,10 @@ He shook his head.
 "I could still argue against your reasoning today. I accepted the Lord when you sang that hymn. At that moment I thought — who is this Jesus, that he values him more than the shame he endures? A true scientist must explore that question."
 
 Weakness, it turns out, can open doors that argument cannot.`,
-    driveKo: d('1dIXQV8W'),
-    driveEn: d('1g-yYBB1'),
-    driveFileKo: d('1dIXQV8W'),
-    driveFileEn: d('1g-yYBB1'),
+    driveKo: d('1E3GWzqPd15DkRmPWNCPvJ7v5mDHYXMIn'),
+    driveEn: d('1sXzAyDIcSYjnC8EKbieYN2KBmY1C_zyo'),
+    driveFileKo: d('1E3GWzqPd15DkRmPWNCPvJ7v5mDHYXMIn'),
+    driveFileEn: d('1sXzAyDIcSYjnC8EKbieYN2KBmY1C_zyo'),
   },
   {
     id: 11,
@@ -555,10 +555,10 @@ The innkeeper has not a single line of dialogue.
 And yet a Hindu security guard, in a country where I was not permitted to evangelize, saw him first.
 
 Between that security guard and me — who was the more genuine neighbor?`,
-    driveKo: d('1jUhINK-'),
-    driveEn: d('10roRzQh'),
-    driveFileKo: d('1jUhINK-'),
-    driveFileEn: d('10roRzQh'),
+    driveKo: d('14H10Q2fFiAkxjA4hpsrYvP-QhgovZI-t'),
+    driveEn: d('1fJV29t6u-DQmFK-wLKcoiXzmVQ8MEPlo'),
+    driveFileKo: d('14H10Q2fFiAkxjA4hpsrYvP-QhgovZI-t'),
+    driveFileEn: d('1fJV29t6u-DQmFK-wLKcoiXzmVQ8MEPlo'),
     drivePptKo: p('1ShrpJjd'),
   },
   {
@@ -606,10 +606,10 @@ In the markets of Nepal, I spoke a few halting words of Nepali. The merchants cl
 They were not impressed by my Nepali. They were honoring the effort — a foreigner who had tried to reach toward them.
 
 Approaching our neighbors in their language — however imperfectly — is one way of saying: you are worth crossing toward.`,
-    driveKo: d('1DEojH3Z'),
-    driveEn: d('1GRKjFfM'),
-    driveFileKo: d('1DEojH3Z'),
-    driveFileEn: d('1GRKjFfM'),
+    driveKo: d('1y9bcqVXFhrgmD4rykHoX0wlXphc7EKmX'),
+    driveEn: d('1eShMcCBDpGeI9HNNMY3p-NUcCIIr6lDJ'),
+    driveFileKo: d('1y9bcqVXFhrgmD4rykHoX0wlXphc7EKmX'),
+    driveFileEn: d('1eShMcCBDpGeI9HNNMY3p-NUcCIIr6lDJ'),
   },
   {
     id: 13,
@@ -657,10 +657,10 @@ It didn't look particularly well-made.
 That gift stands as the closest thing to an evangelistic moment in my entire ministry.
 
 "Yet." He said yet.`,
-    driveKo: d('1vbVdRKG'),
-    driveEn: d('1PenqwDh'),
-    driveFileKo: d('1vbVdRKG'),
-    driveFileEn: d('1PenqwDh'),
+    driveKo: d('1jUhINK-WmX2BWEctXr3hzimvivjQE42J'),
+    driveEn: d('10roRzQhNGCoVUDusC67tws_6dwrtkzoR'),
+    driveFileKo: d('1jUhINK-WmX2BWEctXr3hzimvivjQE42J'),
+    driveFileEn: d('10roRzQhNGCoVUDusC67tws_6dwrtkzoR'),
     drivePptKo: p('1ShrpJjd'),
   },
   {
@@ -701,10 +701,10 @@ Now I know: God still remembers us."
 Every complaint I had been carrying — the roads, the roadblocks, the insects — disappeared in that moment.
 
 Sometimes, simply showing up is the message.`,
-    driveKo: d('1E3GWzqP'),
-    driveEn: d('1sXzAyDI'),
-    driveFileKo: d('1E3GWzqP'),
-    driveFileEn: d('1sXzAyDI'),
+    driveKo: d('1jZuv9adl3KykoT6yNYSXaReZTCXFfrDT'),
+    driveEn: d('1HDItjzdndvsI7qZK2Tyz-fwLGst2r2Zp'),
+    driveFileKo: d('1jZuv9adl3KykoT6yNYSXaReZTCXFfrDT'),
+    driveFileEn: d('1HDItjzdndvsI7qZK2Tyz-fwLGst2r2Zp'),
     drivePptKo: p('1fhFd4q3'),
   },
 
@@ -758,10 +758,10 @@ Afterward, one doctor said:
 "We could see it wouldn't work out the way you expected. But we couldn't intervene beforehand. So we said nothing."
 
 Understanding what the problem actually is — that comes before any solution.`,
-    driveKo: d('100qNMYv'),
-    driveEn: d('1BstoWqX'),
-    driveFileKo: d('100qNMYv'),
-    driveFileEn: d('1BstoWqX'),
+    driveKo: d('163fHpkxx1zmQ9Q27MtWSdcTNIGPKMRMy'),
+    driveEn: d('15V93XvzayMSuFezIdLkA7BxuP6zxs0xm'),
+    driveFileKo: d('163fHpkxx1zmQ9Q27MtWSdcTNIGPKMRMy'),
+    driveFileEn: d('15V93XvzayMSuFezIdLkA7BxuP6zxs0xm'),
     drivePptKo: p('1Aq0-QyF'),
   },
   {
@@ -798,10 +798,10 @@ A young man rose silently. He took the empty sack and walked into the village. T
 As we left, the young man came to me.
 
 "Today you did not only give us food. You gave our custom back to us."`,
-    driveKo: d('1jZuv9ad'),
-    driveEn: d('1HDItjzd'),
-    driveFileKo: d('1jZuv9ad'),
-    driveFileEn: d('1HDItjzd'),
+    driveKo: d('1P80WP-fRT9lOd_Iav5diSvrjNRNAhjBd'),
+    driveEn: d('17QD51DGDOM2NRtWUxox6N50qvIlN1Adv'),
+    driveFileKo: d('1P80WP-fRT9lOd_Iav5diSvrjNRNAhjBd'),
+    driveFileEn: d('17QD51DGDOM2NRtWUxox6N50qvIlN1Adv'),
   },
   {
     id: 17,
@@ -842,10 +842,10 @@ The title is As I Go. Not Where I Arrived.
 
 The going is still in progress.
 Constant re-examination is not a phase. It is the practice.`,
-    driveKo: d('15HZQO59'),
-    driveEn: d('1QiP6a9H'),
-    driveFileKo: d('15HZQO59'),
-    driveFileEn: d('1QiP6a9H'),
+    driveKo: d('1mwW2ZGAR3dTVIC1cVhMLVKo212QpOCIr'),
+    driveEn: d('1QFBtoymQs3uFZD86EhHO3zUY36C79qbZ'),
+    driveFileKo: d('1mwW2ZGAR3dTVIC1cVhMLVKo212QpOCIr'),
+    driveFileEn: d('1QFBtoymQs3uFZD86EhHO3zUY36C79qbZ'),
   },
   {
     id: 18,
@@ -886,10 +886,10 @@ What you thought was following — turns out to be leading.
 What you thought was serving — turns out to be ruling.
 
 Which one am I?`,
-    driveKo: d('1GFvJc6d'),
-    driveEn: d('1OT0f54I'),
-    driveFileKo: d('1GFvJc6d'),
-    driveFileEn: d('1OT0f54I'),
+    driveKo: d('14_M9bWSmRjLM9iCV53IiJk_dZoWsSNTy'),
+    driveEn: d('122ePSzSpLG6OG8ta5Vx4txAHXXVobYNb'),
+    driveFileKo: d('14_M9bWSmRjLM9iCV53IiJk_dZoWsSNTy'),
+    driveFileEn: d('122ePSzSpLG6OG8ta5Vx4txAHXXVobYNb'),
   },
   {
     id: 19,
@@ -934,10 +934,10 @@ Right now, near you, there are disasters with no cameras.
 The loneliness of an elderly neighbor. The grief of someone still walking the beach.
 
 Real relief begins after the cameras have completely forgotten.`,
-    driveKo: d('10AaOMbp'),
-    driveEn: d('1p0b-ap4'),
-    driveFileKo: d('10AaOMbp'),
-    driveFileEn: d('1p0b-ap4'),
+    driveKo: d('1vbVdRKGnKebspnMEyY1czP9oBIqj6uvX'),
+    driveEn: d('1PenqwDh18_F-3eO2Kqn4Mrz3v0oeVXIh'),
+    driveFileKo: d('1vbVdRKGnKebspnMEyY1czP9oBIqj6uvX'),
+    driveFileEn: d('1PenqwDh18_F-3eO2Kqn4Mrz3v0oeVXIh'),
   },
   {
     id: 20,
@@ -978,10 +978,10 @@ Even now, years later, I still need that step.
 And every time, the same thought follows:
 
 I should have done that sooner.`,
-    driveKo: d('1y9bcqVX'),
-    driveEn: d('1eShMcCB'),
-    driveFileKo: d('1y9bcqVX'),
-    driveFileEn: d('1eShMcCB'),
+    driveKo: d('15skZ513aok6O6PUxpXtLrd9d84_i1az5'),
+    driveEn: d('1lEmZ_B3pu5vbmlgloAx5R0owFrYLskBO'),
+    driveFileKo: d('15skZ513aok6O6PUxpXtLrd9d84_i1az5'),
+    driveFileEn: d('1lEmZ_B3pu5vbmlgloAx5R0owFrYLskBO'),
   },
 
   // ─── 4부 · Part 4 — 편견에 갇힌 우리 · Caught Inside Our Own Frames ───
@@ -1030,10 +1030,10 @@ But I might not have been any different. If Yo-han had not been my grandson — 
 Before their name. Before their story. Before a single word.
 
 Are we already placing people inside our own frame — without knowing it?`,
-    driveKo: d('1N58qRs1'),
-    driveEn: d('1pQ0UtuZ'),
-    driveFileKo: d('1N58qRs1'),
-    driveFileEn: d('1pQ0UtuZ'),
+    driveKo: d('1hw1jUWNOg3hTwtDoj2lHdax-qeQd7ClM'),
+    driveEn: d('1WO9H9vQJhC8pLKbpj2IMGYUIef9WH0MY'),
+    driveFileKo: d('1hw1jUWNOg3hTwtDoj2lHdax-qeQd7ClM'),
+    driveFileEn: d('1WO9H9vQJhC8pLKbpj2IMGYUIef9WH0MY'),
   },
   {
     id: 22,
@@ -1076,10 +1076,10 @@ The treatment I received — not for anything I had done, but for who I was — 
 Being treated differently not for your actions. For your existence.
 
 You cannot legislate love. But you can create the conditions in which it becomes possible.`,
-    driveKo: d('1mwW2ZGA'),
-    driveEn: d('1QFBtoym'),
-    driveFileKo: d('1mwW2ZGA'),
-    driveFileEn: d('1QFBtoym'),
+    driveKo: d('1dIXQV8WUJ12UPaK_MADD9yg1iR1Ma_iA'),
+    driveEn: d('1g-yYBB1IrddX-E-nyW8iQr-ExBQr-QnC'),
+    driveFileKo: d('1dIXQV8WUJ12UPaK_MADD9yg1iR1Ma_iA'),
+    driveFileEn: d('1g-yYBB1IrddX-E-nyW8iQr-ExBQr-QnC'),
   },
   {
     id: 23,
@@ -1126,10 +1126,10 @@ The direction was opposite. The mechanism was the same.
 
 What frame am I inside right now?
 And am I saying yes and no — or only what the frame allows?`,
-    driveKo: d('14H10Q2f'),
-    driveEn: d('1fJV29t6'),
-    driveFileKo: d('14H10Q2f'),
-    driveFileEn: d('1fJV29t6'),
+    driveKo: d('100qNMYv6gyIdRIC-CqhIm-fxXNrTEFMN'),
+    driveEn: d('1BstoWqXlEMdGwsNtz5K7Wzh1_gcnQ4AD'),
+    driveFileKo: d('100qNMYv6gyIdRIC-CqhIm-fxXNrTEFMN'),
+    driveFileEn: d('1BstoWqXlEMdGwsNtz5K7Wzh1_gcnQ4AD'),
     drivePptKo: p('1mJLohny'),
   },
   {
@@ -1165,10 +1165,10 @@ None of the three accounts mentioned the tens of thousands of Korean forced labo
 Can I listen — all the way to the end — to someone whose experience differs from mine? Even when it makes me uncomfortable?
 
 What part of the truth do we permanently lose — when we stop trying to find out?`,
-    driveKo: d('1Z-LzHPJ'),
-    driveEn: d('1DzOJ7Wi'),
-    driveFileKo: d('1Z-LzHPJ'),
-    driveFileEn: d('1DzOJ7Wi'),
+    driveKo: d('1Z-LzHPJUiuxBkS1qSFqTQbp4oYAI9cYe'),
+    driveEn: d('1DzOJ7WiLNoM5xWTEUaYelg6B-sUa9W6x'),
+    driveFileKo: d('1Z-LzHPJUiuxBkS1qSFqTQbp4oYAI9cYe'),
+    driveFileEn: d('1DzOJ7WiLNoM5xWTEUaYelg6B-sUa9W6x'),
     drivePptKo: p('1C5Q7uwR'),
   },
   {
@@ -1217,10 +1217,10 @@ I told them what I believed:
 When uniform education continues long enough, the line between sincere and performed disappears.
 
 Is this only happening in Pyongyang?`,
-    driveKo: d('1TX-BT1P'),
-    driveEn: d('1-dkaITP'),
-    driveFileKo: d('1TX-BT1P'),
-    driveFileEn: d('1-dkaITP'),
+    driveKo: d('1TX-BT1PVS2FtugtFhIKz1bDXDyiyZFsO'),
+    driveEn: d('1-dkaITP2H-FDtIlV8nRfmi4VkMmpRzxq'),
+    driveFileKo: d('1TX-BT1PVS2FtugtFhIKz1bDXDyiyZFsO'),
+    driveFileEn: d('1-dkaITP2H-FDtIlV8nRfmi4VkMmpRzxq'),
     drivePptKo: p('1dyCBh20'),
   },
   {
@@ -1258,10 +1258,10 @@ He found far more in my words than I had put there.
 When two people talk openly, both of them can grow.
 
 The one who grew more that day was me.`,
-    driveKo: d('177Ze5ti'),
-    driveEn: d('1jK_ltel'),
-    driveFileKo: d('177Ze5ti'),
-    driveFileEn: d('1jK_ltel'),
+    driveKo: d('1DEojH3Z6uljkDR-Kihfn9MfkSHQFbXah'),
+    driveEn: d('1GRKjFfMMJ_d87jiKcvOy7NMMpOc67PhV'),
+    driveFileKo: d('1DEojH3Z6uljkDR-Kihfn9MfkSHQFbXah'),
+    driveFileEn: d('1GRKjFfMMJ_d87jiKcvOy7NMMpOc67PhV'),
   },
   {
     id: 27,
@@ -1309,10 +1309,10 @@ I had no answer.
 "I will go to the police station to get you out — to preserve my self-respect."
 
 Memory that refuses to die — that too is a kind of calling.`,
-    driveKo: d('1HCEi5ZV'),
-    driveEn: d('1Inc42aR'),
-    driveFileKo: d('1HCEi5ZV'),
-    driveFileEn: d('1Inc42aR'),
+    driveKo: d('1Kn_IMxNnX2bPQwET5Vc_6P-4OMwEoLq8'),
+    driveEn: d('1wLLS0sSa6NiyjRlHi3cTG-5tEEqelNST'),
+    driveFileKo: d('1Kn_IMxNnX2bPQwET5Vc_6P-4OMwEoLq8'),
+    driveFileEn: d('1wLLS0sSa6NiyjRlHi3cTG-5tEEqelNST'),
   },
 
   // ─── 5부 · Part 5 — 정의와 치유 · Justice and Healing ───
@@ -1354,10 +1354,10 @@ Years later, during the height of anti-immigrant sentiment, some in my own famil
 The immigration officer upheld the law and showed compassion — in the same moment. They were not opposites.
 
 Why is it so hard to build a relationship with those who suffer first — and find the way forward from there?`,
-    driveKo: d('1VfsHd8j'),
-    driveEn: d('1HrT9tGb'),
-    driveFileKo: d('1VfsHd8j'),
-    driveFileEn: d('1HrT9tGb'),
+    driveKo: d('1oa2_tClNXaqeWdRiQY4ZC414QBsHz_ZM'),
+    driveEn: d('1IMhtJVBs-m3qGNfOACZMWb5XEUNI9Dti'),
+    driveFileKo: d('1oa2_tClNXaqeWdRiQY4ZC414QBsHz_ZM'),
+    driveFileEn: d('1IMhtJVBs-m3qGNfOACZMWb5XEUNI9Dti'),
   },
   {
     id: 29,
@@ -1400,10 +1400,10 @@ They answered:
 I confessed:
 
 "They — who accept Muslims as neighbors in the name of their fallen sisters — are more mature disciples of Jesus than this missionary."`,
-    driveKo: d('15YEt7s-'),
-    driveEn: d('1npUkWWj'),
-    driveFileKo: d('15YEt7s-'),
-    driveFileEn: d('1npUkWWj'),
+    driveKo: d('10AaOMbpOR97KB8pFr67y72LPgY2eYktB'),
+    driveEn: d('1p0b-ap4Xc86XhMizgon5D6irTDjU2pBC'),
+    driveFileKo: d('10AaOMbpOR97KB8pFr67y72LPgY2eYktB'),
+    driveFileEn: d('1p0b-ap4Xc86XhMizgon5D6irTDjU2pBC'),
     drivePptKo: p('1yZQ8P9i'),
   },
   {
@@ -1445,10 +1445,10 @@ The new neighborhood was home to slaughterhouse workers — outcasts in Osaka. E
 After the hospital arrived — they began getting off at Sōzenji.
 
 Not only whole person healing. A whole neighborhood healed.`,
-    driveKo: d('14_M9bWS'),
-    driveEn: d('122ePSzS'),
-    driveFileKo: d('14_M9bWS'),
-    driveFileEn: d('122ePSzS'),
+    driveKo: d('1ppL6khnlrm3BtxDPWvsJ3pJacdG4cSP3'),
+    driveEn: d('1DJ1RivJ876jChKSAyxscHHskrsQUEy3k'),
+    driveFileKo: d('1ppL6khnlrm3BtxDPWvsJ3pJacdG4cSP3'),
+    driveFileEn: d('1DJ1RivJ876jChKSAyxscHHskrsQUEy3k'),
     drivePptKo: p('1yZQ8P9i'),
   },
   {
@@ -1484,10 +1484,10 @@ The women of LISAP asked the same question.
 Then they got up and went to work.
 
 Beyond the enemy of incurable disease — they saw one human being loved by God.`,
-    driveKo: d('1xHibnha'),
-    driveEn: d('100FxFnN'),
-    driveFileKo: d('1xHibnha'),
-    driveFileEn: d('100FxFnN'),
+    driveKo: d('1VfsHd8jFciFSvmjJQKcIqTgBfi1dGNDy'),
+    driveEn: d('1HrT9tGbz9n9_WP4efk2RxK_EikqjSDer'),
+    driveFileKo: d('1VfsHd8jFciFSvmjJQKcIqTgBfi1dGNDy'),
+    driveFileEn: d('1HrT9tGbz9n9_WP4efk2RxK_EikqjSDer'),
     drivePptKo: p('1mDUazuA'),
   },
   {
@@ -1534,10 +1534,10 @@ Both tracks move toward justice. The same person cannot do both. But we can do b
 
 Where are you standing?
 And what can you do from exactly there?`,
-    driveKo: d('1GOVCdeZ'),
-    driveEn: d('1CxLhr86'),
-    driveFileKo: d('1GOVCdeZ'),
-    driveFileEn: d('1CxLhr86'),
+    driveKo: d('1cpyixwSLd-UBHdl06NT6ycMmY82SEe23'),
+    driveEn: d('1xf51YOW8sha_zYIZFaJjZaWTR03Zy5ek'),
+    driveFileKo: d('1cpyixwSLd-UBHdl06NT6ycMmY82SEe23'),
+    driveFileEn: d('1xf51YOW8sha_zYIZFaJjZaWTR03Zy5ek'),
   },
 
   // ─── 6부 · Part 6 — 풍성한 삶이란? · What Is a Full Life? ───
@@ -1580,10 +1580,10 @@ I came looking for the best.
 I found it at a folding table in the Hudson Valley, with a neighbor's tax form between us.
 
 The greater the difficulty, the greater the joy.`,
-    driveKo: d('1jHxka8h'),
-    driveEn: d('1QkWh67O'),
-    driveFileKo: d('1jHxka8h'),
-    driveFileEn: d('1QkWh67O'),
+    driveKo: d('177Ze5tioVn1QmJ9gFufxvicANIMCgGKB'),
+    driveEn: d('1jK_ltelFN9LkTdy0nxvz8Eh0aXOVbGFF'),
+    driveFileKo: d('177Ze5tioVn1QmJ9gFufxvicANIMCgGKB'),
+    driveFileEn: d('1jK_ltelFN9LkTdy0nxvz8Eh0aXOVbGFF'),
   },
   {
     id: 34,
@@ -1622,10 +1622,10 @@ This is not a call to live on less. It is a confession.
 Fifteen years alongside people who had less — and were not poor in the ways that matter — changed what I see when I look at enough.
 
 God's grace is truly sufficient for us.`,
-    driveKo: d('14XCkAg9'),
-    driveEn: d('1nD6uWXy'),
-    driveFileKo: d('14XCkAg9'),
-    driveFileEn: d('1nD6uWXy'),
+    driveKo: d('1HCEi5ZVlVlIGkQwdqspY0ItzyCsGPMrh'),
+    driveEn: d('1Inc42aRacEBrz-eAfKMhQIHK1wLN6gPJ'),
+    driveFileKo: d('1HCEi5ZVlVlIGkQwdqspY0ItzyCsGPMrh'),
+    driveFileEn: d('1Inc42aRacEBrz-eAfKMhQIHK1wLN6gPJ'),
   },
   {
     id: 35,
@@ -1668,10 +1668,10 @@ Today I sit across from people at a folding table — elderly residents, low-inc
 
 What difference does one person's death make?
 The answer is made every day — in the ordinary encounters before it.`,
-    driveKo: d('1gAwREYZ'),
-    driveEn: d('1tqOs6pV'),
-    driveFileKo: d('1gAwREYZ'),
-    driveFileEn: d('1tqOs6pV'),
+    driveKo: d('14XCkAg9G34JZR6STCsFs65LoF_qZFs7U'),
+    driveEn: d('1nD6uWXyq2q5XuQR_Pn-x_EBeuWlyKBBW'),
+    driveFileKo: d('14XCkAg9G34JZR6STCsFs65LoF_qZFs7U'),
+    driveFileEn: d('1nD6uWXyq2q5XuQR_Pn-x_EBeuWlyKBBW'),
   },
   {
     id: 36,
@@ -1711,10 +1711,10 @@ QuestionsOnly.Life
 or QuestionsOnly.Life@gmail.com
 
 We are waiting for your story.`,
-    driveKo: d('18VlAlUZ'),
-    driveEn: d('1U45hWW2'),
-    driveFileKo: d('18VlAlUZ'),
-    driveFileEn: d('1U45hWW2'),
+    driveKo: d('1gAwREYZd7Y3dhL6tp-y3roOOBuMKDjoz'),
+    driveEn: d('1tqOs6pVslfLRa4DFKgGOmqMCELOzPQiW'),
+    driveFileKo: d('1gAwREYZd7Y3dhL6tp-y3roOOBuMKDjoz'),
+    driveFileEn: d('1tqOs6pVslfLRa4DFKgGOmqMCELOzPQiW'),
   },
   {
     id: 37,
@@ -1757,10 +1757,10 @@ The missionary does not simply give. Both parties are transformed.
 The mission field did not close.
 
 The location changed.`,
-    driveKo: d('1Dk6qJZC'),
-    driveEn: d('1u8rpdC5'),
-    driveFileKo: d('1Dk6qJZC'),
-    driveFileEn: d('1u8rpdC5'),
+    driveKo: d('1no9VgPF71gM1t0xWiwmt_3SuhQ-ebbX1'),
+    driveEn: d('1Y362Bn0BpHBszqmIdyvTWuOpqp-p4udGI10FnAISjtg'),
+    driveFileKo: d('1no9VgPF71gM1t0xWiwmt_3SuhQ-ebbX1'),
+    driveFileEn: d('1Y362Bn0BpHBszqmIdyvTWuOpqp-p4udGI10FnAISjtg'),
   },
   {
     id: 38,
@@ -1815,10 +1815,10 @@ I want to leave a small smile in the hearts of the people I have met.
 Not a name. Not a monument. Not a building.
 
 Just a very small smile.`,
-    driveKo: d('1ppL6khn'),
-    driveEn: d('1DJ1RivJ'),
-    driveFileKo: d('1ppL6khn'),
-    driveFileEn: d('1DJ1RivJ'),
+    driveKo: d('1CwzUEX5-PSMdUyiBr6wypIOCuhPGM_Ag'),
+    driveEn: d('1_vofaDacmh1nxIFuH2Iow6AnKReQjCfg'),
+    driveFileKo: d('1CwzUEX5-PSMdUyiBr6wypIOCuhPGM_Ag'),
+    driveFileEn: d('1_vofaDacmh1nxIFuH2Iow6AnKReQjCfg'),
   },
 ]
 
