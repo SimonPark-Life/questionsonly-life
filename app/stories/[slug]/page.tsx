@@ -209,18 +209,18 @@ const styles: Record<string, React.CSSProperties> = {
   digestBox: {
     backgroundColor: 'var(--card-bg, #f9f9f9)',
     borderRadius: '12px',
-    padding: '1.25rem',
+    padding: '1.4rem',
     marginBottom: '1.5rem',
     border: '1px solid var(--rule)',
   },
   digestText: {
     color: 'var(--text)',
-    lineHeight: 1.5,
+    lineHeight: 1.4,
   },
   digestParagraph: {
-    marginBottom: '0.4rem',
+    marginBottom: '0.45rem',
     fontSize: '0.95rem',
-    lineHeight: 1.5,
+    lineHeight: 1.4,
   },
   placeholder: {
     color: 'var(--faint)',
