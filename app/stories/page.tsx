@@ -1,33 +1,136 @@
 'use client'
 
+import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { useLang, t } from '@/lib/language-context'
-import { stories, partLabels, readMeFirst } from '@/lib/stories-data'
+import { useLang } from '@/lib/language-context'
+import { stories, partLabels, readMeFirst, Story } from '@/lib/stories-data'
 
+// ── Story Card with hover effect ────────────────────────────────
+function StoryCard({ story, lang, onClick }: {
+  story: Story
+  lang: 'ko' | 'en'
+  onClick: () => void
+}) {
+  const [hovered, setHovered] = useState(false)
+
+  const title = lang === 'ko' ? story.titleKo : story.titleEn
+  const subtitle = lang === 'ko' ? story.subtitleKo : story.subtitleEn
+  const hasPpt = !!story.drivePptKo
+
+  return (
+    <div
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        backgroundColor: hovered ? '#f0f7f0' : '#fafaf8',
+        border: hovered ? '1.5px solid var(--green)' : '1px solid #d8d4cc',
+        borderRadius: '12px',
+        padding: '1.1rem 1.25rem',
+        cursor: 'pointer',
+        display: 'flex',
+        flexDirection: 'column',
+        boxShadow: hovered
+          ? '0 6px 20px rgba(0,0,0,0.12)'
+          : '0 2px 6px rgba(0,0,0,0.06)',
+        transition: 'all 0.18s ease',
+        transform: hovered ? 'translateY(-2px)' : 'translateY(0)',
+      }}
+    >
+      {/* Header row */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: '0.45rem',
+      }}>
+        <span style={{
+          fontSize: '0.72rem',
+          color: '#999',
+          fontWeight: 500,
+        }}>
+          {lang === 'ko' ? `이야기 ${story.id}` : `Story ${story.id}`}
+        </span>
+        {hasPpt && (
+          <span style={{
+            fontSize: '0.62rem',
+            backgroundColor: hovered ? 'var(--green)' : '#e8f0fb',
+            color: hovered ? '#fff' : '#1a4a8a',
+            borderRadius: '4px',
+            padding: '0.1rem 0.4rem',
+            fontWeight: 700,
+            letterSpacing: '0.05em',
+            transition: 'all 0.18s ease',
+          }}>
+            PPT
+          </span>
+        )}
+      </div>
+
+      {/* Title */}
+      <h3 style={{
+        fontSize: '0.97rem',
+        fontWeight: 600,
+        color: hovered ? 'var(--green)' : 'var(--text)',
+        lineHeight: 1.35,
+        marginBottom: '0.35rem',
+        transition: 'color 0.18s ease',
+      }}>
+        {title}
+      </h3>
+
+      {/* Subtitle */}
+      {subtitle && (
+        <p style={{
+          fontSize: '0.79rem',
+          color: '#888',
+          lineHeight: 1.45,
+          marginBottom: '0.6rem',
+          flex: 1,
+        }}>
+          {subtitle}
+        </p>
+      )}
+
+      {/* Read more */}
+      <span style={{
+        fontSize: '0.8rem',
+        color: 'var(--green)',
+        fontWeight: 600,
+        marginTop: 'auto',
+        opacity: hovered ? 1 : 0.7,
+        transition: 'opacity 0.18s ease',
+      }}>
+        {lang === 'ko' ? '읽기 →' : 'Read →'}
+      </span>
+    </div>
+  )
+}
+
+// ── Main Page ────────────────────────────────────────────────────
 export default function StoriesPage() {
   const { lang } = useLang()
   const router = useRouter()
 
-  // Group stories by part
   const parts = [1, 2, 3, 4, 5, 6]
 
   return (
     <div style={styles.page}>
       <div style={styles.container}>
+
         <h1 style={styles.heading}>
           {lang === 'ko' ? '베풂의 교만 이야기' : 'Arrogant Generosity'}
         </h1>
-        /* Read Me First banner */
+
+        {/* Read Me First banner */}
         <a
           href={readMeFirst[lang]}
           target="_blank"
           rel="noopener noreferrer"
           style={styles.readMeFirstBanner}
         >
-          <span style={styles.rmfLabel}>
-            {lang === 'ko' ? '먼저 읽어주세요' : 'Read Me First'}
-          </span>
-          <span style={styles.rmfArrow}>↗</span>
+          <span>{lang === 'ko' ? '먼저 읽어주세요' : 'Read Me First'}</span>
+          <span>↗</span>
         </a>
 
         <p style={styles.subheading}>
@@ -43,35 +146,14 @@ export default function StoriesPage() {
             <div key={part} style={styles.partSection}>
               <h2 style={styles.partHeading}>{partText}</h2>
               <div style={styles.grid}>
-                {partStories.map(story => {
-                  const title = lang === 'ko' ? story.titleKo : story.titleEn
-                  const subtitle = lang === 'ko' ? story.subtitleKo : story.subtitleEn
-                  const hasPpt = !!story.drivePptKo
-
-                  return (
-                    <div
-                      key={story.id}
-                      style={styles.card}
-                      onClick={() => router.push(`/stories/${story.id}`)}
-                    >
-                      <div style={styles.cardHeader}>
-                        <span style={styles.storyNum}>
-                          {lang === 'ko' ? `이야기 ${story.id}` : `Story ${story.id}`}
-                        </span>
-                        {hasPpt && (
-                          <span style={styles.pptBadge}>PPT</span>
-                        )}
-                      </div>
-                      <h3 style={styles.cardTitle}>{title}</h3>
-                      {subtitle && (
-                        <p style={styles.cardSubtitle}>{subtitle}</p>
-                      )}
-                      <span style={styles.readMore}>
-                        {lang === 'ko' ? '읽기 →' : 'Read →'}
-                      </span>
-                    </div>
-                  )
-                })}
+                {partStories.map(story => (
+                  <StoryCard
+                    key={story.id}
+                    story={story}
+                    lang={lang}
+                    onClick={() => router.push(`/stories/${story.id}`)}
+                  />
+                ))}
               </div>
             </div>
           )
@@ -81,6 +163,7 @@ export default function StoriesPage() {
   )
 }
 
+// ── Styles ───────────────────────────────────────────────────────
 const styles: Record<string, React.CSSProperties> = {
   page: {
     minHeight: '100vh',
@@ -98,71 +181,28 @@ const styles: Record<string, React.CSSProperties> = {
     marginBottom: '0.25rem',
   },
   subheading: {
-    fontSize: '0.95rem',
-    color: 'var(--text-muted)',
-    marginBottom: '3rem',
+    fontSize: '0.9rem',
+    color: '#999',
+    marginBottom: '2.5rem',
   },
   partSection: {
-    marginBottom: '3rem',
+    marginBottom: '2.5rem',
   },
   partHeading: {
-    fontSize: '1rem',
-    fontWeight: 600,
-    color: 'var(--accent)',
-    textTransform: 'uppercase',
-    letterSpacing: '0.06em',
-    marginBottom: '1rem',
-    paddingBottom: '0.5rem',
-    borderBottom: '1px solid var(--border)',
+    fontSize: '0.82rem',
+    fontWeight: 700,
+    color: 'var(--green)',
+    textTransform: 'uppercase' as const,
+    letterSpacing: '0.07em',
+    marginBottom: '0.85rem',
+    paddingBottom: '0.4rem',
+    borderBottom: '1.5px solid var(--green)',
+    opacity: 0.8,
   },
   grid: {
     display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
-    gap: '1rem',
-  },
-  card: {
-    backgroundColor: 'var(--card-bg)',
-    border: '1px solid var(--border)',
-    borderRadius: '12px',
-    padding: '1.25rem',
-    cursor: 'pointer',
-    transition: 'border-color 0.15s, box-shadow 0.15s',
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  cardHeader: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: '0.5rem',
-  },
-  storyNum: {
-    fontSize: '0.75rem',
-    color: 'var(--text-muted)',
-    fontWeight: 500,
-  },
-  pptBadge: {
-    fontSize: '0.65rem',
-    backgroundColor: 'var(--accent)',
-    color: '#fff',
-    borderRadius: '4px',
-    padding: '0.1rem 0.4rem',
-    fontWeight: 600,
-    letterSpacing: '0.05em',
-  },
-  cardTitle: {
-    fontSize: '1rem',
-    fontWeight: 600,
-    color: 'var(--text)',
-    lineHeight: 1.35,
-    marginBottom: '0.4rem',
-  },
-  cardSubtitle: {
-    fontSize: '0.82rem',
-    color: 'var(--text-muted)',
-    lineHeight: 1.5,
-    marginBottom: '0.75rem',
-    flex: 1,
+    gridTemplateColumns: 'repeat(auto-fill, minmax(255px, 1fr))',
+    gap: '0.85rem',
   },
   readMeFirstBanner: {
     display: 'flex',
@@ -173,20 +213,9 @@ const styles: Record<string, React.CSSProperties> = {
     borderRadius: '10px',
     padding: '0.75rem 1.25rem',
     textDecoration: 'none',
-    marginBottom: '1.5rem',
+    marginBottom: '1.25rem',
     fontSize: '0.95rem',
     fontWeight: 600,
-  },
-  rmfLabel: {
-    display: 'inline' as const,
-  },
-  rmfArrow: {
-    fontSize: '1.1rem',
-  },
-  readMore: {
-    fontSize: '0.82rem',
-    color: 'var(--accent)',
-    fontWeight: 600,
-    marginTop: 'auto',
+    boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
   },
 }
