@@ -155,7 +155,7 @@ const styles: Record<string, React.CSSProperties> = {
   page: {
     minHeight: '100vh',
     backgroundColor: 'var(--bg)',
-    padding: '2rem 1rem 4rem',
+    padding: '1.25rem 1rem 3rem',
   },
   container: {
     maxWidth: '680px',
@@ -189,7 +189,7 @@ const styles: Record<string, React.CSSProperties> = {
     fontWeight: 600,
   },
   title: {
-    fontSize: '1.8rem',
+    fontSize: '1.5rem',
     fontWeight: 700,
     color: 'var(--text)',
     lineHeight: 1.25,
@@ -204,22 +204,23 @@ const styles: Record<string, React.CSSProperties> = {
   divider: {
     height: '1px',
     backgroundColor: 'var(--rule)',
-    margin: '1.5rem 0',
+    margin: '1rem 0',
   },
   digestBox: {
     backgroundColor: 'var(--card-bg, #f9f9f9)',
     borderRadius: '12px',
-    padding: '1.75rem',
-    marginBottom: '2rem',
+    padding: '1.25rem',
+    marginBottom: '1.5rem',
     border: '1px solid var(--rule)',
   },
   digestText: {
     color: 'var(--text)',
-    lineHeight: 1.8,
+    lineHeight: 1.5,
   },
   digestParagraph: {
-    marginBottom: '0.75rem',
-    fontSize: '1rem',
+    marginBottom: '0.4rem',
+    fontSize: '0.95rem',
+    lineHeight: 1.5,
   },
   placeholder: {
     color: 'var(--faint)',
