@@ -573,7 +573,7 @@ Between that security guard and me — who was the more genuine neighbor?`,
 그날부터 저는 귀머거리이자 벙어리가 되었습니다.
 
 3주 후, 처음으로 선생님의 말을 알아들었습니다. 반가운 마음에 그동안의 답답함을 쏟아냈습니다.
-"모든 질문은 불어로만 받겠습니다."
+"Toutes les questions doivent être posées uniquement en français." (모든 질문은 불어로만 받겠습니다.)
 다시 입을 닫았습니다.
 
 그 답답함이 나중에 네팔에서 깨달음이 되었습니다. 계급 때문에, 성별 때문에 발언권을 박탈당한 사람들 — 그들의 고통이 낯설지 않았습니다.
@@ -593,7 +593,7 @@ Three weeks later, I finally understood something she said: "Do you have any que
 
 I let everything out.
 
-"All questions must be asked in French only."
+"Toutes les questions doivent être posées uniquement en français." (All questions must be asked in French only.)
 
 I shut my mouth again.
 
