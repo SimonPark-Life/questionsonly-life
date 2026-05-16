@@ -1,319 +1,221 @@
 'use client'
-import { useParams, useRouter } from 'next/navigation'
+
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { useLang } from '@/lib/language-context'
-import { stories, partLabels } from '@/lib/stories-data'
+import { stories, partLabels, readMeFirst, Story } from '@/lib/stories-data'
 
-export default function StoryDigestPage() {
-  const params = useParams()
-  const router = useRouter()
-  const { lang } = useLang()
-
-  // Support both slug (old) and id (new) routing
-  const param = params.slug as string
-  const id = Number(param)
-  const story = isNaN(id)
-    ? stories.find(s => (s as any).slug === param)
-    : stories.find(s => s.id === id)
-
-  if (!story) {
-    return (
-      <div style={styles.notFound}>
-        <p>{lang === 'ko' ? '이야기를 찾을 수 없습니다.' : 'Story not found.'}</p>
-        <button onClick={() => router.push('/stories')} style={styles.backBtn}>
-          {lang === 'ko' ? '← 목록으로' : '← Back to Stories'}
-        </button>
-      </div>
-    )
-  }
+// ── Story Card with hover effect ────────────────────────────────
+function StoryCard({ story, lang, onClick }: {
+  story: Story
+  lang: 'ko' | 'en'
+  onClick: () => void
+}) {
+  const [hovered, setHovered] = useState(false)
 
   const title = lang === 'ko' ? story.titleKo : story.titleEn
   const subtitle = lang === 'ko' ? story.subtitleKo : story.subtitleEn
-  const digest = lang === 'ko' ? story.digestKo : story.digestEn
-  const primaryDrive = lang === 'ko' ? story.driveKo : story.driveEn
-  const secondaryDrive = lang === 'ko' ? story.driveEn : story.driveKo
-  const partLabel = partLabels[story.part]
-  const partText = lang === 'ko' ? partLabel.ko : partLabel.en
-  const otherLangLabel = lang === 'ko' ? 'Read in English' : '한국어로 읽기'
-  const downloadLabel = lang === 'ko' ? '전체 이야기 읽기' : 'Read Full Story'
-  const pptLabel = lang === 'ko' ? 'PPT 배경 슬라이드' : 'PPT Background Slides'
-  const backLabel = lang === 'ko' ? '← 목록으로' : '← Back to Stories'
-  const storyNum = lang === 'ko' ? `이야기 ${story.id}` : `Story ${story.id}`
+  const hasPpt = !!story.drivePptKo
 
-  const isPlaceholder = digest && digest.startsWith('<!-- TODO')
+  return (
+    <div
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        backgroundColor: hovered ? '#f0f7f0' : '#fafaf8',
+        border: hovered ? '1.5px solid var(--green)' : '1px solid #d8d4cc',
+        borderRadius: '12px',
+        padding: '1.1rem 1.25rem',
+        cursor: 'pointer',
+        display: 'flex',
+        flexDirection: 'column',
+        boxShadow: hovered
+          ? '0 6px 20px rgba(0,0,0,0.12)'
+          : '0 2px 6px rgba(0,0,0,0.06)',
+        transition: 'all 0.18s ease',
+        transform: hovered ? 'translateY(-2px)' : 'translateY(0)',
+      }}
+    >
+      {/* Header row */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: '0.45rem',
+      }}>
+        <span style={{
+          fontSize: '0.72rem',
+          color: '#999',
+          fontWeight: 500,
+        }}>
+          {lang === 'ko' ? `이야기 ${story.id}` : `Story ${story.id}`}
+        </span>
+        {hasPpt && (
+          <span style={{
+            fontSize: '0.62rem',
+            backgroundColor: hovered ? 'var(--green)' : '#e8f0fb',
+            color: hovered ? '#fff' : '#1a4a8a',
+            borderRadius: '4px',
+            padding: '0.1rem 0.4rem',
+            fontWeight: 700,
+            letterSpacing: '0.05em',
+            transition: 'all 0.18s ease',
+          }}>
+            PPT
+          </span>
+        )}
+      </div>
+
+      {/* Title */}
+      <h3 style={{
+        fontSize: '0.97rem',
+        fontWeight: 600,
+        color: hovered ? 'var(--green)' : 'var(--text)',
+        lineHeight: 1.35,
+        marginBottom: '0.35rem',
+        transition: 'color 0.18s ease',
+      }}>
+        {title}
+      </h3>
+
+      {/* Subtitle */}
+      {subtitle && (
+        <p style={{
+          fontSize: '0.79rem',
+          color: '#888',
+          lineHeight: 1.45,
+          marginBottom: '0.6rem',
+          flex: 1,
+        }}>
+          {subtitle}
+        </p>
+      )}
+
+      {/* Read more */}
+      <span style={{
+        fontSize: '0.8rem',
+        color: 'var(--green)',
+        fontWeight: 600,
+        marginTop: 'auto',
+        opacity: hovered ? 1 : 0.7,
+        transition: 'opacity 0.18s ease',
+      }}>
+        {lang === 'ko' ? '읽기 →' : 'Read →'}
+      </span>
+    </div>
+  )
+}
+
+// ── Main Page ────────────────────────────────────────────────────
+export default function StoriesPage() {
+  const { lang } = useLang()
+  const router = useRouter()
+
+  const parts = [1, 2, 3, 4, 5, 6]
 
   return (
     <div style={styles.page}>
       <div style={styles.container}>
 
-        {/* Back button */}
-        <button onClick={() => router.push('/stories')} style={styles.backBtn}>
-          {backLabel}
-        </button>
+        <h1 style={styles.heading}>
+          {lang === 'ko' ? '베풂의 교만 이야기' : 'Arrogant Generosity'}
+        </h1>
 
-        {/* Part label */}
-        <p style={styles.partLabel}>{partText}</p>
+        {/* Read Me First banner */}
+        <a
+          href={readMeFirst[lang]}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={styles.readMeFirstBanner}
+        >
+          <span>{lang === 'ko' ? '먼저 읽어주세요' : 'Read Me First'}</span>
+          <span>↗</span>
+        </a>
 
-        {/* Story number + title */}
-        <p style={styles.storyNum}>{storyNum}</p>
-        <h1 style={styles.title}>{title}</h1>
-        {subtitle && <p style={styles.subtitle}>{subtitle}</p>}
+        <p style={styles.subheading}>
+          {lang === 'ko' ? '38편 · 6부' : '38 Stories · 6 Parts'}
+        </p>
 
-        {/* Divider */}
-        <div style={styles.divider} />
+        {parts.map(part => {
+          const partStories = stories.filter(s => s.part === part)
+          const label = partLabels[part]
+          const partText = lang === 'ko' ? label.ko : label.en
 
-        {/* Digest text */}
-        <div style={styles.digestBox}>
-          {isPlaceholder ? (
-            <p style={styles.placeholder}>
-              {lang === 'ko' ? '(준비 중입니다)' : '(Coming soon)'}
-            </p>
-          ) : (
-            <div style={styles.digestText}>
-              {digest && digest.split('\n').map((line, i) =>
-                line.trim() === ''
-                  ? <br key={i} />
-                  : <p key={i} style={styles.digestParagraph}>{line}</p>
-              )}
+          return (
+            <div key={part} style={styles.partSection}>
+              <h2 style={styles.partHeading}>{partText}</h2>
+              <div style={styles.grid}>
+                {partStories.map(story => (
+                  <StoryCard
+                    key={story.id}
+                    story={story}
+                    lang={lang}
+                    onClick={() => router.push(`/stories/${story.id}`)}
+                  />
+                ))}
+              </div>
             </div>
-          )}
-        </div>
-
-        {/* Action buttons */}
-        <div style={styles.buttonGroup}>
-          {primaryDrive && (
-            <a
-              href={primaryDrive}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={styles.primaryBtn}
-            >
-              {downloadLabel} ↗
-            </a>
-          )}
-          {secondaryDrive && (
-            <a
-              href={secondaryDrive}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={styles.secondaryBtn}
-            >
-              {otherLangLabel} ↗
-            </a>
-          )}
-          {story.drivePptKo && (
-            <a
-              href={story.drivePptKo}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={styles.pptBtn}
-            >
-              📊 {pptLabel} ↗
-            </a>
-          )}
-        </div>
-
-        {/* Navigation: prev / next */}
-        <div style={styles.navRow}>
-          {story.id > 1 && (
-            <button
-              onClick={() => router.push(`/stories/${story.id - 1}`)}
-              style={styles.navBtn}
-            >
-              ← {lang === 'ko' ? '이전 이야기' : 'Previous'}
-            </button>
-          )}
-          {story.id < stories.length && (
-            <button
-              onClick={() => router.push(`/stories/${story.id + 1}`)}
-              style={styles.navBtn}
-            >
-              {lang === 'ko' ? '다음 이야기' : 'Next'} →
-            </button>
-          )}
-        </div>
-
-        {/* Google Form — Share Your Thoughts */}
-        <div style={styles.formSection}>
-          <div style={styles.formDivider} />
-          <p style={styles.formLabel}>
-            {lang === 'ko'
-              ? '이 이야기에 대한 생각을 나눠주세요'
-              : 'Share your thoughts on this story'}
-          </p>
-          <a
-            href={lang === 'ko'
-              ? 'https://docs.google.com/forms/d/e/1FAIpQLSeaiJ-EpFhlIhl4mQe33x7pk3OnL0FFj_RlWwTYMzdLmDU-BQ/viewform'
-              : 'https://docs.google.com/forms/d/e/1FAIpQLSfJ16vyd9xgIL1vJA1XlJGaxFYZyJK5ugKAZPkESZDtFi9H1w/viewform'}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={styles.formBtn}
-          >
-            💬 {lang === 'ko' ? '이야기를 나눠주세요 →' : 'Share Your Thoughts →'}
-          </a>
-        </div>
-
+          )
+        })}
       </div>
     </div>
   )
 }
 
+// ── Styles ───────────────────────────────────────────────────────
 const styles: Record<string, React.CSSProperties> = {
   page: {
     minHeight: '100vh',
     backgroundColor: 'var(--bg)',
-    padding: '1.25rem 1rem 3rem',
+    padding: '2rem 1rem 4rem',
   },
   container: {
-    maxWidth: '680px',
+    maxWidth: '900px',
     margin: '0 auto',
   },
-  notFound: {
-    padding: '3rem',
-    textAlign: 'center',
-  },
-  backBtn: {
-    background: 'none',
-    border: 'none',
-    color: 'var(--green)',
-    cursor: 'pointer',
-    fontSize: '0.9rem',
-    padding: '0',
-    marginBottom: '2rem',
-    fontFamily: 'inherit',
-  },
-  partLabel: {
-    fontSize: '0.8rem',
-    color: 'var(--faint)',
-    textTransform: 'uppercase' as const,
-    letterSpacing: '0.08em',
-    marginBottom: '0.5rem',
-  },
-  storyNum: {
-    fontSize: '0.85rem',
-    color: 'var(--green)',
-    marginBottom: '0.25rem',
-    fontWeight: 600,
-  },
-  title: {
-    fontSize: '1.5rem',
+  heading: {
+    fontSize: '2rem',
     fontWeight: 700,
     color: 'var(--text)',
-    lineHeight: 1.25,
-    marginBottom: '0.5rem',
+    marginBottom: '0.25rem',
   },
-  subtitle: {
-    fontSize: '1rem',
-    color: 'var(--faint)',
-    fontStyle: 'italic',
-    marginBottom: '0',
-  },
-  divider: {
-    height: '1px',
-    backgroundColor: 'var(--rule)',
-    margin: '1rem 0',
-  },
-  digestBox: {
-    backgroundColor: 'var(--card-bg, #f9f9f9)',
-    borderRadius: '12px',
-    padding: '1.4rem',
-    marginBottom: '1.5rem',
-    border: '1px solid var(--rule)',
-  },
-  digestText: {
-    color: 'var(--text)',
-    lineHeight: 1.4,
-  },
-  digestParagraph: {
-    marginBottom: '0.45rem',
-    fontSize: '0.95rem',
-    lineHeight: 1.4,
-  },
-  placeholder: {
-    color: 'var(--faint)',
-    fontStyle: 'italic',
-    textAlign: 'center' as const,
-    padding: '1rem 0',
-  },
-  buttonGroup: {
-    display: 'flex',
-    flexDirection: 'column' as const,
-    gap: '0.75rem',
+  subheading: {
+    fontSize: '0.9rem',
+    color: '#999',
     marginBottom: '2.5rem',
   },
-  primaryBtn: {
-    display: 'block',
-    textAlign: 'center' as const,
-    backgroundColor: 'var(--green)',
-    color: '#fff',
-    padding: '0.9rem 1.5rem',
-    borderRadius: '8px',
-    textDecoration: 'none',
-    fontWeight: 600,
-    fontSize: '1rem',
+  partSection: {
+    marginBottom: '2.5rem',
   },
-  secondaryBtn: {
-    display: 'block',
-    textAlign: 'center' as const,
-    backgroundColor: 'transparent',
+  partHeading: {
+    fontSize: '0.82rem',
+    fontWeight: 700,
     color: 'var(--green)',
-    padding: '0.75rem 1.5rem',
-    borderRadius: '8px',
-    textDecoration: 'none',
-    fontWeight: 500,
-    fontSize: '0.95rem',
-    border: '1px solid var(--green)',
+    textTransform: 'uppercase' as const,
+    letterSpacing: '0.07em',
+    marginBottom: '0.85rem',
+    paddingBottom: '0.4rem',
+    borderBottom: '1.5px solid var(--green)',
+    opacity: 0.8,
   },
-  pptBtn: {
-    display: 'block',
-    textAlign: 'center' as const,
-    backgroundColor: '#e8f0fb',
-    color: '#1a4a8a',
-    padding: '0.65rem 1.5rem',
-    borderRadius: '8px',
-    textDecoration: 'none',
-    fontWeight: 600,
-    fontSize: '0.9rem',
+  grid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(255px, 1fr))',
+    gap: '0.85rem',
   },
-  navRow: {
+  readMeFirstBanner: {
     display: 'flex',
     justifyContent: 'space-between',
-    gap: '1rem',
-    marginBottom: '3rem',
-  },
-  navBtn: {
-    background: 'none',
-    border: 'none',
-    color: 'var(--green)',
-    cursor: 'pointer',
-    fontSize: '0.9rem',
-    fontFamily: 'inherit',
-    padding: '0.5rem 0',
-  },
-  formSection: {
-    marginTop: '1.5rem',
-  },
-  formDivider: {
-    height: '1px',
-    backgroundColor: 'var(--rule)',
-    marginBottom: '1.25rem',
-  },
-  formLabel: {
-    fontSize: '0.82rem',
-    color: 'var(--faint)',
-    marginBottom: '0.75rem',
-    textAlign: 'center' as const,
-  },
-  formBtn: {
-    display: 'block',
-    textAlign: 'center' as const,
-    backgroundColor: 'transparent',
-    color: 'var(--green)',
-    padding: '0.75rem 1.5rem',
-    borderRadius: '8px',
+    alignItems: 'center',
+    backgroundColor: 'var(--green)',
+    color: '#fff',
+    borderRadius: '10px',
+    padding: '0.75rem 1.25rem',
     textDecoration: 'none',
-    fontWeight: 600,
+    marginBottom: '1.25rem',
     fontSize: '0.95rem',
-    border: '1.5px solid var(--green)',
-    transition: 'all 0.15s',
+    fontWeight: 600,
+    boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
   },
 }
