@@ -683,7 +683,7 @@ That gift stands as the closest thing to an evangelistic moment in my entire min
 
 그 순간, 험한 길도, 검문소도, 벌레도 — 모든 불평이 사라졌습니다.
 
-누군가를 찾아간다는 것이 때로 그런 의미가 됩니다.`,
+때로는, 단순히 나타나는 것만으로도 충분합니다.`,
     digestEn: `December 2000, Congo. The roads were broken. Soldiers demanded money at every roadblock. The insects fed well — they were the only ones who received gifts from me that journey.
 
 People had been hoping I brought something for them. I hadn't.
