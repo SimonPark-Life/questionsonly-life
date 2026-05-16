@@ -1,14 +1,32 @@
 'use client';
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { useLang } from '@/lib/language-context';
 import { readMeFirst } from '@/lib/stories-data';
 
 export default function WelcomePage() {
-  const { lang, setLang } = useLang();
+  const { lang, setLang, chosen } = useLang();
+  const router = useRouter();
 
-  const handleChoose = (chosen: 'ko' | 'en') => {
-    setLang(chosen);
-    window.open(readMeFirst[chosen], '_blank');
+  // If language already chosen, go straight to stories
+  useEffect(() => {
+    if (chosen) {
+      router.replace('/stories');
+    }
+  }, [chosen, router]);
+
+  const handleChoose = (selected: 'ko' | 'en') => {
+    setLang(selected);
+    // Save to localStorage so next visit skips welcome
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('qol-lang', selected);
+    }
+    window.open(readMeFirst[selected], '_blank');
+    router.push('/stories');
   };
+
+  // Don't flash welcome screen if already chosen
+  if (chosen) return null;
 
   return (
     <div style={styles.page}>
@@ -32,7 +50,6 @@ export default function WelcomePage() {
           <p style={styles.choiceLabelEn}>Please choose your preferred language</p>
 
           <div style={styles.btnRow}>
-            {/* Korean */}
             <button
               onClick={() => handleChoose('ko')}
               style={styles.btnKo}
@@ -40,8 +57,6 @@ export default function WelcomePage() {
               <span style={styles.btnMain}>한국어로 시작하기</span>
               <span style={styles.btnSub}>먼저읽어주세요 열기 →</span>
             </button>
-
-            {/* English */}
             <button
               onClick={() => handleChoose('en')}
               style={styles.btnEn}
@@ -56,7 +71,6 @@ export default function WelcomePage() {
             You can switch languages at any time while browsing
           </p>
         </div>
-
       </div>
     </div>
   );
