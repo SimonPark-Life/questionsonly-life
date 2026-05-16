@@ -1,168 +1,221 @@
-'use client';
-import { useLang } from '@/lib/language-context';
-import { readMeFirst } from '@/lib/stories-data';
+'use client'
 
-export default function WelcomePage() {
-  const { lang, setLang } = useLang();
+import { useState } from 'react'
+import { useRouter } from 'next/navigation'
+import { useLang } from '@/lib/language-context'
+import { stories, partLabels, readMeFirst, Story } from '@/lib/stories-data'
 
-  const handleChoose = (chosen: 'ko' | 'en') => {
-    setLang(chosen);
-    window.open(readMeFirst[chosen], '_blank');
-  };
+// ── Story Card with hover effect ────────────────────────────────
+function StoryCard({ story, lang, onClick }: {
+  story: Story
+  lang: 'ko' | 'en'
+  onClick: () => void
+}) {
+  const [hovered, setHovered] = useState(false)
+
+  const title = lang === 'ko' ? story.titleKo : story.titleEn
+  const subtitle = lang === 'ko' ? story.subtitleKo : story.subtitleEn
+  const hasPpt = !!story.drivePptKo
+
+  return (
+    <div
+      onClick={onClick}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        backgroundColor: hovered ? '#f0f7f0' : '#fafaf8',
+        border: hovered ? '1.5px solid var(--green)' : '1px solid #d8d4cc',
+        borderRadius: '12px',
+        padding: '1.1rem 1.25rem',
+        cursor: 'pointer',
+        display: 'flex',
+        flexDirection: 'column',
+        boxShadow: hovered
+          ? '0 6px 20px rgba(0,0,0,0.12)'
+          : '0 2px 6px rgba(0,0,0,0.06)',
+        transition: 'all 0.18s ease',
+        transform: hovered ? 'translateY(-2px)' : 'translateY(0)',
+      }}
+    >
+      {/* Header row */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: '0.45rem',
+      }}>
+        <span style={{
+          fontSize: '0.72rem',
+          color: '#999',
+          fontWeight: 500,
+        }}>
+          {lang === 'ko' ? `이야기 ${story.id}` : `Story ${story.id}`}
+        </span>
+        {hasPpt && (
+          <span style={{
+            fontSize: '0.62rem',
+            backgroundColor: hovered ? 'var(--green)' : '#e8f0fb',
+            color: hovered ? '#fff' : '#1a4a8a',
+            borderRadius: '4px',
+            padding: '0.1rem 0.4rem',
+            fontWeight: 700,
+            letterSpacing: '0.05em',
+            transition: 'all 0.18s ease',
+          }}>
+            PPT
+          </span>
+        )}
+      </div>
+
+      {/* Title */}
+      <h3 style={{
+        fontSize: '0.97rem',
+        fontWeight: 600,
+        color: hovered ? 'var(--green)' : 'var(--text)',
+        lineHeight: 1.35,
+        marginBottom: '0.35rem',
+        transition: 'color 0.18s ease',
+      }}>
+        {title}
+      </h3>
+
+      {/* Subtitle */}
+      {subtitle && (
+        <p style={{
+          fontSize: '0.79rem',
+          color: '#888',
+          lineHeight: 1.45,
+          marginBottom: '0.6rem',
+          flex: 1,
+        }}>
+          {subtitle}
+        </p>
+      )}
+
+      {/* Read more */}
+      <span style={{
+        fontSize: '0.8rem',
+        color: 'var(--green)',
+        fontWeight: 600,
+        marginTop: 'auto',
+        opacity: hovered ? 1 : 0.7,
+        transition: 'opacity 0.18s ease',
+      }}>
+        {lang === 'ko' ? '읽기 →' : 'Read →'}
+      </span>
+    </div>
+  )
+}
+
+// ── Main Page ────────────────────────────────────────────────────
+export default function StoriesPage() {
+  const { lang } = useLang()
+  const router = useRouter()
+
+  const parts = [1, 2, 3, 4, 5, 6]
 
   return (
     <div style={styles.page}>
       <div style={styles.container}>
 
-        {/* Series title */}
-        <div style={styles.titleBlock}>
-          <p style={styles.seriesLabel}>
-            소그룹 나눔 자료 · Small Group Discussion Series
-          </p>
-          <h1 style={styles.titleKo}>베풂의 교만 이야기</h1>
-          <h2 style={styles.titleEn}>Arrogant Generosity</h2>
-          <p style={styles.author}>
-            박숭현 선교사 (Simon Park) · QuestionsOnly.Life
-          </p>
-        </div>
+        <h1 style={styles.heading}>
+          {lang === 'ko' ? '베풂의 교만 이야기' : 'Arrogant Generosity'}
+        </h1>
 
-        {/* Language choice */}
-        <div style={styles.choiceBlock}>
-          <p style={styles.choiceLabel}>언어를 선택해 주세요</p>
-          <p style={styles.choiceLabelEn}>Please choose your preferred language</p>
+        {/* Read Me First banner */}
+        <a
+          href={readMeFirst[lang]}
+          target="_blank"
+          rel="noopener noreferrer"
+          style={styles.readMeFirstBanner}
+        >
+          <span>{lang === 'ko' ? '먼저 읽어주세요' : 'Read Me First'}</span>
+          <span>↗</span>
+        </a>
 
-          <div style={styles.btnRow}>
-            {/* Korean */}
-            <button
-              onClick={() => handleChoose('ko')}
-              style={styles.btnKo}
-            >
-              <span style={styles.btnMain}>한국어로 시작하기</span>
-              <span style={styles.btnSub}>먼저읽어주세요 열기 →</span>
-            </button>
+        <p style={styles.subheading}>
+          {lang === 'ko' ? '38편 · 6부' : '38 Stories · 6 Parts'}
+        </p>
 
-            {/* English */}
-            <button
-              onClick={() => handleChoose('en')}
-              style={styles.btnEn}
-            >
-              <span style={styles.btnMain}>Start in English</span>
-              <span style={styles.btnSub}>Open Read Me First →</span>
-            </button>
-          </div>
+        {parts.map(part => {
+          const partStories = stories.filter(s => s.part === part)
+          const label = partLabels[part]
+          const partText = lang === 'ko' ? label.ko : label.en
 
-          <p style={styles.switchNote}>
-            언제든지 다른 언어로 전환할 수 있습니다<br />
-            You can switch languages at any time while browsing
-          </p>
-        </div>
-
+          return (
+            <div key={part} style={styles.partSection}>
+              <h2 style={styles.partHeading}>{partText}</h2>
+              <div style={styles.grid}>
+                {partStories.map(story => (
+                  <StoryCard
+                    key={story.id}
+                    story={story}
+                    lang={lang}
+                    onClick={() => router.push(`/stories/${story.id}`)}
+                  />
+                ))}
+              </div>
+            </div>
+          )
+        })}
       </div>
     </div>
-  );
+  )
 }
 
+// ── Styles ───────────────────────────────────────────────────────
 const styles: Record<string, React.CSSProperties> = {
   page: {
     minHeight: '100vh',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
     backgroundColor: 'var(--bg)',
-    padding: '2rem 1rem',
+    padding: '2rem 1rem 4rem',
   },
   container: {
-    maxWidth: '480px',
-    width: '100%',
-    textAlign: 'center',
+    maxWidth: '900px',
+    margin: '0 auto',
   },
-  titleBlock: {
-    marginBottom: '3rem',
-  },
-  seriesLabel: {
-    fontSize: '0.8rem',
-    color: 'var(--faint)',
-    letterSpacing: '0.05em',
-    marginBottom: '1rem',
-  },
-  titleKo: {
+  heading: {
     fontSize: '2rem',
     fontWeight: 700,
     color: 'var(--text)',
     marginBottom: '0.25rem',
   },
-  titleEn: {
-    fontSize: '1.3rem',
-    fontWeight: 400,
-    color: 'var(--faint)',
-    marginBottom: '0.75rem',
-  },
-  author: {
-    fontSize: '0.85rem',
-    color: 'var(--faint)',
-  },
-  choiceBlock: {
-    backgroundColor: 'var(--card-bg)',
-    borderRadius: '16px',
-    padding: '2rem 1.5rem',
-    border: '1px solid var(--rule)',
-  },
-  choiceLabel: {
-    fontSize: '1.1rem',
-    fontWeight: 600,
-    color: 'var(--text)',
-    marginBottom: '0.25rem',
-  },
-  choiceLabelEn: {
+  subheading: {
     fontSize: '0.9rem',
-    color: 'var(--faint)',
-    marginBottom: '1.5rem',
+    color: '#999',
+    marginBottom: '2.5rem',
   },
-  btnRow: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '0.75rem',
-    marginBottom: '1.5rem',
+  partSection: {
+    marginBottom: '2.5rem',
   },
-  btnKo: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: '0.25rem',
-    backgroundColor: 'var(--green)',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '10px',
-    padding: '1rem',
-    cursor: 'pointer',
-    fontFamily: 'inherit',
-    width: '100%',
-  },
-  btnEn: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: '0.25rem',
-    backgroundColor: 'transparent',
-    color: 'var(--text)',
-    border: '1px solid var(--rule)',
-    borderRadius: '10px',
-    padding: '1rem',
-    cursor: 'pointer',
-    fontFamily: 'inherit',
-    width: '100%',
-  },
-  btnMain: {
-    fontSize: '1rem',
+  partHeading: {
+    fontSize: '0.82rem',
     fontWeight: 700,
-  },
-  btnSub: {
-    fontSize: '0.8rem',
+    color: 'var(--green)',
+    textTransform: 'uppercase' as const,
+    letterSpacing: '0.07em',
+    marginBottom: '0.85rem',
+    paddingBottom: '0.4rem',
+    borderBottom: '1.5px solid var(--green)',
     opacity: 0.8,
   },
-  switchNote: {
-    fontSize: '0.78rem',
-    color: 'var(--faint)',
-    lineHeight: 1.6,
+  grid: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fill, minmax(255px, 1fr))',
+    gap: '0.85rem',
   },
-};
+  readMeFirstBanner: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    backgroundColor: 'var(--green)',
+    color: '#fff',
+    borderRadius: '10px',
+    padding: '0.75rem 1.25rem',
+    textDecoration: 'none',
+    marginBottom: '1.25rem',
+    fontSize: '0.95rem',
+    fontWeight: 600,
+    boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
+  },
+}
