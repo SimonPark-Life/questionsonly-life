@@ -36,6 +36,10 @@ export default function StoryDigestPage() {
   const otherLangLabel = lang === 'ko' ? 'Read in English' : '한국어로 읽기'
   const downloadLabel = lang === 'ko' ? '전체 이야기 읽기' : 'Read Full Story'
   const pptLabel = lang === 'ko' ? 'PPT 배경 슬라이드' : 'PPT Background Slides'
+  const pptKoLabel = 'PPT 배경 슬라이드 (한국어)'
+  const pptEnLabel = 'PPT Background Slides (English)'
+  const activePpt = lang === 'ko' ? story.drivePptKo : (story.drivePptEn || story.drivePptKo)
+  const otherPpt = lang === 'ko' ? story.drivePptEn : null
   const backLabel = lang === 'ko' ? '← 목록으로' : '← Back to Stories'
   const storyNum = lang === 'ko' ? `이야기 ${story.id}` : `Story ${story.id}`
 
@@ -100,14 +104,24 @@ export default function StoryDigestPage() {
               {otherLangLabel} ↗
             </a>
           )}
-          {story.drivePptKo && (
+          {activePpt && (
             <a
-              href={story.drivePptKo}
+              href={activePpt}
               target="_blank"
               rel="noopener noreferrer"
               style={styles.pptBtn}
             >
               📊 {pptLabel} ↗
+            </a>
+          )}
+          {otherPpt && (
+            <a
+              href={otherPpt}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={styles.pptBtnAlt}
+            >
+              📊 {pptEnLabel} ↗
             </a>
           )}
         </div>
@@ -273,6 +287,18 @@ const styles: Record<string, React.CSSProperties> = {
     textDecoration: 'none',
     fontWeight: 600,
     fontSize: '0.9rem',
+  },
+  pptBtnAlt: {
+    display: 'block',
+    textAlign: 'center' as const,
+    backgroundColor: 'transparent',
+    color: '#1a4a8a',
+    padding: '0.5rem 1.5rem',
+    borderRadius: '8px',
+    textDecoration: 'none',
+    fontWeight: 500,
+    fontSize: '0.85rem',
+    border: '1px solid #c5d8f5',
   },
   navRow: {
     display: 'flex',
