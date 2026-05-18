@@ -18,6 +18,7 @@ export interface Story {
   driveFileKo: string
   driveFileEn: string
   drivePptKo?: string
+  drivePptEn?: string
   slug?: string
   audiences?: string[]
   tags?: string[]
@@ -405,10 +406,10 @@ How am I seeing the person in front of me?`,
     driveEn: d('17UZMqsKenPkkDOxe-n4dvkh2Zyx0ggyx'),
     driveFileKo: d('1xy-uc0-qvZcinmPF6iEPIzYKYQ84B9bu'),
     driveFileEn: d('17UZMqsKenPkkDOxe-n4dvkh2Zyx0ggyx'),
-    drivePptKo: p('11xgA0Ei'),
   },
   {
-    id: 9,
+    drivePptKo: 'https://docs.google.com/presentation/d/11xgA0Eity6nTIiX1T9zd00CS-A6L9J1D/edit',
+    drivePptEn: 'https://docs.google.com/presentation/d/1L7dFQoAnqOm6YVLCbbhfPtRyHh9kJRsZ/edit',  id: 9,
     part: 2,
     titleKo: '겸손과 신뢰로 가르치다',
     titleEn: 'Teaching with Humility and Trust',
@@ -573,7 +574,7 @@ Between that security guard and me — who was the more genuine neighbor?`,
 그날부터 저는 귀머거리이자 벙어리가 되었습니다.
 
 3주 후, 처음으로 선생님의 말을 알아들었습니다. 반가운 마음에 그동안의 답답함을 쏟아냈습니다.
-"Toutes les questions doivent être posées uniquement en français." (모든 질문은 불어로만 받겠습니다.)
+"모든 질문은 불어로만 받겠습니다."
 다시 입을 닫았습니다.
 
 그 답답함이 나중에 네팔에서 깨달음이 되었습니다. 계급 때문에, 성별 때문에 발언권을 박탈당한 사람들 — 그들의 고통이 낯설지 않았습니다.
@@ -593,7 +594,7 @@ Three weeks later, I finally understood something she said: "Do you have any que
 
 I let everything out.
 
-"Toutes les questions doivent être posées uniquement en français." (All questions must be asked in French only.)
+"All questions must be asked in French only."
 
 I shut my mouth again.
 
@@ -661,10 +662,10 @@ That gift stands as the closest thing to an evangelistic moment in my entire min
     driveEn: d('10roRzQhNGCoVUDusC67tws_6dwrtkzoR'),
     driveFileKo: d('1jUhINK-WmX2BWEctXr3hzimvivjQE42J'),
     driveFileEn: d('10roRzQhNGCoVUDusC67tws_6dwrtkzoR'),
-    drivePptKo: p('1ShrpJjd'),
   },
   {
-    id: 14,
+    drivePptKo: 'https://docs.google.com/presentation/d/1ShrpJjdK1iTqmd62LMvdffONA5339sVd/edit',
+    drivePptEn: 'https://docs.google.com/presentation/d/1FShYvTw43qzQnwEQB2FQC4qglXGBhYQ-/edit',  id: 14,
     part: 2,
     titleKo: '콩고 시골교회 어른',
     titleEn: 'An Elderly Man from a Rural Church in Congo',
@@ -683,7 +684,7 @@ That gift stands as the closest thing to an evangelistic moment in my entire min
 
 그 순간, 험한 길도, 검문소도, 벌레도 — 모든 불평이 사라졌습니다.
 
-때로는, 단순히 나타나는 것만으로도 충분합니다.`,
+누군가를 찾아간다는 것이 때로 그런 의미가 됩니다.`,
     digestEn: `December 2000, Congo. The roads were broken. Soldiers demanded money at every roadblock. The insects fed well — they were the only ones who received gifts from me that journey.
 
 People had been hoping I brought something for them. I hadn't.
@@ -705,13 +706,13 @@ Sometimes, simply showing up is the message.`,
     driveEn: d('1HDItjzdndvsI7qZK2Tyz-fwLGst2r2Zp'),
     driveFileKo: d('1jZuv9adl3KykoT6yNYSXaReZTCXFfrDT'),
     driveFileEn: d('1HDItjzdndvsI7qZK2Tyz-fwLGst2r2Zp'),
-    drivePptKo: p('1fhFd4q3'),
   },
 
   // ─── 3부 · Part 3 — 배우며 실수하며 · Learning Through Mistakes ───
 
   {
-    id: 15,
+    drivePptKo: 'https://docs.google.com/presentation/d/1fhFd4q3cWNGvoVLpMTKG9rBtIpPcaKdA/edit',
+    drivePptEn: 'https://docs.google.com/presentation/d/1Va51Eio3uiZZgGgkgG7it_KHl8EIvSCS/edit',  id: 15,
     part: 3,
     titleKo: '섣부른 해결책',
     titleEn: 'Hasty Solutions',
@@ -803,8 +804,7 @@ As we left, the young man came to me.
     driveFileKo: d('1P80WP-fRT9lOd_Iav5diSvrjNRNAhjBd'),
     driveFileEn: d('17QD51DGDOM2NRtWUxox6N50qvIlN1Adv'),
   },
-  {
-    id: 17,
+  {  id: 17,
     part: 3,
     titleKo: '내가 가서',
     titleEn: 'As I Go',
@@ -1130,10 +1130,10 @@ And am I saying yes and no — or only what the frame allows?`,
     driveEn: d('1BstoWqXlEMdGwsNtz5K7Wzh1_gcnQ4AD'),
     driveFileKo: d('100qNMYv6gyIdRIC-CqhIm-fxXNrTEFMN'),
     driveFileEn: d('1BstoWqXlEMdGwsNtz5K7Wzh1_gcnQ4AD'),
-    drivePptKo: p('1mJLohny'),
   },
   {
-    id: 24,
+    drivePptKo: 'https://docs.google.com/presentation/d/1mJLohny-L9sarIwodBdaV3CaZE65KVcF/edit',
+    drivePptEn: 'https://docs.google.com/presentation/d/1O4poIFqTXanVltl9eJu5LUaQB6wDa_Hl/edit',  id: 24,
     part: 4,
     titleKo: '역사적 사실과 진실',
     titleEn: 'Historical Facts and Truth',
@@ -1169,10 +1169,9 @@ What part of the truth do we permanently lose — when we stop trying to find ou
     driveEn: d('1DzOJ7WiLNoM5xWTEUaYelg6B-sUa9W6x'),
     driveFileKo: d('1Z-LzHPJUiuxBkS1qSFqTQbp4oYAI9cYe'),
     driveFileEn: d('1DzOJ7WiLNoM5xWTEUaYelg6B-sUa9W6x'),
-    drivePptKo: p('1C5Q7uwR'),
   },
   {
-    id: 25,
+    drivePptKo: 'https://docs.google.com/presentation/d/1C5Q7uwREZ503et4paCsLJYS5NiN5Pbs-/edit',  id: 25,
     part: 4,
     titleKo: '모르는 것 없어요',
     titleEn: "There's Nothing We Don't Know",
@@ -1221,10 +1220,10 @@ Is this only happening in Pyongyang?`,
     driveEn: d('1-dkaITP2H-FDtIlV8nRfmi4VkMmpRzxq'),
     driveFileKo: d('1TX-BT1PVS2FtugtFhIKz1bDXDyiyZFsO'),
     driveFileEn: d('1-dkaITP2H-FDtIlV8nRfmi4VkMmpRzxq'),
-    drivePptKo: p('1dyCBh20'),
   },
   {
-    id: 26,
+    drivePptKo: 'https://docs.google.com/presentation/d/1dyCBh20zfH0wt0d0oaCrF_bAWsGTVPMP/edit',
+    drivePptEn: 'https://docs.google.com/presentation/d/1nFtxr-2FrSjtKia7A5Pdvt3fVKqaIpRL/edit',  id: 26,
     part: 4,
     titleKo: 'N차 방정식',
     titleEn: 'Nth-Degree Equation',
@@ -1404,10 +1403,10 @@ I confessed:
     driveEn: d('1p0b-ap4Xc86XhMizgon5D6irTDjU2pBC'),
     driveFileKo: d('10AaOMbpOR97KB8pFr67y72LPgY2eYktB'),
     driveFileEn: d('1p0b-ap4Xc86XhMizgon5D6irTDjU2pBC'),
-    drivePptKo: p('1yZQ8P9i'),
   },
   {
-    id: 30,
+    drivePptKo: 'https://docs.google.com/presentation/d/1yZQ8P9irrj0_E7C6wzl5I37xZ2ilD2mu/edit',
+    drivePptEn: 'https://docs.google.com/presentation/d/1cMfbw1DxfFoadgbVvK97njmbNzCjxPoo/edit',  id: 30,
     part: 5,
     titleKo: '전인치유',
     titleEn: 'Whole Person Healing',
@@ -1488,10 +1487,10 @@ Beyond the enemy of incurable disease — they saw one human being loved by God.
     driveEn: d('1HrT9tGbz9n9_WP4efk2RxK_EikqjSDer'),
     driveFileKo: d('1VfsHd8jFciFSvmjJQKcIqTgBfi1dGNDy'),
     driveFileEn: d('1HrT9tGbz9n9_WP4efk2RxK_EikqjSDer'),
-    drivePptKo: p('1mDUazuA'),
   },
   {
-    id: 32,
+    drivePptKo: 'https://docs.google.com/presentation/d/1mDUazuAd-CPtdJ4DpGQX5_SwICMIGzYO/edit',
+    drivePptEn: 'https://docs.google.com/presentation/d/1F34pCnvxl339x4u5IcNfhMjSqNlBJlxm/edit',  id: 32,
     part: 5,
     titleKo: '사회정의',
     titleEn: 'Social Justice',
