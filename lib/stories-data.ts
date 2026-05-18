@@ -413,7 +413,7 @@ How am I seeing the person in front of me?`,
     drivePptEn: 'https://docs.google.com/presentation/d/1L7dFQoAnqOm6YVLCbbhfPtRyHh9kJRsZ/edit',
   },
   {
-  id: 9,
+    id: 9,
     part: 2,
     titleKo: '겸손과 신뢰로 가르치다',
     titleEn: 'Teaching with Humility and Trust',
@@ -672,7 +672,7 @@ That gift stands as the closest thing to an evangelistic moment in my entire min
     drivePptEn: 'https://docs.google.com/presentation/d/1FShYvTw43qzQnwEQB2FQC4qglXGBhYQ-/edit',
   },
   {
-  id: 14,
+    id: 14,
     part: 2,
     titleKo: '콩고 시골교회 어른',
     titleEn: 'An Elderly Man from a Rural Church in Congo',
@@ -720,7 +720,7 @@ Sometimes, simply showing up is the message.`,
   // ─── 3부 · Part 3 — 배우며 실수하며 · Learning Through Mistakes ───
 
   {
-  id: 15,
+    id: 15,
     part: 3,
     titleKo: '섣부른 해결책',
     titleEn: 'Hasty Solutions',
@@ -817,6 +817,50 @@ As we left, the young man came to me.
     drivePptEn: 'https://docs.google.com/presentation/d/1WZTJUNIQUsB9VxRAPxEXcbFTI-MJ79tJ/edit',
   },
   {  id: 17,
+    part: 3,
+    titleKo: '내가 가서',
+    titleEn: 'As I Go',
+    subtitleKo: '"미개인"을 하나님의 자녀로 — 이 과오는 어디서 오는가',
+    subtitleEn: 'On the assumption of arrival — and the discipline of staying on the way',
+    digestKo: `1900년대 초, 한 선교사가 후원 교회에 편지를 썼습니다.
+"이 미개인들을 하나님의 자녀로 만들라는 명령에 순종하여……"
+
+선의였습니다. 그러나 그 편지에는 수천 년의 역사와 문화가 없었습니다.
+
+"내가 한국에 대해 아는 것이 없다"가 아니라 "한국에는 고유의 문화와 역사가 없다"로 정리해버린 것입니다.
+
+저도 아프리카에서 같은 실수를 했습니다. 깨닫는 데 오랜 시간이 걸렸습니다.
+
+제목은 "내가 가서"입니다. "내가 도착해서"가 아닙니다.
+
+가는 길에서도, 도착한 후에도, 떠난 후에도 — 계속 재검토하는 것이 선교의 자세입니다.
+
+"내가 모르는 것은 없다"는 착각 — 그것이 선의를 과오로 만듭니다.`,
+    digestEn: `In the early 1900s, a missionary wrote to his sending church before leaving for Korea.
+
+"Armed with the Word, I obey the command to make these savages children of God…"
+
+Before he arrived, the Korean people were a people with thousands of years of history, culture, and learned coexistence.
+
+Those who knew nothing of Korea did not say: "I do not yet know what is here."
+
+They said: "There is nothing here worth preserving."
+
+It is easier to say "there is nothing here" than to admit you have not looked.
+
+I served in Africa and made similar mistakes. It took a long time to see them.
+
+The title is As I Go. Not Where I Arrived.
+
+The going is still in progress.
+Constant re-examination is not a phase. It is the practice.`,
+    driveKo: d('1mwW2ZGAR3dTVIC1cVhMLVKo212QpOCIr'),
+    driveEn: d('1QFBtoymQs3uFZD86EhHO3zUY36C79qbZ'),
+    driveFileKo: d('1mwW2ZGAR3dTVIC1cVhMLVKo212QpOCIr'),
+    driveFileEn: d('1QFBtoymQs3uFZD86EhHO3zUY36C79qbZ'),
+  },
+  {
+    id: 17,
     part: 3,
     titleKo: '내가 가서',
     titleEn: 'As I Go',
@@ -1145,10 +1189,8 @@ And am I saying yes and no — or only what the frame allows?`,
     driveEn: d('1BstoWqXlEMdGwsNtz5K7Wzh1_gcnQ4AD'),
     driveFileKo: d('100qNMYv6gyIdRIC-CqhIm-fxXNrTEFMN'),
     driveFileEn: d('1BstoWqXlEMdGwsNtz5K7Wzh1_gcnQ4AD'),
-    drivePptEn: 'https://docs.google.com/presentation/d/1O4poIFqTXanVltl9eJu5LUaQB6wDa_Hl/edit',
   },
   {
-    drivePptKo: 'https://docs.google.com/presentation/d/1C5Q7uwREZ503et4paCsLJYS5NiN5Pbs-/edit',
   id: 24,
     part: 4,
     titleKo: '역사적 사실과 진실',
@@ -1187,9 +1229,97 @@ What part of the truth do we permanently lose — when we stop trying to find ou
     driveFileEn: d('1DzOJ7WiLNoM5xWTEUaYelg6B-sUa9W6x'),
   },
   {
-    drivePptKo: 'https://docs.google.com/presentation/d/1dyCBh20zfH0wt0d0oaCrF_bAWsGTVPMP/edit',
-    drivePptEn: 'https://docs.google.com/presentation/d/1nFtxr-2FrSjtKia7A5Pdvt3fVKqaIpRL/edit',
   id: 25,
+    part: 4,
+    titleKo: '모르는 것 없어요',
+    titleEn: "There's Nothing We Don't Know",
+    subtitleKo: '모르는 것을 모르는 것이 가장 위험한 모름이다',
+    subtitleEn: 'On the most dangerous kind of not-knowing',
+    digestKo: `2011년, 평양과학기술대학. 북한 정부가 선발한 최우수 대학원생 6명에게 물었습니다.
+"여러분이 모르는 것을 말해주면 함께 나누겠습니다."
+
+6명이 머리를 맞대고 의논했습니다.
+돌아온 답은 —
+"없습니다."
+
+대화를 이어가며 깨달았습니다. 모두 똑같은 것만 배웠고, 독자적인 공부가 허락되지 않았습니다. "무엇을 모르는지 모른다" — 그것이 "모르는 것이 없다"가 되었습니다.
+
+우리가 북한을 떠나기 이틀 전, 김정일이 사망했습니다. 조문에 참석했고 김정은과 악수했습니다. 한국으로 돌아오자 사람들이 물었습니다. "저 통곡이 진심일까요?"
+
+저의 답은 — "그들도 모를 수 있습니다."
+
+모르는 것을 모르는 것이 — 가장 위험한 모름입니다.`,
+    digestEn: `Pyongyang University of Science and Technology, 2011.
+
+I asked six elite graduate students to discuss among themselves what they didn't know — so we could study it together.
+
+They put their heads together.
+
+Then they answered.
+
+"Nothing."
+
+I asked again. They were certain.
+
+Through conversation, I understood. They had all been taught exactly the same content. Independent study was not permitted. They had never reached the edge of what they knew.
+
+Not knowing what you don't know had become knowing everything.
+
+Two days before I left, Kim Jong-il died. Back in South Korea, people asked me: was the grief real — or performance?
+
+I told them what I believed:
+
+"They may not know either."
+
+When uniform education continues long enough, the line between sincere and performed disappears.
+
+Is this only happening in Pyongyang?`,
+    driveKo: d('1TX-BT1PVS2FtugtFhIKz1bDXDyiyZFsO'),
+    driveEn: d('1-dkaITP2H-FDtIlV8nRfmi4VkMmpRzxq'),
+    driveFileKo: d('1TX-BT1PVS2FtugtFhIKz1bDXDyiyZFsO'),
+    driveFileEn: d('1-dkaITP2H-FDtIlV8nRfmi4VkMmpRzxq'),
+  },
+  {
+    drivePptKo: 'https://docs.google.com/presentation/d/1mJLohny-L9sarIwodBdaV3CaZE65KVcF/edit',
+    drivePptEn: 'https://docs.google.com/presentation/d/1O4poIFqTXanVltl9eJu5LUaQB6wDa_Hl/edit',
+    id: 24,
+    part: 4,
+    titleKo: '역사적 사실과 진실',
+    titleEn: 'Historical Facts and Truth',
+    subtitleKo: '부분적 진실, 전체 진실, 그리고 다른 목소리를 들을 용기',
+    subtitleEn: 'On partial truths, whole truth, and the courage to listen',
+    digestKo: `히로시마 평화기념관. 같은 장소에 선 미국, 한국, 일본 학생들.
+
+미국: 트루먼의 결정 덕분에 전쟁이 조기에 끝났고, 더 많은 생명이 구해졌다.
+한국: 원폭 투하 후 일본의 항복으로 대한민국이 독립을 되찾을 수 있었다.
+일본: 수만 명의 목숨을 앗아간 이 비극은 다시는 반복되어서는 안 된다.
+
+세 진술 모두 사실이었습니다. 그런데 그 중 하나도, 혼자서는 전체 진실이 아니었습니다.
+
+그리고 세 이야기 어디에도 등장하지 않는 목소리가 있었습니다. 히로시마와 나가사키에서 함께 죽어간 수만 명의 조선인 강제 징용자들. 그들의 부재 자체가 하나의 사실입니다.
+
+나와 다른 관점을 가진 사람의 이야기를 — 내가 불편할 때도 — 끝까지 들을 수 있는가?`,
+    digestEn: `Hiroshima Peace Memorial Museum. Three groups standing in the same place.
+
+American: Thanks to Truman's decision, the war ended early.
+Korean: Japan's surrender allowed Korea to regain independence.
+Japanese: This tragedy must never be repeated.
+
+All three were facts. Not one was wrong. And none of them, alone, was the whole truth.
+
+None of the three accounts mentioned the tens of thousands of Korean forced laborers also killed in Hiroshima and Nagasaki. Their absence from every perspective is itself a kind of fact.
+
+Can I listen — all the way to the end — to someone whose experience differs from mine? Even when it makes me uncomfortable?
+
+What part of the truth do we permanently lose — when we stop trying to find out?`,
+    driveKo: d('1Z-LzHPJUiuxBkS1qSFqTQbp4oYAI9cYe'),
+    driveEn: d('1DzOJ7WiLNoM5xWTEUaYelg6B-sUa9W6x'),
+    driveFileKo: d('1Z-LzHPJUiuxBkS1qSFqTQbp4oYAI9cYe'),
+    driveFileEn: d('1DzOJ7WiLNoM5xWTEUaYelg6B-sUa9W6x'),
+    drivePptKo: 'https://docs.google.com/presentation/d/1C5Q7uwREZ503et4paCsLJYS5NiN5Pbs-/edit',
+  },
+  {
+    id: 25,
     part: 4,
     titleKo: '모르는 것 없어요',
     titleEn: "There's Nothing We Don't Know",
@@ -1242,7 +1372,7 @@ Is this only happening in Pyongyang?`,
     drivePptEn: 'https://docs.google.com/presentation/d/1nFtxr-2FrSjtKia7A5Pdvt3fVKqaIpRL/edit',
   },
   {
-  id: 26,
+    id: 26,
     part: 4,
     titleKo: 'N차 방정식',
     titleEn: 'Nth-Degree Equation',
@@ -1429,7 +1559,7 @@ I confessed:
     drivePptEn: 'https://docs.google.com/presentation/d/1cMfbw1DxfFoadgbVvK97njmbNzCjxPoo/edit',
   },
   {
-  id: 30,
+    id: 30,
     part: 5,
     titleKo: '전인치유',
     titleEn: 'Whole Person Healing',
@@ -1516,7 +1646,7 @@ Beyond the enemy of incurable disease — they saw one human being loved by God.
     drivePptEn: 'https://docs.google.com/presentation/d/1F34pCnvxl339x4u5IcNfhMjSqNlBJlxm/edit',
   },
   {
-  id: 32,
+    id: 32,
     part: 5,
     titleKo: '사회정의',
     titleEn: 'Social Justice',
