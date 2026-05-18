@@ -831,6 +831,7 @@ What part of the truth do we permanently lose — when we stop trying to find ou
     driveFileKo: d('1Z-LzHPJUiuxBkS1qSFqTQbp4oYAI9cYe'),
     driveFileEn: d('1DzOJ7WiLNoM5xWTEUaYelg6B-sUa9W6x'),
     drivePptKo: 'https://docs.google.com/presentation/d/1C5Q7uwREZ503et4paCsLJYS5NiN5Pbs-/edit',
+    drivePptEn: 'https://docs.google.com/presentation/d/1zmhkIQpG69H9fG2cv6-pegssLmeQS-UF/edit?slide=id.p1#slide=id.p1',
   },
 
   {
