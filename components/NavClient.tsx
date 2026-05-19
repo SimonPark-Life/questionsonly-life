@@ -31,9 +31,6 @@ export default function NavClient() {
             <Link href="/stories" className={isActive('/stories') ? 'active' : ''}>
               {T('stories')}
             </Link>
-            <Link href="/how-to-use" className={isActive('/how-to-use') ? 'active' : ''}>
-              {T('howToUse')}
-            </Link>
             <Link href="/about" className={isActive('/about') ? 'active' : ''}>
               {T('about')}
             </Link>
