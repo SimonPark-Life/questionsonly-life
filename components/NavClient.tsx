@@ -7,7 +7,6 @@ export default function NavClient() {
   const path = usePathname();
   const { lang, setLang } = useLang();
   const T = (key: string) => t[key][lang];
-
   const isActive = (href: string) =>
     href === '/' ? path === '/' : path.startsWith(href);
 
@@ -42,43 +41,53 @@ export default function NavClient() {
             </Link>
           </div>
 
-          {/* Language toggle */}
+          {/* Language toggle — more prominent */}
           <div style={{
             display: 'flex',
-            border: '1px solid rgba(255,255,255,.25)',
+            alignItems: 'center',
+            backgroundColor: 'rgba(255,255,255,0.15)',
+            border: '1.5px solid rgba(255,255,255,0.5)',
             borderRadius: 999,
             overflow: 'hidden',
-            marginLeft: 8,
+            marginLeft: 12,
             flexShrink: 0,
           }}>
             <button
               onClick={() => setLang('ko')}
               style={{
-                padding: '4px 11px',
-                fontSize: 11,
+                padding: '6px 14px',
+                fontSize: 12,
                 fontWeight: 700,
                 border: 'none',
                 cursor: 'pointer',
                 fontFamily: 'var(--body)',
-                transition: 'all .15s',
+                transition: 'all .2s',
                 background: lang === 'ko' ? '#fff' : 'transparent',
-                color: lang === 'ko' ? 'var(--green-dark)' : 'rgba(255,255,255,.6)',
+                color: lang === 'ko' ? 'var(--green-dark)' : 'rgba(255,255,255,0.9)',
+                letterSpacing: '0.02em',
               }}
             >
               한국어
             </button>
+            <div style={{
+              width: '1px',
+              height: '16px',
+              backgroundColor: 'rgba(255,255,255,0.3)',
+              flexShrink: 0,
+            }} />
             <button
               onClick={() => setLang('en')}
               style={{
-                padding: '4px 11px',
-                fontSize: 11,
+                padding: '6px 14px',
+                fontSize: 12,
                 fontWeight: 700,
                 border: 'none',
                 cursor: 'pointer',
                 fontFamily: 'var(--body)',
-                transition: 'all .15s',
+                transition: 'all .2s',
                 background: lang === 'en' ? '#fff' : 'transparent',
-                color: lang === 'en' ? 'var(--green-dark)' : 'rgba(255,255,255,.6)',
+                color: lang === 'en' ? 'var(--green-dark)' : 'rgba(255,255,255,0.9)',
+                letterSpacing: '0.02em',
               }}
             >
               EN
