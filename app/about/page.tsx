@@ -13,21 +13,32 @@ export default function AboutPage() {
 
         <h2>박숭현 선교사 (Dr. Simon Park)</h2>
         <p>
-          박숭현은 회계학 교수에서 선교사로 삶의 방향을 바꾼 사람입니다.
-          일리노이 대학교, 고려대학교, 싱가포르 국립대학교에서 회계학 교수로
-          재직한 후, 1998년부터 미국장로교회(PCUSA) 선교사로 파송 받아
-          콩고, 니제르, 파키스탄, 네팔, 한국 등지에서 15년간 봉사했습니다.
-          현재 뉴욕 허드슨 밸리에서 아내 해정과 함께 살며 AARP TaxAide
-          프로그램에서 자원봉사하고 있습니다.
+          1946년 서울의 기독교 가정에서 태어난 박숭현은 고등학교 졸업 후
+          미국으로 건너가 학사·석사·박사 학위를 취득했습니다. 1976년 일리노이
+          대학교에서 회계학 교수로 학문의 길을 시작한 그는, 이후 고려대학교와
+          싱가포르 국립대학교에서도 가르쳤고 국제 컨설턴트로도 활동했습니다.
         </p>
         <p>
-          Dr. Simon Park is an accounting professor who redirected his life
-          toward missionary work. After serving on the faculties of the
-          University of Illinois, Korea University, and the National University
-          of Singapore, he was commissioned as a PCUSA missionary in 1998 and
-          served for fifteen years in the DR Congo, Niger, Pakistan, Nepal,
-          and South Korea. He now lives in the Hudson Valley of New York with
-          his wife Haejung, volunteering with the AARP TaxAide program.
+          1998년, 부인 신혜정과 함께 미국장로교회(PCUSA) 선교사로 삶의 방향을
+          바꾸어 콩고, 니제르, 파키스탄, 네팔, 한국에서 15년간 봉사했습니다.
+          2013년 선교 현장에서 은퇴한 후, 현재는 뉴욕 허드슨 밸리에서 아내
+          혜정과 함께 살며 AARP TaxAide 프로그램에서 자원봉사하고 있습니다.
+        </p>
+        <p>
+          Born in Seoul in 1946 to a Christian family, Simon Park moved to the
+          United States after high school, where he earned his bachelor's,
+          master's, and doctoral degrees. He began his academic career as a
+          professor of accounting at the University of Illinois in 1976, later
+          teaching at Korea University and the National University of Singapore,
+          and working as an international consultant.
+        </p>
+        <p>
+          In 1998, together with his wife Haejung, he redirected his life and
+          was commissioned as a missionary with the Presbyterian Church (USA),
+          serving for fifteen years in the DR Congo, Niger, Pakistan, Nepal,
+          and South Korea. He retired from the mission field in 2013, and now
+          lives in the Hudson Valley of New York with his wife Haejung,
+          volunteering with the AARP TaxAide program.
         </p>
 
         <h2>
