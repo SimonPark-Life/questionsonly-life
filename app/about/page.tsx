@@ -8,7 +8,6 @@ export default function AboutPage() {
   return (
     <div className="wrap" style={{ paddingTop: 48, paddingBottom: 60 }}>
       <div className="about-wrap" style={{ maxWidth: '66ch' }}>
-
         <h1 className="sec__title">{T('aboutTitle')}</h1>
         <p className="sec__sub" style={{ marginBottom: 32 }}>{T('aboutSub')}</p>
 
@@ -17,15 +16,18 @@ export default function AboutPage() {
           박숭현은 회계학 교수에서 선교사로 삶의 방향을 바꾼 사람입니다.
           일리노이 대학교, 고려대학교, 싱가포르 국립대학교에서 회계학 교수로
           재직한 후, 1998년부터 미국장로교회(PCUSA) 선교사로 파송 받아
-          콩고, 네팔, 한국 등지에서 15년간 봉사했습니다.
+          콩고, 니제르, 파키스탄, 네팔, 한국 등지에서 15년간 봉사했습니다.
+          현재 뉴욕 허드슨 밸리에서 아내 해정과 함께 살며 AARP TaxAide
+          프로그램에서 자원봉사하고 있습니다.
         </p>
         <p>
           Dr. Simon Park is an accounting professor who redirected his life
           toward missionary work. After serving on the faculties of the
           University of Illinois, Korea University, and the National University
           of Singapore, he was commissioned as a PCUSA missionary in 1998 and
-          served for fifteen years in the DR Congo, Nepal, South Korea and beyond.
-          He now lives in New York, volunteering with the AARP Tax-Aide program.
+          served for fifteen years in the DR Congo, Niger, Pakistan, Nepal,
+          and South Korea. He now lives in the Hudson Valley of New York with
+          his wife Haejung, volunteering with the AARP TaxAide program.
         </p>
 
         <h2>
@@ -35,37 +37,46 @@ export default function AboutPage() {
         </h2>
         <p>
           {lang === 'ko'
-            ? '베풂의 교만 이야기(Arrogant Generosity)는 박숭현 선교사가 선교 현장에서 경험한 삶의 이야기들을 모은 성찰 모음집입니다. 총 41편의 이야기가 하나의 통합 시리즈로 구성되어 있습니다.'
-            : 'Arrogant Generosity gathers 41 stories from the mission field — reflections on humility, neighborliness, justice, and grace, organized for small group discussion. Each story includes discussion questions and a complete small group guide for both church communities and general community groups.'}
+            ? '베풂의 교만 이야기(Arrogant Generosity)는 박숭현 선교사가 선교 현장에서 경험한 삶의 이야기들을 모은 성찰 모음집입니다. 총 38편의 이야기가 6부로 구성되어 있으며, 소그룹 나눔과 토론을 위한 자료로 재편집되었습니다.'
+            : 'Arrogant Generosity gathers 38 stories from the mission field — reflections on humility, neighborliness, justice, and grace, organized in six parts for small group discussion. Each story includes discussion questions and a complete small group guide for both church communities and general community groups.'}
         </p>
 
         <div className="about-quote">
           <p>
-            "나는 그저 만나는 사람들의 마음속에 작은 미소를 남기고 싶습니다.
-            이름도 아니고, 기념비도 아닙니다. 그냥 작은 미소."
+            {lang === 'ko'
+              ? '"나는 그저 만나는 사람들의 마음속에 작은 미소를 남기고 싶습니다. 이름도 아니고, 기념비도 아닙니다. 그냥 작은 미소."'
+              : '"I want to leave a small smile in the hearts of the people I have met. Not a name. Not a monument. Just a very small smile."'}
           </p>
-          <cite>— 박숭현 (Simon Park), 이야기 39 · A Small Smile</cite>
+          <cite>
+            {lang === 'ko'
+              ? '— 박숭현 (Simon Park), 이야기 38 · 작은 미소'
+              : '— Simon Park, Story 38 · A Small Smile'}
+          </cite>
         </div>
 
         <div className="about-quote">
           <p>"Neighbor is not a geographical term, but a moral concept."</p>
           <cite>
-            — Rabbi Joachim Prinz, quoted in Story 41 ·
-            Finding My Mission Field at Home
+            {lang === 'ko'
+              ? '— 랍비 요아킴 프린츠, 이야기 37 · 집 동네에서 나의 선교지를 찾다에서 인용'
+              : '— Rabbi Joachim Prinz, quoted in Story 37 · Finding My Mission Field at Home'}
           </cite>
         </div>
 
         <h2>{T('pubTitle')}</h2>
-        <p>WWW.QuestionsOnly.Life</p>
+        <p>
+          <a href="https://www.QuestionsOnly.Life" target="_blank" rel="noopener noreferrer">
+            www.QuestionsOnly.Life
+          </a>
+        </p>
         <p>{T('freeUse')}</p>
 
         <h2>{T('contactTitle')}</h2>
         <p>
           {lang === 'ko'
-            ? '이 시리즈에 관한 문의나 나눔 이야기는 이 사이트를 통해 연락해 주세요.'
-            : 'For questions about the series or to share how you have used these stories in your group, please reach out through this site.'}
+            ? '이 시리즈에 관한 문의나 나눔 이야기는 이 사이트의 문의 페이지를 통해 연락해 주세요.'
+            : 'For questions about the series or to share how you have used these stories in your group, please reach out through the Contact page on this site.'}
         </p>
-
       </div>
     </div>
   );
