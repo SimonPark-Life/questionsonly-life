@@ -12,7 +12,7 @@ export default function FooterClient() {
       <nav className="site-footer__links">
         <Link href="/">{T('home')}</Link>
         <Link href="/stories">{T('stories')}</Link>
-        <Link href="/how-to-use">{T('howToUse')}</Link>
+
         <Link href="/about">{T('about')}</Link>
         <Link href="/download">{T('download')}</Link>
         <Link href="/contact">{T('contact')}</Link>
