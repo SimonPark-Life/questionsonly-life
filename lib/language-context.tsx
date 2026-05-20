@@ -74,8 +74,8 @@ export const t: Translations = {
   heroTitleEn: { en: 'Arrogant Generosity',           ko: 'Arrogant Generosity' },
   heroTitleKo: { en: '베풂의 교만 이야기',              ko: '베풂의 교만 이야기' },
   heroAuthor:  { en: 'Simon Park (박숭현) · QuestionsOnly.Life', ko: '박숭현 선교사 (Simon Park) · QuestionsOnly.Life' },
-  heroDescEn:  { en: '41 stories from the mission field, gathered for small group sharing and discussion.', ko: '선교 현장에서 배운 삶의 이야기 41편 — 소그룹 나눔과 토론을 위해 모았습니다.' },
-  allStories:  { en: 'All 41 Stories', ko: '이야기 모음 · 41편' },
+  heroDescEn:  { en: '41 stories from the mission field, gathered for small group sharing and discussion.', ko: '선교 현장에서 배운 삶의 이야기 38편 — 소그룹 나눔과 토론을 위해 모았습니다.' },
+  allStories:  { en: 'All 41 Stories', ko: '이야기 모음 · 38편' },
   filterAll:   { en: 'All',            ko: '전체' },
   storyNum:    { en: 'Story',          ko: '이야기' },
   download1:   { en: 'Download English (.docx)', ko: '한국어 다운로드 (.docx)' },
@@ -102,13 +102,13 @@ export const t: Translations = {
   downloadSub:     { en: 'Complete story files with discussion guides and leader\'s notes', ko: '이야기 본문, 나눔 자료, 인도자 가이드 포함' },
   enFolder:        { en: 'English',           ko: '영어 · English' },
   koFolder:        { en: '한국어 · Korean',    ko: '한국어' },
-  enFiles:         { en: '42 files · Read Me First + Stories 1–41', ko: '42 files · Read Me First + Stories 1–41' },
-  koFiles:         { en: '42개 파일 · 먼저읽어주세요 + 이야기 1–41편', ko: '42개 파일 · 먼저읽어주세요 + 이야기 1–41편' },
+  enFiles:         { en: '39 files · Read Me First + Stories 1–38', ko: '39 files · Read Me First + Stories 1–38' },
+  koFiles:         { en: '39개 파일 · 먼저읽어주세요 + 이야기 1–38편', ko: '39개 파일 · 먼저읽어주세요 + 이야기 1–38편' },
   openEnFolder:    { en: '↓ Open English Folder',  ko: '↓ Open English Folder' },
   openKoFolder:    { en: '↓ 한국어 폴더 열기',       ko: '↓ 한국어 폴더 열기' },
 
   // Stories page
-  storiesTitle:  { en: 'All 41 Stories',    ko: '이야기 모음 · 41편' },
+  storiesTitle:  { en: 'All 38 Stories',    ko: '이야기 모음 · 38편' },
   storiesSub:    { en: 'Arrogant Generosity · Simon Park', ko: '베풂의 교만 이야기 · 박숭현 선교사' },
   filterLabel:   { en: 'Audience:',         ko: '대상:' },
 
@@ -163,11 +163,11 @@ export const t: Translations = {
   step3Ko:       { en: 'Download or open directly in Google Docs.', ko: '파일을 다운로드하거나 Google Docs에서 바로 열 수 있습니다.' },
   step4T:        { en: '4. Print',           ko: '4. 인쇄' },
   step4Ko:       { en: 'Each file includes printable small group guides.', ko: '각 파일에는 인쇄 가능한 소그룹 나눔 자료가 포함되어 있습니다.' },
-  copyright:     { en: '© Park Sung-hyun (Simon Park) · 동연출판사 · QuestionsOnly.Life · Free for non-commercial small group use', ko: '© 박숭현 (Simon Park) · 동연출판사 · QuestionsOnly.Life · 비상업적 소그룹 사용 가능' },
+  copyright:     { en: '© 박숭현 (Simon Park)  · QuestionsOnly.Life · Free for non-commercial small group use', ko: '© 박숭현 (Simon Park) · 동연출판사 · QuestionsOnly.Life · 비상업적 소그룹 사용 가능' },
 
   // Footer
   footerTitle:   { en: 'Arrogant Generosity · QuestionsOnly.Life', ko: '베풂의 교만 이야기 · QuestionsOnly.Life' },
-  footerAttr:    { en: '© Park Sung-hyun (Simon Park) · 동연출판사 · QuestionsOnly.Life · Free for non-commercial small group use', ko: '© 박숭현 (Simon Park) · 동연출판사 · QuestionsOnly.Life · 비상업적 소그룹 사용 가능' },
+  footerAttr:    { en: '© 박숭현 (Simon Park) · QuestionsOnly.Life · Free for non-commercial small group use', ko: '© 박숭현 (Simon Park) · 동연출판사 · QuestionsOnly.Life · 비상업적 소그룹 사용 가능' },
 
   // Audience labels
   allAudience:       { en: 'All',              ko: '전체' },
