@@ -163,11 +163,11 @@ export const t: Translations = {
   step3Ko:       { en: 'Download or open directly in Google Docs.', ko: '파일을 다운로드하거나 Google Docs에서 바로 열 수 있습니다.' },
   step4T:        { en: '4. Print',           ko: '4. 인쇄' },
   step4Ko:       { en: 'Each file includes printable small group guides.', ko: '각 파일에는 인쇄 가능한 소그룹 나눔 자료가 포함되어 있습니다.' },
-  copyright:     { en: '© 박숭현 (Simon Park)  · QuestionsOnly.Life · Free for non-commercial small group use', ko: '© 박숭현 (Simon Park) · 동연출판사 · QuestionsOnly.Life · 비상업적 소그룹 사용 가능' },
+  copyright:     { en: '© 박숭현 (Simon Park)  · QuestionsOnly.Life · Free for non-commercial small group use', ko: '© 박숭현 (Simon Park) · QuestionsOnly.Life · 비상업적 소그룹 사용 가능' },
 
   // Footer
   footerTitle:   { en: 'Arrogant Generosity · QuestionsOnly.Life', ko: '베풂의 교만 이야기 · QuestionsOnly.Life' },
-  footerAttr:    { en: '© 박숭현 (Simon Park) · QuestionsOnly.Life · Free for non-commercial small group use', ko: '© 박숭현 (Simon Park) · 동연출판사 · QuestionsOnly.Life · 비상업적 소그룹 사용 가능' },
+  footerAttr:    { en: '© 박숭현 (Simon Park) · QuestionsOnly.Life · Free for non-commercial small group use', ko: '© 박숭현 (Simon Park) · QuestionsOnly.Life · 비상업적 소그룹 사용 가능' },
 
   // Audience labels
   allAudience:       { en: 'All',              ko: '전체' },
