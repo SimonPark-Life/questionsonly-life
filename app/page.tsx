@@ -8,7 +8,6 @@ export default function WelcomePage() {
   const { lang, setLang, chosen } = useLang();
   const router = useRouter();
 
-  // If language already chosen, go straight to stories
   useEffect(() => {
     if (chosen) {
       router.replace('/stories');
@@ -17,7 +16,6 @@ export default function WelcomePage() {
 
   const handleChoose = (selected: 'ko' | 'en') => {
     setLang(selected);
-    // Save to localStorage so next visit skips welcome
     if (typeof window !== 'undefined') {
       localStorage.setItem('qol-lang', selected);
     }
@@ -25,14 +23,12 @@ export default function WelcomePage() {
     router.push('/stories');
   };
 
-  // Don't flash welcome screen if already chosen
   if (chosen) return null;
 
   return (
     <div style={styles.page}>
       <div style={styles.container}>
 
-        {/* Series title */}
         <div style={styles.titleBlock}>
           <p style={styles.seriesLabel}>
             소그룹 나눔 자료 · Small Group Discussion Series
@@ -44,7 +40,21 @@ export default function WelcomePage() {
           </p>
         </div>
 
-        {/* Language choice */}
+        <div style={styles.introBlock}>
+          <p style={styles.introKo}>
+            콩고, 니제르, 파키스탄, 네팔, 한국에서 보낸 15년 선교사의 삶과,
+            은퇴 후 미국 허드슨 밸리에서의 삶에서 길어 올린 박숭현의 38편의
+            이야기 — 각 이야기는 답이 아니라 질문으로 끝납니다.
+            한국어와 영어로 제공됩니다.
+          </p>
+          <p style={styles.introEn}>
+            Thirty-eight stories from Simon Park&apos;s fifteen years of missionary
+            life in Congo, Niger, Pakistan, Nepal, and Korea, and his later
+            years in a Hudson Valley neighborhood — each ending with a question
+            rather than an answer. Available in Korean and English.
+          </p>
+        </div>
+
         <div style={styles.choiceBlock}>
           <p style={styles.choiceLabel}>언어를 선택해 주세요</p>
           <p style={styles.choiceLabelEn}>Please choose your preferred language</p>
@@ -86,12 +96,12 @@ const styles: Record<string, React.CSSProperties> = {
     padding: '2rem 1rem',
   },
   container: {
-    maxWidth: '480px',
+    maxWidth: '520px',
     width: '100%',
     textAlign: 'center',
   },
   titleBlock: {
-    marginBottom: '3rem',
+    marginBottom: '1.75rem',
   },
   seriesLabel: {
     fontSize: '0.8rem',
@@ -115,10 +125,30 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: '0.85rem',
     color: 'var(--faint)',
   },
+  introBlock: {
+    backgroundColor: '#fafaf8',
+    border: '1px solid var(--rule)',
+    borderRadius: '12px',
+    padding: '1.25rem 1.4rem',
+    marginBottom: '1.75rem',
+    textAlign: 'left',
+  },
+  introKo: {
+    fontSize: '0.92rem',
+    color: 'var(--text)',
+    lineHeight: 1.65,
+    marginBottom: '0.85rem',
+  },
+  introEn: {
+    fontSize: '0.88rem',
+    color: '#555',
+    lineHeight: 1.6,
+    fontStyle: 'italic',
+  },
   choiceBlock: {
     backgroundColor: 'var(--card-bg)',
     borderRadius: '16px',
-    padding: '2rem 1.5rem',
+    padding: '1.75rem 1.5rem',
     border: '1px solid var(--rule)',
   },
   choiceLabel: {
