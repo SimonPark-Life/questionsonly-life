@@ -3,6 +3,7 @@ import './globals.css';
 import { LangProvider } from '@/lib/language-context';
 import NavClient from '@/components/NavClient';
 import FooterClient from '@/components/FooterClient';
+import { Analytics } from '@vercel/analytics/next';
 
 export const metadata: Metadata = {
   title: '베풂의 교만 이야기 · Arrogant Generosity',
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <main>{children}</main>
           <FooterClient />
         </LangProvider>
+        <Analytics />
       </body>
     </html>
   );
