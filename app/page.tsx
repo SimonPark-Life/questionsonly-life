@@ -28,7 +28,6 @@ export default function WelcomePage() {
   return (
     <div style={styles.page}>
       <div style={styles.container}>
-
         <div style={styles.titleBlock}>
           <p style={styles.seriesLabel}>
             소그룹 나눔 자료 · Small Group Discussion Series
@@ -55,10 +54,24 @@ export default function WelcomePage() {
           </p>
         </div>
 
+        <div style={styles.perspectiveBlock}>
+          <p style={styles.perspectiveKo}>
+            이 이야기들은, 내 앞에 있는 모든 사람 속에서 하나님의 자녀를 보도록
+            — 누구도 나보다 아래에 두지 않도록 — 끊임없이 나를 떠밀어 온
+            신앙에서 나온 것입니다. 아직 다 이룬 길이 아니며, 날마다의 만남
+            속에서 나는 여전히 부족함을 느낍니다. 그 마음이 전해지기를 바랍니다.
+          </p>
+          <p style={styles.perspectiveEn}>
+            These stories come from a faith that kept pushing me to see a child
+            of God in every person before me — never to place anyone beneath me.
+            It is not a journey I have completed; I still fall short in the
+            encounters of each day. That is what I hope comes through.
+          </p>
+        </div>
+
         <div style={styles.choiceBlock}>
           <p style={styles.choiceLabel}>언어를 선택해 주세요</p>
           <p style={styles.choiceLabelEn}>Please choose your preferred language</p>
-
           <div style={styles.btnRow}>
             <button
               onClick={() => handleChoose('ko')}
@@ -75,7 +88,6 @@ export default function WelcomePage() {
               <span style={styles.btnSub}>Open Read Me First →</span>
             </button>
           </div>
-
           <p style={styles.switchNote}>
             언제든지 다른 언어로 전환할 수 있습니다<br />
             You can switch languages at any time while browsing
@@ -130,7 +142,7 @@ const styles: Record<string, React.CSSProperties> = {
     border: '1px solid var(--rule)',
     borderRadius: '12px',
     padding: '1.25rem 1.4rem',
-    marginBottom: '1.75rem',
+    marginBottom: '1.25rem',
     textAlign: 'left',
   },
   introKo: {
@@ -143,6 +155,24 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: '0.88rem',
     color: '#555',
     lineHeight: 1.6,
+    fontStyle: 'italic',
+  },
+  perspectiveBlock: {
+    borderLeft: '2px solid var(--green)',
+    paddingLeft: '1.1rem',
+    marginBottom: '1.75rem',
+    textAlign: 'left',
+  },
+  perspectiveKo: {
+    fontSize: '0.88rem',
+    color: 'var(--text)',
+    lineHeight: 1.7,
+    marginBottom: '0.7rem',
+  },
+  perspectiveEn: {
+    fontSize: '0.85rem',
+    color: '#555',
+    lineHeight: 1.65,
     fontStyle: 'italic',
   },
   choiceBlock: {
