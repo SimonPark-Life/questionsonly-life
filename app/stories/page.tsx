@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useLang } from '@/lib/language-context'
-import { stories, partLabels, readMeFirst, Story } from '@/lib/stories-data'
+import { stories, partLabels, readMeFirst, readingPaths, Story } from '@/lib/stories-data'                                                                                                                           
 
 // ── Story Card with hover effect ────────────────────────────────
 function StoryCard({ story, lang, onClick }: {
@@ -44,7 +44,7 @@ function StoryCard({ story, lang, onClick }: {
         alignItems: 'center',
         marginBottom: '0.45rem',
       }}>
-        <span style={{
+        <span style={{                                           
           fontSize: '0.72rem',
           color: '#999',
           fontWeight: 500,
@@ -122,16 +122,27 @@ export default function StoriesPage() {
           {lang === 'ko' ? '베풂의 교만 이야기' : 'Arrogant Generosity'}
         </h1>
 
-        {/* Read Me First banner */}
-        <a
-          href={readMeFirst[lang]}
-          target="_blank"
-          rel="noopener noreferrer"
-          style={styles.readMeFirstBanner}
-        >
-          <span>{lang === 'ko' ? '먼저 읽어주세요' : 'Read Me First'}</span>
-          <span>↗</span>
-        </a>
+        {/* Banner row: Read Me First + Reading Paths */}
+        <div style={styles.bannerRow}>
+          
+            href={readMeFirst[lang]}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={styles.readMeFirstBanner}
+          >
+            <span>📖 {lang === 'ko' ? '먼저 읽어주세요' : 'Read Me First'}</span>
+            <span>↗</span>
+          </a>
+          
+            href={readingPaths[lang]}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={styles.readingPathsBanner}
+          >
+            <span>🧭 {lang === 'ko' ? '인도자 코스 안내' : 'Reading Paths'}</span>
+            <span>↗</span>
+          </a>
+        </div>
 
         <p style={styles.subheading}>
           {lang === 'ko' ? '38편 · 6부' : '38 Stories · 6 Parts'}
@@ -204,18 +215,41 @@ const styles: Record<string, React.CSSProperties> = {
     gridTemplateColumns: 'repeat(auto-fill, minmax(255px, 1fr))',
     gap: '0.85rem',
   },
+  bannerRow: {
+    display: 'flex',
+    gap: '0.75rem',
+    marginBottom: '1.25rem',
+    flexWrap: 'wrap' as const,
+  },
   readMeFirstBanner: {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
+    gap: '0.5rem',
+    flex: '1 1 220px',
     backgroundColor: 'var(--green)',
     color: '#fff',
     borderRadius: '10px',
     padding: '0.75rem 1.25rem',
     textDecoration: 'none',
-    marginBottom: '1.25rem',
     fontSize: '0.95rem',
     fontWeight: 600,
     boxShadow: '0 2px 8px rgba(0,0,0,0.12)',
+  },
+  readingPathsBanner: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: '0.5rem',
+    flex: '1 1 220px',
+    backgroundColor: '#fff',
+    color: 'var(--green)',
+    border: '1.5px solid var(--green)',
+    borderRadius: '10px',
+    padding: '0.75rem 1.25rem',
+    textDecoration: 'none',
+    fontSize: '0.95rem',
+    fontWeight: 600,
+    boxShadow: '0 2px 8px rgba(0,0,0,0.08)',
   },
 }
