@@ -65,6 +65,17 @@ export default function AboutPage() {
         <div className="about-quote">
           <p>
             {lang === 'ko'
+              ? '이 이야기들은, 내 앞에 있는 모든 사람 속에서 하나님의 자녀를 보도록 — 누구도 나보다 아래에 두지 않도록 — 끊임없이 나를 떠밀어 온 신앙에서 나온 것입니다. 아직 다 이룬 길이 아니며, 날마다의 만남 속에서 나는 여전히 부족함을 느낍니다. 그 마음이 전해지기를 바랍니다.'
+              : 'These stories come from a faith that kept pushing me to see a child of God in every person before me — never to place anyone beneath me. It is not a journey I have completed; I still fall short in the encounters of each day. That is what I hope comes through.'}
+          </p>
+          <cite>
+            {lang === 'ko' ? '— 박숭현 (Simon Park)' : '— Simon Park'}
+          </cite>
+        </div>
+
+        <div className="about-quote">
+          <p>
+            {lang === 'ko'
               ? '"나는 그저 만나는 사람들의 마음속에 작은 미소를 남기고 싶습니다. 이름도 아니고, 기념비도 아닙니다. 그냥 작은 미소."'
               : '"I want to leave a small smile in the hearts of the people I have met. Not a name. Not a monument. Just a very small smile."'}
           </p>
