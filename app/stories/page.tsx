@@ -1,9 +1,8 @@
 'use client'
-
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useLang } from '@/lib/language-context'
-import { stories, partLabels, readMeFirst, readingPaths, Story } from '@/lib/stories-data'                                                                                                                           
+import { stories, partLabels, readMeFirst, readingPaths, Story } from '@/lib/stories-data'
 
 // ── Story Card with hover effect ────────────────────────────────
 function StoryCard({ story, lang, onClick }: {
@@ -12,11 +11,9 @@ function StoryCard({ story, lang, onClick }: {
   onClick: () => void
 }) {
   const [hovered, setHovered] = useState(false)
-
   const title = lang === 'ko' ? story.titleKo : story.titleEn
   const subtitle = lang === 'ko' ? story.subtitleKo : story.subtitleEn
   const hasPpt = !!story.drivePptKo
-
   return (
     <div
       onClick={onClick}
@@ -37,14 +34,13 @@ function StoryCard({ story, lang, onClick }: {
         transform: hovered ? 'translateY(-2px)' : 'translateY(0)',
       }}
     >
-      {/* Header row */}
       <div style={{
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         marginBottom: '0.45rem',
       }}>
-        <span style={{                                           
+        <span style={{
           fontSize: '0.72rem',
           color: '#999',
           fontWeight: 500,
@@ -66,8 +62,6 @@ function StoryCard({ story, lang, onClick }: {
           </span>
         )}
       </div>
-
-      {/* Title */}
       <h3 style={{
         fontSize: '0.97rem',
         fontWeight: 600,
@@ -78,8 +72,6 @@ function StoryCard({ story, lang, onClick }: {
       }}>
         {title}
       </h3>
-
-      {/* Subtitle */}
       {subtitle && (
         <p style={{
           fontSize: '0.79rem',
@@ -91,8 +83,6 @@ function StoryCard({ story, lang, onClick }: {
           {subtitle}
         </p>
       )}
-
-      {/* Read more */}
       <span style={{
         fontSize: '0.8rem',
         color: 'var(--green)',
@@ -111,35 +101,32 @@ function StoryCard({ story, lang, onClick }: {
 export default function StoriesPage() {
   const { lang } = useLang()
   const router = useRouter()
-
   const parts = [1, 2, 3, 4, 5, 6]
-
   return (
     <div style={styles.page}>
       <div style={styles.container}>
-
         <h1 style={styles.heading}>
           {lang === 'ko' ? '베풂의 교만 이야기' : 'Arrogant Generosity'}
         </h1>
 
         {/* Banner row: Read Me First + Reading Paths */}
         <div style={styles.bannerRow}>
-          
+          <a
             href={readMeFirst[lang]}
             target="_blank"
             rel="noopener noreferrer"
             style={styles.readMeFirstBanner}
           >
-            <span>📖 {lang === 'ko' ? '먼저 읽어주세요' : 'Read Me First'}</span>
+            <span>{lang === 'ko' ? '📖 먼저 읽어주세요' : '📖 Read Me First'}</span>
             <span>↗</span>
           </a>
-          
+          <a
             href={readingPaths[lang]}
             target="_blank"
             rel="noopener noreferrer"
             style={styles.readingPathsBanner}
           >
-            <span>🧭 {lang === 'ko' ? '인도자 코스 안내' : 'Reading Paths'}</span>
+            <span>{lang === 'ko' ? '🧭 인도자 코스 안내' : '🧭 Reading Paths'}</span>
             <span>↗</span>
           </a>
         </div>
@@ -147,12 +134,10 @@ export default function StoriesPage() {
         <p style={styles.subheading}>
           {lang === 'ko' ? '38편 · 6부' : '38 Stories · 6 Parts'}
         </p>
-
         {parts.map(part => {
           const partStories = stories.filter(s => s.part === part)
           const label = partLabels[part]
           const partText = lang === 'ko' ? label.ko : label.en
-
           return (
             <div key={part} style={styles.partSection}>
               <h2 style={styles.partHeading}>{partText}</h2>
@@ -189,7 +174,7 @@ const styles: Record<string, React.CSSProperties> = {
     fontSize: '2rem',
     fontWeight: 700,
     color: 'var(--text)',
-    marginBottom: '0.25rem',
+    marginBottom: '0.75rem',
   },
   subheading: {
     fontSize: '0.9rem',
