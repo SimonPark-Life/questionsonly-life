@@ -1308,3 +1308,8 @@ export const readMeFirst = {
   ko: 'https://docs.google.com/document/d/1nqi3Ms9JqXTuMPLAK7QzkmpLNTg-sS3V/edit',
   en: 'https://docs.google.com/document/d/1bhCEx6M7Y9_9Uiql62jpugu_B0JiM2SP/edit',
 }
+// Reading Paths (Facilitator's Guide) links
+export const readingPaths = {
+  ko: 'https://docs.google.com/document/d/1Ad2rtynTbS2B4eLYmXNK-OoB7gjkZPNJC68exsKndaE/edit',
+  en: 'https://docs.google.com/document/d/1fhDThsh6AZgLy9khEJ7ebeWuKhhCu_lrv9pHllUxbD4/edit',
+}
