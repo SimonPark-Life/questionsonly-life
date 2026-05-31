@@ -643,7 +643,7 @@ Which one am I?`,
 세상은 그 재난이 끝났다고 생각했습니다. 그 사람들에게 재난은 끝나지 않았습니다.
 재난이란 피해당한 생명들이 자기 능력만으로는 정상 생활로 복귀할 수 없는 상황입니다. 무너진 건물이 아닙니다. 스스로 일어설 수 없는 생명들의 상태입니다.
 말라위 북부 LISAP의 여신도들은 HIV/AIDS 환자들 곁에 남았습니다.
-"불치병이라는 적 너머, 하나님이 사랑하시는 한 사람을 보았습니다."
+모두가 두려움에 물러설 때, 그 여인들은 곁에 남았습니다. 이웃을 향한 마음이 병에 대한 두려움보다 강했습니다.
 카메라는 이것을 잡을 수 없습니다. 그러나 이 시선이 구제 사역의 진짜 출발점입니다.
 지금 내 주변에도 카메라가 없는 재난이 있습니다.`,
     digestEn: `Disaster news shows collapsed buildings. When the roads are cleared — the cameras leave.
@@ -652,7 +652,7 @@ But a mother still walked the beach, calling her children's names. Fishermen had
 The world thought the disaster was over. For those people, it had not ended.
 A disaster is not a collapsed building. It is the condition of lives that cannot yet stand up on their own.
 In northern Malawi, women of a church fellowship stayed beside HIV/AIDS patients when no one else would.
-"Beyond the enemy of an incurable disease, we saw a person God loves."
+When everyone else withdrew in fear, they stayed. Concern for their neighbors proved stronger than fear of the disease.
 The cameras cannot capture that. But that is where the real work begins.
 Right now, near you, there are disasters with no cameras.
 The loneliness of an elderly neighbor. The grief of someone still walking the beach.
