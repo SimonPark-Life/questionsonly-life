@@ -535,6 +535,8 @@ Understanding what the problem actually is — that comes before any solution.`,
     driveEn: d('15V93XvzayMSuFezIdLkA7BxuP6zxs0xm'),
     driveFileKo: d('163fHpkxx1zmQ9Q27MtWSdcTNIGPKMRMy'),
     driveFileEn: d('15V93XvzayMSuFezIdLkA7BxuP6zxs0xm'),
+    drivePptKo: 'https://docs.google.com/presentation/d/1Aq0-QyFqWQq2a5s9GEX4QOWtvGSnkNF9/edit',
+    drivePptEn: 'https://docs.google.com/presentation/d/1WZTJUNIQUsB9VxRAPxEXcbFTI-MJ79tJ/edit',
   },
 
   {
@@ -563,8 +565,6 @@ As we left, the young man came to me.
     driveEn: d('17QD51DGDOM2NRtWUxox6N50qvIlN1Adv'),
     driveFileKo: d('1P80WP-fRT9lOd_Iav5diSvrjNRNAhjBd'),
     driveFileEn: d('17QD51DGDOM2NRtWUxox6N50qvIlN1Adv'),
-    drivePptKo: 'https://docs.google.com/presentation/d/1Aq0-QyFqWQq2a5s9GEX4QOWtvGSnkNF9/edit',
-    drivePptEn: 'https://docs.google.com/presentation/d/1WZTJUNIQUsB9VxRAPxEXcbFTI-MJ79tJ/edit',
   },
 
   {
@@ -767,8 +767,8 @@ You cannot legislate love. But you can create the conditions in which it becomes
   {
     id: 23,
     part: 4,
-    titleKo: '양과 질, 그리고 숨길 수 없는 진실',
-    titleEn: 'Quantity, Quality, and the Truth That Cannot Be Hidden',
+    titleKo: '모양과 질, 그리고 숨길 수 없는 진실',
+    titleEn: 'Design, Quality, and the Truth That Cannot Be Hidden',
     subtitleKo: 'Yes and No',
     subtitleEn: 'Yes and No',
     digestKo: `1983년, 중국 광주. 지금과는 전혀 다른 세상이었습니다. 모든 관광객은 공산당 본부에서 체제 우월성 설명을 들어야 했습니다.
