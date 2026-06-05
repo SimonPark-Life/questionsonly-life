@@ -2,6 +2,7 @@
 import { useParams, useRouter } from 'next/navigation'
 import { useLang } from '@/lib/language-context'
 import { stories, partLabels } from '@/lib/stories-data'
+import ShareButtons from '@/components/ShareButtons'
 
 export default function StoryDigestPage() {
   const params = useParams()
@@ -165,6 +166,9 @@ export default function StoryDigestPage() {
             💬 {lang === 'ko' ? '이야기를 나눠주세요 →' : 'Share Your Thoughts →'}
           </a>
         </div>
+
+        {/* Share this story */}
+        <ShareButtons lang={lang} path={`/stories/${story.id}`} title={title} />
 
       </div>
     </div>
@@ -343,3 +347,4 @@ const styles: Record<string, React.CSSProperties> = {
     transition: 'all 0.15s',
   },
 }
+
