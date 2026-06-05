@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useLang } from '@/lib/language-context'
 import { stories, partLabels, readMeFirst, readingPaths, Story } from '@/lib/stories-data'
+import ShareButtons from '@/components/ShareButtons'
 
 // ── Story Card with hover effect ────────────────────────────────
 function StoryCard({ story, lang, onClick }: {
@@ -134,6 +135,14 @@ export default function StoriesPage() {
         <p style={styles.subheading}>
           {lang === 'ko' ? '38편 · 6부' : '38 Stories · 6 Parts'}
         </p>
+
+        {/* Share the whole collection */}
+        <ShareButtons
+          lang={lang}
+          path="/stories"
+          title={lang === 'ko' ? '베풂의 교만 이야기' : 'Arrogant Generosity'}
+          heading={lang === 'ko' ? '이야기 모음 공유하기' : 'Share the collection'}
+        />
         {parts.map(part => {
           const partStories = stories.filter(s => s.part === part)
           const label = partLabels[part]
