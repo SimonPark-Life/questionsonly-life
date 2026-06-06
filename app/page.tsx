@@ -279,8 +279,9 @@ const styles: Record<string, React.CSSProperties> = {
     marginBottom: '0.25rem',
   },
   choiceLabelEn: {
-    fontSize: '0.9rem',
-    color: 'var(--faint)',
+    fontSize: '1.1rem',
+    fontWeight: 600,
+    color: 'var(--green)',
     marginBottom: '1.5rem',
   },
   btnRow: {
