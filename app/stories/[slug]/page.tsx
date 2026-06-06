@@ -163,7 +163,7 @@ export default function StoryDigestPage() {
             rel="noopener noreferrer"
             style={styles.formBtn}
           >
-            💬 {lang === 'ko' ? '이야기를 나눠주세요 →' : 'Share Your Thoughts →'}
+            💬 {lang === 'ko' ? '생각을 나눠주세요 →' : 'Share Your Thoughts →'}
           </a>
         </div>
 
