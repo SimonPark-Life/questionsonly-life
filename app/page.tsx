@@ -1,8 +1,18 @@
 'use client';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useLang } from '@/lib/language-context';
 import { readMeFirst } from '@/lib/stories-data';
+
+
+const WELCOME_QUESTIONS = [
+  { ko: '나는 지금 내 앞에 있는 이 사람을 어떻게 보고 있는가?', en: 'How am I seeing the person in front of me?' },
+  { ko: '그리고 아직 모자를 기울이지 못한 사람은 누구인가?', en: 'And to whom have we not yet tipped our hat?' },
+  { ko: '나와 다른 누군가를 처음 만날 때 — 이름을 묻기도 전에, 이야기를 듣기도 전에 — 나는 이미 내 틀 안에 담지 않나요?', en: 'Are we already placing people inside our own frame — without ever learning anything about them?' },
+  { ko: '법을 지키는 것과 자비를 베푸는 것 — 둘은 정말 양립할 수 없는 것일까요?', en: 'Can justice and compassion never exist together?' },
+  { ko: '그리고 나는 가끔 Yes and No를 말하고 있는가?', en: 'And am I saying yes and no — or only what the frame allows?' },
+  { ko: '이것이 평양에서만 일어나는 일일까요?', en: 'Is this only happening in Pyongyang?' },
+];
 
 export default function WelcomePage() {
   const { lang, setLang, chosen } = useLang();
@@ -13,6 +23,20 @@ export default function WelcomePage() {
       router.replace('/stories');
     }
   }, [chosen, router]);
+
+  const [qIdx, setQIdx] = useState(0);
+  const [qShow, setQShow] = useState(true);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setQShow(false);
+      setTimeout(() => {
+        setQIdx((i) => (i + 1) % WELCOME_QUESTIONS.length);
+        setQShow(true);
+      }, 450);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleChoose = (selected: 'ko' | 'en') => {
     setLang(selected);
@@ -37,6 +61,25 @@ export default function WelcomePage() {
           <p style={styles.author}>
             박숭현 선교사 (Simon Park) · QuestionsOnly.Life
           </p>
+        </div>
+
+        <div style={styles.questionBlock}>
+          <p style={styles.questionCaption}>
+            모든 이야기는 답이 아니라 질문으로 끝납니다<br />
+            Every story ends not with an answer, but a question
+          </p>
+          <div style={{ ...styles.questionQuoteWrap, opacity: qShow ? 1 : 0 }}>
+            <p style={styles.questionQuoteKo}>{WELCOME_QUESTIONS[qIdx].ko}</p>
+            <p style={styles.questionQuoteEn}>{WELCOME_QUESTIONS[qIdx].en}</p>
+          </div>
+          <div style={styles.questionDots}>
+            {WELCOME_QUESTIONS.map((_, i) => (
+              <span
+                key={i}
+                style={{ ...styles.dot, ...(i === qIdx ? styles.dotActive : {}) }}
+              />
+            ))}
+          </div>
         </div>
 
         <div style={styles.introBlock}>
@@ -114,6 +157,54 @@ const styles: Record<string, React.CSSProperties> = {
   },
   titleBlock: {
     marginBottom: '1.75rem',
+  },
+  questionBlock: {
+    marginBottom: '1.5rem',
+    paddingTop: '0.25rem',
+  },
+  questionCaption: {
+    fontSize: '0.72rem',
+    color: 'var(--faint)',
+    letterSpacing: '0.03em',
+    lineHeight: 1.7,
+    marginBottom: '1rem',
+  },
+  questionQuoteWrap: {
+    minHeight: '6.5rem',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    transition: 'opacity 0.45s ease',
+  },
+  questionQuoteKo: {
+    fontSize: '1.15rem',
+    fontWeight: 600,
+    color: 'var(--green)',
+    lineHeight: 1.55,
+    marginBottom: '0.5rem',
+  },
+  questionQuoteEn: {
+    fontSize: '0.95rem',
+    fontStyle: 'italic',
+    color: '#555',
+    lineHeight: 1.5,
+  },
+  questionDots: {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '0.4rem',
+    marginTop: '1rem',
+  },
+  dot: {
+    width: '6px',
+    height: '6px',
+    borderRadius: '50%',
+    backgroundColor: 'var(--rule)',
+    display: 'inline-block',
+    transition: 'background-color 0.3s ease',
+  },
+  dotActive: {
+    backgroundColor: 'var(--green)',
   },
   seriesLabel: {
     fontSize: '0.8rem',
