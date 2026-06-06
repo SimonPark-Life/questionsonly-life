@@ -311,7 +311,7 @@ const styles: Record<string, React.CSSProperties> = {
     gap: '0.25rem',
     backgroundColor: 'transparent',
     color: 'var(--text)',
-    border: '1px solid var(--rule)',
+    border: '2px solid var(--green)',
     borderRadius: '10px',
     padding: '1rem',
     cursor: 'pointer',
