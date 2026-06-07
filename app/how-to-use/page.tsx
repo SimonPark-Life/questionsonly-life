@@ -3,9 +3,9 @@ import { useLang, t } from '@/lib/language-context';
 import { stories } from '@/lib/stories-data';
 import Link from 'next/link';
 
-const path1 = [1, 2, 4, 9, 16, 18, 21, 31, 36, 39];
-const path2 = [2, 3, 5, 8, 17, 21, 28, 37, 38, 40];
-const path3 = [26, 27, 29, 34, 35, 36, 38, 39, 41];
+const path1 = [1, 3, 4, 9, 21, 10, 16, 38, 36];
+const path2 = [2, 5, 8, 15, 18, 17, 28, 37];
+const path3 = [5, 6, 14, 34, 33, 35, 38];
 
 function PathList({ ids }: { ids: number[] }) {
   const { lang } = useLang();
