@@ -64,7 +64,7 @@ function StoryCard({ story, lang, onClick }: {
         )}
       </div>
       <h3 style={{
-        fontSize: '0.97rem',
+        fontSize: '1.05rem',
         fontWeight: 600,
         color: hovered ? 'var(--green)' : 'var(--text)',
         lineHeight: 1.35,
@@ -75,8 +75,8 @@ function StoryCard({ story, lang, onClick }: {
       </h3>
       {subtitle && (
         <p style={{
-          fontSize: '0.79rem',
-          color: '#888',
+          fontSize: '0.9rem',
+          color: '#55554a',
           lineHeight: 1.45,
           marginBottom: '0.6rem',
           flex: 1,
