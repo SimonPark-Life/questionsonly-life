@@ -9,7 +9,7 @@
   --cream-dark: #f2ede5;
   --ink:        #1e1e1e;
   --muted:      #5a5a4e;
-  --faint:      #9a9a8a;
+  --faint:      #55554a;
   --rule:       #ddd8ce;
   --serif:      'Instrument Serif', 'Lora', Georgia, serif;
   --body:       'Noto Sans KR', system-ui, sans-serif;
@@ -24,7 +24,7 @@ body {
   font-family: var(--body);
   background: var(--cream);
   color: var(--ink);
-  font-size: 15px;
+  font-size: 16.5px;
   line-height: 1.75;
   -webkit-font-smoothing: antialiased;
 }
