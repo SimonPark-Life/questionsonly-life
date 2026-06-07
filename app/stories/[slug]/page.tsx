@@ -239,12 +239,12 @@ const styles: Record<string, React.CSSProperties> = {
   },
   digestText: {
     color: 'var(--text)',
-    lineHeight: 1.4,
+    lineHeight: 1.65,
   },
   digestParagraph: {
     marginBottom: '0.45rem',
-    fontSize: '0.95rem',
-    lineHeight: 1.4,
+    fontSize: '1.05rem',
+    lineHeight: 1.65,
   },
   placeholder: {
     color: 'var(--faint)',
