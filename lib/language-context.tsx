@@ -114,7 +114,7 @@ export const t: Translations = {
 
   // How to use
   howTitle:      { en: 'How to Use This Series',    ko: '이 시리즈를 어떻게 사용하나요?' },
-  howSub:        { en: 'How to Use This Series',    ko: 'How to Use This Series' },
+  howSub:        { en: 'Reading paths and session structures for small groups', ko: '소그룹을 위한 추천 코스와 모임 구조' },
   anyOrder:      { en: 'Read in any order',         ko: '어떤 순서로 읽어도 됩니다' },
   anyOrderDesc:  { en: 'Each story stands on its own. Read in any order that fits your group.', ko: '각 이야기는 독립적입니다. 그룹의 필요에 따라 어떤 이야기든 먼저 선택할 수 있습니다.' },
   sessionTitle:  { en: 'Session Structure (approx. 40 min)', ko: '모임 구조 (약 40분)' },
@@ -145,7 +145,7 @@ export const t: Translations = {
   errorDesc:     { en: 'Something went wrong. Please try again.', ko: '전송 중 오류가 발생했습니다. 다시 시도해 주세요.' },
   allRequired:   { en: '* All fields are required', ko: '* 모든 필드는 필수입니다' },
   typeQ:         { en: 'Question',           ko: '질문 · Question' },
-  typeZ:         { en: 'Google Meet Session Request', ko: '구글 밑 세션 요청 · Google Meet Session Request' },
+  typeZ:         { en: 'Google Meet Session Request', ko: '구글 미트 세션 요청 · Google Meet Session Request' },
   typeSG:        { en: 'Small Group Inquiry', ko: '소그룹 나눔 문의 · Small Group Inquiry' },
   typeO:         { en: 'Other',              ko: '기타 · Other' },
 
