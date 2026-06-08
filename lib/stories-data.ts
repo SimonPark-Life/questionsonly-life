@@ -102,7 +102,7 @@ These days, because of diabetes, I can no longer eat hamburger and fries. What I
     titleEn: 'May I Help YOU?',
     subtitleKo: '유효함과 효율성 사이에서',
     subtitleEn: 'Between effectiveness and efficiency',
-    digestKo: `굿 프라이데이, 1964년. 워싱턴 DC. 미국에 도착한 지 며칠 되지 않았습니다.
+    digestKo: `성 금요일, 1964년. 워싱턴 DC. 미국에 도착한 지 며칠 되지 않았습니다.
 일자리를 찾아 중국 식당 문을 열고 들어갔습니다.
 매니저가 물었습니다. "May I help you?"
 일자리를 찾아왔다는 말이 생각나지 않았습니다. 식은땀만 흘리다 튀어나온 말은 —
