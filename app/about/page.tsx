@@ -59,7 +59,7 @@ export default function AboutPage() {
         <p>
           {lang === 'ko'
             ? '베풂의 교만 이야기(Arrogant Generosity)는 박숭현 선교사가 선교 현장에서, 그리고 다른 삶의 통로에서 경험한 이야기들을 모은 성찰 모음집입니다. 총 38편의 이야기가 6부로 구성되어 있으며, 소그룹 나눔과 토론을 위한 자료로 재편집되었습니다.'
-            : 'Arrogant Generosity gathers 38 stories from the mission field and others paths of his life — reflections on humility, neighborliness, justice, and grace, organized in six parts for small group discussion. Each story includes discussion questions and a complete small group guide for both church communities and general community groups.'}
+            : 'Arrogant Generosity gathers 38 stories from the mission field and other paths of his life — reflections on humility, neighborliness, justice, and grace, organized in six parts for small group discussion. Each story includes discussion questions and a complete small group guide for both church communities and general community groups.'}
         </p>
 
         <div className="about-quote">
