@@ -42,9 +42,9 @@ export default function AboutPage() {
             </p>
             <p>
               In 1998, together with his wife Haejung, he redirected his life and
-              was commissioned as a missionary with the Presbyterian Church (USA),
+              was commissioned as a mission co-worker with the Presbyterian Church (USA),
               serving for fifteen years in the DR Congo, Niger, Pakistan, Nepal,
-              and South Korea. He retired from the mission field in 2013, and now
+              and South Korea. He retired from the field service in 2013, and now
               lives in the Hudson Valley of New York with his wife Haejung,
               volunteering with the AARP TaxAide program.
             </p>
@@ -58,8 +58,8 @@ export default function AboutPage() {
         </h2>
         <p>
           {lang === 'ko'
-            ? '베풂의 교만 이야기(Arrogant Generosity)는 박숭현 선교사가 선교 현장에서 경험한 삶의 이야기들을 모은 성찰 모음집입니다. 총 38편의 이야기가 6부로 구성되어 있으며, 소그룹 나눔과 토론을 위한 자료로 재편집되었습니다.'
-            : 'Arrogant Generosity gathers 38 stories from the mission field — reflections on humility, neighborliness, justice, and grace, organized in six parts for small group discussion. Each story includes discussion questions and a complete small group guide for both church communities and general community groups.'}
+            ? '베풂의 교만 이야기(Arrogant Generosity)는 박숭현 선교사가 선교 현장에서, 그리고 다른 삶의 통로에서 경험한 이야기들을 모은 성찰 모음집입니다. 총 38편의 이야기가 6부로 구성되어 있으며, 소그룹 나눔과 토론을 위한 자료로 재편집되었습니다.'
+            : 'Arrogant Generosity gathers 38 stories from the mission field and others paths of his life — reflections on humility, neighborliness, justice, and grace, organized in six parts for small group discussion. Each story includes discussion questions and a complete small group guide for both church communities and general community groups.'}
         </p>
 
         <div className="about-quote">
@@ -69,7 +69,7 @@ export default function AboutPage() {
               : 'These stories come from a faith that kept pushing me to see a child of God in every person before me — never to place anyone beneath me. It is not a journey I have completed; I still fall short in the encounters of each day. That is what I hope comes through.'}
           </p>
           <cite>
-            {lang === 'ko' ? '— 박숭현 (Simon Park)' : '— Simon Park'}
+            {lang === 'ko' ? '— 박숭현 ' : '— Simon Park'}
           </cite>
         </div>
 
